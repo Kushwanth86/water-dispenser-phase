@@ -1,0 +1,1644 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Arduino source code and embedded software architecture for the AquaSense automatic touchless water dispenser."
+    >
+
+    <title>Source Code | AquaSense</title>
+
+    <link
+        rel="stylesheet"
+        href="../../css/style.css"
+    >
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a
+            href="../../index.html"
+            class="logo"
+            aria-label="AquaSense Home"
+        >
+
+            <div class="logo-icon">
+                💧
+            </div>
+
+            <div class="logo-text">
+
+                <span class="logo-title">
+                    AquaSense
+                </span>
+
+                <span class="logo-subtitle">
+                    SMART WATER SYSTEM
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <nav class="nav-links">
+
+            <a href="../../index.html">
+                Home
+            </a>
+
+
+            <!-- PROJECT -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Project ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../project/overview.html">
+                        Project Overview
+                    </a>
+
+                    <a href="../project/working-principle.html">
+                        Working Principle
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEM -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    System ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../system/architecture.html">
+                        System Architecture
+                    </a>
+
+                    <a href="../system/workflow.html">
+                        System Workflow
+                    </a>
+
+                    <a href="../system/technical-specs.html">
+                        Technical Specifications
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ENGINEERING -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Engineering ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../hardware/hardware.html">
+                        Hardware
+                    </a>
+
+                    <a href="../design/circuit.html">
+                        Circuit Design
+                    </a>
+
+                    <a href="../design/cad.html">
+                        CAD & 3D Models
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOFTWARE -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Software ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a
+                        href="code.html"
+                        class="active"
+                    >
+                        Source Code
+                    </a>
+
+                    <a href="code-explanation.html">
+                        Code Explanation
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESOURCES -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Resources ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../documentation/documentation.html">
+                        Documentation
+                    </a>
+
+                    <a href="../documentation/downloads.html">
+                        Downloads
+                    </a>
+
+                    <a href="../future/phase2.html">
+                        Phase 2
+                    </a>
+
+                </div>
+
+            </div>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+
+        <div>
+
+            <div class="breadcrumb">
+
+                <a href="../../index.html">
+                    Home
+                </a>
+
+                <span>›</span>
+
+                <span>
+                    Software
+                </span>
+
+                <span>›</span>
+
+                <strong>
+                    Source Code
+                </strong>
+
+            </div>
+
+
+            <span class="hero-badge">
+                EMBEDDED SOFTWARE
+            </span>
+
+
+            <h1>
+
+                The Logic Behind
+
+                <span>
+                    AquaSense.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                AquaSense is controlled by an Arduino Uno
+                program that continuously measures distance,
+                detects a user's hand, controls two servo
+                motors, updates the LCD and manages the
+                complete automatic dispensing cycle.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#source-code"
+                    class="btn btn-primary"
+                >
+                    Explore Source Code ↓
+                </a>
+
+                <a
+                    href="../../code/automatic-water-dispenser.ino"
+                    download
+                    class="btn btn-secondary"
+                >
+                    Download Arduino File
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SOFTWARE OVERVIEW -->
+
+        <div class="system-card">
+
+            <div class="system-card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        SOFTWARE OVERVIEW
+                    </span>
+
+                    <h3>
+                        Embedded Control Cycle
+                    </h3>
+
+                </div>
+
+                <span class="status-badge">
+                    ARDUINO
+                </span>
+
+            </div>
+
+
+            <div class="system-flow">
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        01
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Sense
+                        </strong>
+
+                        <span>
+                            Read ultrasonic distance
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        02
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Evaluate
+                        </strong>
+
+                        <span>
+                            Check detection condition
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        03
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Actuate
+                        </strong>
+
+                        <span>
+                            Control dual servo motors
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        04
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Repeat
+                        </strong>
+
+                        <span>
+                            Return to monitoring
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOFTWARE SNAPSHOT
+===================================================== -->
+
+<section class="stats-section">
+
+    <div class="stats-grid">
+
+        <div class="stat">
+
+            <strong>
+                UNO
+            </strong>
+
+            <span>
+                CONTROLLER
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                C++
+            </strong>
+
+            <span>
+                ARDUINO LANGUAGE
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                15 cm
+            </strong>
+
+            <span>
+                DETECTION THRESHOLD
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                2
+            </strong>
+
+            <span>
+                SERVO OUTPUTS
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOFTWARE RESPONSIBILITY
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                SOFTWARE RESPONSIBILITY
+            </span>
+
+            <h2>
+                What the Arduino Program Controls
+            </h2>
+
+            <p>
+
+                The embedded program connects sensing,
+                decision-making, user feedback and mechanical
+                actuation into one continuous automatic
+                control loop.
+
+            </p>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    01
+                </div>
+
+                <h3>
+                    Distance Measurement
+                </h3>
+
+                <p>
+
+                    Generates the ultrasonic trigger pulse,
+                    measures echo duration and calculates the
+                    distance between the sensor and the user's
+                    hand.
+
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    02
+                </div>
+
+                <h3>
+                    Detection Logic
+                </h3>
+
+                <p>
+
+                    Compares the measured distance with the
+                    programmed detection threshold before
+                    starting the dispensing cycle.
+
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    03
+                </div>
+
+                <h3>
+                    Servo Control
+                </h3>
+
+                <p>
+
+                    Commands both SG90 servo motors to move
+                    between their programmed closed and open
+                    positions.
+
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    04
+                </div>
+
+                <h3>
+                    LCD Feedback
+                </h3>
+
+                <p>
+
+                    Displays startup information, hand
+                    detection status and system feedback to
+                    the user.
+
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PIN CONFIGURATION
+===================================================== -->
+
+<section class="section-soft">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                SOFTWARE ↔ HARDWARE
+            </span>
+
+            <h2>
+                Program Pin Configuration
+            </h2>
+
+            <p>
+
+                The pin definitions in the Arduino program
+                must match the physical circuit connections.
+
+            </p>
+
+        </div>
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    D6
+                </div>
+
+                <h3>
+                    Servo Motor 1
+                </h3>
+
+                <p>
+                    Digital control output for the first
+                    SG90 servo motor.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    D7
+                </div>
+
+                <h3>
+                    Servo Motor 2
+                </h3>
+
+                <p>
+                    Digital control output for the second
+                    SG90 servo motor.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    D9
+                </div>
+
+                <h3>
+                    HC-SR04 Trigger
+                </h3>
+
+                <p>
+                    Sends the trigger pulse used to begin an
+                    ultrasonic distance measurement.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    D10
+                </div>
+
+                <h3>
+                    HC-SR04 Echo
+                </h3>
+
+                <p>
+                    Receives the returning ultrasonic echo
+                    pulse for distance calculation.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    A4
+                </div>
+
+                <h3>
+                    LCD SDA
+                </h3>
+
+                <p>
+                    I2C serial data connection between the
+                    Arduino Uno and LCD module.
+                </p>
+
+            </article>
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    A5
+                </div>
+
+                <h3>
+                    LCD SCL
+                </h3>
+
+                <p>
+                    I2C clock connection used for LCD
+                    communication.
+                </p>
+
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROGRAM ARCHITECTURE
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                PROGRAM ARCHITECTURE
+            </span>
+
+            <h2>
+                How the Software Is Structured
+            </h2>
+
+            <p>
+
+                The program follows the standard Arduino
+                architecture with initialization performed
+                once and control logic repeated continuously.
+
+            </p>
+
+        </div>
+
+
+        <div class="workflow">
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    01
+                </div>
+
+                <div class="workflow-content">
+
+                    <span class="section-label">
+                        LIBRARIES
+                    </span>
+
+                    <h3>
+                        Load Required Libraries
+                    </h3>
+
+                    <p>
+
+                        Servo and LCD libraries provide the
+                        functions required to control the
+                        actuators and user display.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    02
+                </div>
+
+                <div class="workflow-content">
+
+                    <span class="section-label">
+                        CONFIGURATION
+                    </span>
+
+                    <h3>
+                        Define Pins and Objects
+                    </h3>
+
+                    <p>
+
+                        Sensor pins, servo objects, LCD
+                        configuration and system variables are
+                        defined before execution begins.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    03
+                </div>
+
+                <div class="workflow-content">
+
+                    <span class="section-label">
+                        SETUP()
+                    </span>
+
+                    <h3>
+                        Initialize the System
+                    </h3>
+
+                    <p>
+
+                        The Arduino configures the sensor pins,
+                        attaches the servos, initializes the
+                        LCD and moves the system into its
+                        starting state.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <div class="workflow-content">
+
+                    <span class="section-label">
+                        LOOP()
+                    </span>
+
+                    <h3>
+                        Monitor Continuously
+                    </h3>
+
+                    <p>
+
+                        The controller repeatedly measures
+                        distance and evaluates whether a hand
+                        is inside the programmed detection
+                        range.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    05
+                </div>
+
+                <div class="workflow-content">
+
+                    <span class="section-label">
+                        ACTUATION
+                    </span>
+
+                    <h3>
+                        Execute Dispensing Cycle
+                    </h3>
+
+                    <p>
+
+                        When the detection condition is valid,
+                        the servo motors operate the tap for
+                        the programmed dispensing duration and
+                        then return to the closed state.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTROL LOGIC
+===================================================== -->
+
+<section class="section-blue">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                CORE CONTROL LOGIC
+            </span>
+
+            <h2>
+                Detection Decision
+            </h2>
+
+            <p>
+
+                Water dispensing begins only when the
+                ultrasonic measurement satisfies the
+                programmed detection condition.
+
+            </p>
+
+        </div>
+
+
+        <div class="content-block">
+
+            <span class="section-label">
+                CONDITION
+            </span>
+
+            <h2>
+                Distance &gt; 0 cm AND Distance ≤ 15 cm
+            </h2>
+
+            <p>
+
+                A distance greater than zero confirms that a
+                valid ultrasonic measurement was received.
+
+                A distance of 15 cm or less indicates that an
+                object or hand is inside the programmed
+                activation zone.
+
+            </p>
+
+
+            <div class="card-grid">
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        YES
+                    </div>
+
+                    <h3>
+                        Valid Detection
+                    </h3>
+
+                    <p>
+
+                        The Arduino starts the automatic
+                        dispensing sequence and commands the
+                        servo mechanism.
+
+                    </p>
+
+                </article>
+
+
+                <article class="card">
+
+                    <div class="card-icon">
+                        NO
+                    </div>
+
+                    <h3>
+                        No Valid Detection
+                    </h3>
+
+                    <p>
+
+                        The tap remains closed and the
+                        controller continues monitoring the
+                        ultrasonic sensor.
+
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SOURCE CODE SECTION
+===================================================== -->
+
+<section
+    class="section"
+    id="source-code"
+>
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                ARDUINO SOURCE
+            </span>
+
+            <h2>
+                Phase 1 Program
+            </h2>
+
+            <p>
+
+                The complete Arduino sketch is stored as a
+                downloadable <strong>.ino</strong> file in
+                the project repository.
+
+            </p>
+
+        </div>
+
+
+        <div
+            style="
+                max-width: 1000px;
+                margin: 0 auto;
+                background: #0f172a;
+                border-radius: 20px;
+                overflow: hidden;
+                box-shadow: 0 24px 60px rgba(15, 23, 42, 0.18);
+            "
+        >
+
+
+            <!-- CODE WINDOW HEADER -->
+
+            <div
+                style="
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    gap: 20px;
+                    padding: 18px 22px;
+                    background: #111c31;
+                    border-bottom: 1px solid rgba(255,255,255,0.08);
+                "
+            >
+
+                <div
+                    style="
+                        display: flex;
+                        align-items: center;
+                        gap: 8px;
+                    "
+                >
+
+                    <span
+                        style="
+                            width: 11px;
+                            height: 11px;
+                            border-radius: 50%;
+                            background: #ef4444;
+                        "
+                    ></span>
+
+                    <span
+                        style="
+                            width: 11px;
+                            height: 11px;
+                            border-radius: 50%;
+                            background: #f59e0b;
+                        "
+                    ></span>
+
+                    <span
+                        style="
+                            width: 11px;
+                            height: 11px;
+                            border-radius: 50%;
+                            background: #22c55e;
+                        "
+                    ></span>
+
+                </div>
+
+
+                <strong
+                    style="
+                        color: #cbd5e1;
+                        font-family: monospace;
+                        font-size: 13px;
+                    "
+                >
+                    automatic-water-dispenser.ino
+                </strong>
+
+            </div>
+
+
+
+            <!-- CODE PREVIEW -->
+
+            <pre
+                style="
+                    margin: 0;
+                    padding: 30px;
+                    overflow-x: auto;
+                    color: #dbeafe;
+                    font-family: Consolas, Monaco, 'Courier New', monospace;
+                    font-size: 14px;
+                    line-height: 1.8;
+                    white-space: pre;
+                "
+            ><code>// AquaSense
+// Automatic Touchless Water Dispenser
+// Phase 1 Embedded Control Program
+
+#include &lt;Servo.h&gt;
+#include &lt;Wire.h&gt;
+#include &lt;LiquidCrystal_I2C.h&gt;
+
+// ------------------------------------
+// PIN CONFIGURATION
+// ------------------------------------
+
+const int trigPin = 9;
+const int echoPin = 10;
+
+const int servoPin1 = 6;
+const int servoPin2 = 7;
+
+// ------------------------------------
+// SYSTEM OBJECTS
+// ------------------------------------
+
+Servo servo1;
+Servo servo2;
+
+LiquidCrystal_I2C lcd(0x27, 16, 2);
+
+// ------------------------------------
+// SYSTEM VARIABLES
+// ------------------------------------
+
+long duration;
+float distance;
+
+const int detectionDistance = 15;
+
+const int closedAngle = 0;
+const int openAngle = 90;
+
+const unsigned long dispensingTime = 3000;
+
+
+// ------------------------------------
+// SETUP
+// ------------------------------------
+
+void setup()
+{
+    Serial.begin(9600);
+
+    pinMode(trigPin, OUTPUT);
+    pinMode(echoPin, INPUT);
+
+    servo1.attach(servoPin1);
+    servo2.attach(servoPin2);
+
+    servo1.write(closedAngle);
+    servo2.write(closedAngle);
+
+    lcd.init();
+    lcd.backlight();
+
+    lcd.setCursor(0, 0);
+    lcd.print("Automatic Water");
+
+    lcd.setCursor(0, 1);
+    lcd.print("Dispenser");
+
+    delay(2000);
+
+    lcd.clear();
+}
+
+
+// ------------------------------------
+// MAIN LOOP
+// ------------------------------------
+
+void loop()
+{
+    distance = measureDistance();
+
+    Serial.print("Distance: ");
+    Serial.print(distance);
+    Serial.println(" cm");
+
+    lcd.setCursor(0, 0);
+    lcd.print("Place Hand      ");
+
+    lcd.setCursor(0, 1);
+    lcd.print("Dist: ");
+    lcd.print(distance);
+    lcd.print(" cm   ");
+
+    if (distance &gt; 0 &amp;&amp; distance &lt;= detectionDistance)
+    {
+        dispenseWater();
+    }
+
+    delay(200);
+}
+
+
+// ------------------------------------
+// DISTANCE MEASUREMENT
+// ------------------------------------
+
+float measureDistance()
+{
+    digitalWrite(trigPin, LOW);
+
+    delayMicroseconds(2);
+
+    digitalWrite(trigPin, HIGH);
+
+    delayMicroseconds(10);
+
+    digitalWrite(trigPin, LOW);
+
+    duration = pulseIn(echoPin, HIGH, 30000);
+
+    if (duration == 0)
+    {
+        return -1;
+    }
+
+    float measuredDistance;
+
+    measuredDistance =
+        duration * 0.0343 / 2;
+
+    return measuredDistance;
+}
+
+
+// ------------------------------------
+// WATER DISPENSING FUNCTION
+// ------------------------------------
+
+void dispenseWater()
+{
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("Hand Detected");
+
+    lcd.setCursor(0, 1);
+    lcd.print("Dispensing...");
+
+    servo1.write(openAngle);
+    servo2.write(openAngle);
+
+    delay(dispensingTime);
+
+    servo1.write(closedAngle);
+    servo2.write(closedAngle);
+
+    lcd.clear();
+
+    lcd.setCursor(0, 0);
+    lcd.print("Water Stopped");
+
+    delay(1000);
+
+    lcd.clear();
+}</code></pre>
+
+        </div>
+
+
+
+        <div
+            class="hero-buttons"
+            style="
+                justify-content: center;
+                margin-top: 35px;
+            "
+        >
+
+            <a
+                href="../../code/automatic-water-dispenser.ino"
+                download
+                class="btn btn-primary"
+            >
+                Download .INO File ↓
+            </a>
+
+            <a
+                href="code-explanation.html"
+                class="btn btn-secondary"
+            >
+                Full Code Explanation →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     IMPORTANT NOTE
+===================================================== -->
+
+<section class="section-soft">
+
+    <div class="container">
+
+        <div class="content-block">
+
+            <span class="section-label">
+                IMPORTANT
+            </span>
+
+            <h2>
+                Circuit and Software Must Match
+            </h2>
+
+            <p>
+
+                The physical wiring and the pin assignments
+                defined in the Arduino program must always
+                correspond.
+
+            </p>
+
+            <p>
+
+                If a sensor or servo connection is moved to a
+                different Arduino pin, the corresponding pin
+                definition in the source code must also be
+                changed.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="../design/circuit.html"
+                    class="btn btn-primary"
+                >
+                    View Circuit Design →
+                </a>
+
+                <a
+                    href="../system/workflow.html"
+                    class="btn btn-secondary"
+                >
+                    View System Workflow
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NEXT PAGE
+===================================================== -->
+
+<section class="section-blue">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                NEXT
+            </span>
+
+            <h2>
+                Understand the Program Line by Line
+            </h2>
+
+            <p>
+
+                The next page breaks the Arduino program into
+                logical sections and explains how sensing,
+                decision-making, LCD feedback and servo
+                actuation work together.
+
+            </p>
+
+        </div>
+
+
+        <div
+            class="hero-buttons"
+            style="justify-content: center;"
+        >
+
+            <a
+                href="code-explanation.html"
+                class="btn btn-primary"
+            >
+                Open Code Explanation →
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                💧 AquaSense
+            </div>
+
+            <p>
+
+                A Phase 1 automatic touchless water dispenser
+                integrating ultrasonic sensing, embedded
+                control, servo actuation and custom
+                mechanical design.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+            <div>
+
+                <h4>
+                    Project
+                </h4>
+
+                <a href="../project/overview.html">
+                    Overview
+                </a>
+
+                <a href="../project/working-principle.html">
+                    Working Principle
+                </a>
+
+                <a href="../system/workflow.html">
+                    Workflow
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Engineering
+                </h4>
+
+                <a href="../hardware/hardware.html">
+                    Hardware
+                </a>
+
+                <a href="../design/circuit.html">
+                    Circuit
+                </a>
+
+                <a href="../design/cad.html">
+                    CAD Models
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="code.html">
+                    Source Code
+                </a>
+
+                <a href="../documentation/downloads.html">
+                    Downloads
+                </a>
+
+                <a href="../future/phase2.html">
+                    Phase 2
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            AquaSense — Automatic Touchless Water Dispenser
+        </p>
+
+        <p>
+            Phase 1 Engineering Prototype •
+            <span class="current-year"></span>
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+    class="back-to-top"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="../../js/script.js"></script>
+
+
+</body>
+
+</html>

@@ -1,1102 +1,1787 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-/* =========================================================
-   WORKING PRINCIPLE PAGE
-   ========================================================= */
 
+    <meta charset="UTF-8">
 
-/* CORE PRINCIPLE CHAIN */
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
-.principle-chain {
+    <meta
+        name="description"
+        content="System architecture of AquaSense automatic touchless water dispenser showing sensing, Arduino processing, servo actuation, LCD feedback and mechanical control."
+    >
 
-    max-width: 1200px;
-    margin: auto;
+    <title>System Architecture | AquaSense</title>
 
-    display: flex;
-    align-items: stretch;
-    justify-content: center;
+    <link
+        rel="stylesheet"
+        href="../../css/style.css"
+    >
 
-}
+</head>
 
 
-.principle-card {
+<body>
 
-    flex: 1;
 
-    position: relative;
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
 
-    padding: 30px 24px;
+<header class="navbar">
 
-    background: var(--white);
+    <div class="nav-container">
 
-    border: 1px solid var(--border);
 
-    border-radius: 15px;
+        <!-- LOGO -->
 
-    text-align: center;
+        <a
+            href="../../index.html"
+            class="logo"
+            aria-label="AquaSense Home"
+        >
 
-    transition: 0.3s ease;
+            <div class="logo-icon">
+                💧
+            </div>
 
-}
+            <div class="logo-text">
 
+                <span class="logo-title">
+                    AquaSense
+                </span>
 
-.principle-card:hover {
+                <span class="logo-subtitle">
+                    SMART WATER SYSTEM
+                </span>
 
-    transform: translateY(-5px);
+            </div>
 
-    border-color:
-        rgba(23, 105, 224, 0.35);
+        </a>
 
-    box-shadow: var(--shadow);
 
-}
+        <!-- MOBILE MENU -->
 
+        <button
+            class="menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
 
-.principle-step {
 
-    position: absolute;
+        <!-- NAVIGATION LINKS -->
 
-    top: 14px;
-    right: 17px;
+        <nav class="nav-links">
 
-    color: #dfe7f2;
 
-    font-size: 24px;
-    font-weight: 900;
+            <a href="../../index.html">
+                Home
+            </a>
 
-}
 
+            <!-- PROJECT -->
 
-.principle-symbol {
+            <div class="dropdown">
 
-    width: 52px;
-    height: 52px;
+                <button class="dropbtn">
+                    Project ▾
+                </button>
 
-    margin:
-        0 auto 18px;
+                <div class="dropdown-content">
 
-    display: flex;
+                    <a href="../project/overview.html">
+                        Project Overview
+                    </a>
 
-    align-items: center;
-    justify-content: center;
+                    <a href="../project/working-principle.html">
+                        Working Principle
+                    </a>
 
-    border-radius: 12px;
+                </div>
 
-    background: var(--primary-light);
+            </div>
 
-    color: var(--primary);
 
-    font-size: 20px;
+            <!-- SYSTEM -->
 
-}
+            <div class="dropdown">
 
+                <button class="dropbtn">
+                    System ▾
+                </button>
 
-.principle-card h3 {
+                <div class="dropdown-content">
 
-    margin-bottom: 9px;
+                    <a
+                        href="architecture.html"
+                        class="active"
+                    >
+                        System Architecture
+                    </a>
 
-    color: var(--dark);
+                    <a href="workflow.html">
+                        System Workflow
+                    </a>
 
-    font-size: 19px;
+                    <a href="technical-specs.html">
+                        Technical Specifications
+                    </a>
 
-}
+                </div>
 
+            </div>
 
-.principle-card p {
 
-    color: var(--text-light);
+            <!-- ENGINEERING -->
 
-    font-size: 12px;
+            <div class="dropdown">
 
-    line-height: 1.7;
+                <button class="dropbtn">
+                    Engineering ▾
+                </button>
 
-}
+                <div class="dropdown-content">
 
+                    <a href="../hardware/hardware.html">
+                        Hardware
+                    </a>
 
-.principle-connector {
+                    <a href="../design/circuit.html">
+                        Circuit Design
+                    </a>
 
-    padding: 0 10px;
+                    <a href="../design/cad.html">
+                        CAD & 3D Models
+                    </a>
 
-    display: flex;
+                </div>
 
-    align-items: center;
+            </div>
 
-    color: var(--primary);
 
-    font-size: 24px;
+            <!-- SOFTWARE -->
 
-}
+            <div class="dropdown">
 
+                <button class="dropbtn">
+                    Software ▾
+                </button>
 
+                <div class="dropdown-content">
 
-/* =========================================================
-   OPERATION TIMELINE
-   ========================================================= */
+                    <a href="../software/code.html">
+                        Source Code
+                    </a>
 
-.operation-timeline {
+                    <a href="../software/code-explanation.html">
+                        Code Explanation
+                    </a>
 
-    max-width: 1050px;
+                </div>
 
-    margin: auto;
+            </div>
 
-    position: relative;
 
-}
+            <!-- RESOURCES -->
 
+            <div class="dropdown">
 
-.operation-timeline::before {
+                <button class="dropbtn">
+                    Resources ▾
+                </button>
 
-    content: "";
+                <div class="dropdown-content">
 
-    position: absolute;
+                    <a href="../documentation/documentation.html">
+                        Documentation
+                    </a>
 
-    left: 34px;
+                    <a href="../documentation/downloads.html">
+                        Downloads
+                    </a>
 
-    top: 35px;
-    bottom: 35px;
+                    <a href="../future/phase2.html">
+                        Phase 2
+                    </a>
 
-    width: 2px;
+                </div>
 
-    background:
-        linear-gradient(
-            var(--primary),
-            var(--secondary)
-        );
+            </div>
 
-}
 
+        </nav>
 
-.operation-step {
+    </div>
 
-    position: relative;
+</header>
 
-    display: grid;
 
-    grid-template-columns:
-        70px 1fr;
 
-    gap: 25px;
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
 
-    margin-bottom: 24px;
+<main>
 
-}
 
+<!-- =====================================================
+     HERO
+===================================================== -->
 
-.operation-number {
+<section class="hero">
 
-    position: relative;
+    <div class="hero-container">
 
-    z-index: 2;
 
-    width: 70px;
-    height: 70px;
+        <!-- LEFT -->
 
-    display: flex;
+        <div>
 
-    align-items: center;
-    justify-content: center;
 
-    border-radius: 50%;
+            <div class="breadcrumb">
 
-    background: var(--primary);
+                <a href="../../index.html">
+                    Home
+                </a>
 
-    border:
-        7px solid var(--background-alt);
+                <span>›</span>
 
-    color: var(--white);
+                <span>
+                    System
+                </span>
 
-    font-size: 12px;
+                <span>›</span>
 
-    font-weight: 800;
+                <strong>
+                    Architecture
+                </strong>
 
-}
+            </div>
 
 
-.operation-content {
+            <span class="hero-badge">
+                SYSTEM ARCHITECTURE
+            </span>
 
-    padding: 32px;
 
-    background: var(--white);
+            <h1>
 
-    border:
-        1px solid var(--border);
+                From Sensor Input to
 
-    border-radius: 15px;
+                <span>
+                    Mechanical Action.
+                </span>
 
-    transition: 0.3s ease;
+            </h1>
 
-}
 
+            <p class="hero-description">
 
-.operation-content:hover {
+                AquaSense uses a layered embedded-system
+                architecture in which sensing, processing,
+                decision-making, actuation and user feedback
+                work together to automate a conventional
+                water dispensing mechanism.
 
-    border-color:
-        rgba(23, 105, 224, 0.25);
+            </p>
 
-    box-shadow: var(--shadow);
 
-}
+            <div class="hero-buttons">
 
+                <a
+                    href="workflow.html"
+                    class="btn btn-primary"
+                >
+                    View System Workflow →
+                </a>
 
-.operation-tag {
+                <a
+                    href="../design/circuit.html"
+                    class="btn btn-secondary"
+                >
+                    View Circuit Design
+                </a>
 
-    display: inline-block;
+            </div>
 
-    margin-bottom: 9px;
 
-    color: var(--primary);
+        </div>
 
-    font-size: 9px;
 
-    font-weight: 800;
 
-    letter-spacing: 1.4px;
+        <!-- RIGHT ARCHITECTURE SUMMARY -->
 
-}
+        <div class="system-card">
 
+            <div class="system-card-header">
 
-.operation-content h3 {
+                <div>
 
-    margin-bottom: 12px;
+                    <span class="section-label">
+                        ARCHITECTURE
+                    </span>
 
-    color: var(--dark);
+                    <h3>
+                        Core Signal Path
+                    </h3>
 
-    font-size: 22px;
+                </div>
 
-}
+                <span class="status-badge">
+                    PHASE 1
+                </span>
 
+            </div>
 
-.operation-content > p {
 
-    max-width: 760px;
+            <div class="system-flow">
 
-    color: var(--text-light);
 
-    font-size: 13px;
+                <div class="system-node">
 
-    line-height: 1.8;
+                    <div class="node-icon">
+                        01
+                    </div>
 
-}
+                    <div>
 
+                        <strong>
+                            Input
+                        </strong>
 
+                        <span>
+                            Hand enters sensing zone
+                        </span>
 
-/* OPERATION DATA */
+                    </div>
 
-.operation-data {
+                </div>
 
-    display: flex;
 
-    flex-wrap: wrap;
+                <div class="flow-arrow">
+                    ↓
+                </div>
 
-    gap: 8px;
 
-    margin-top: 20px;
+                <div class="system-node">
 
-}
+                    <div class="node-icon">
+                        02
+                    </div>
 
+                    <div>
 
-.operation-data span {
+                        <strong>
+                            Sensing
+                        </strong>
 
-    padding: 8px 12px;
+                        <span>
+                            HC-SR04 measures distance
+                        </span>
 
-    background: var(--background);
+                    </div>
 
-    border:
-        1px solid var(--border);
+                </div>
 
-    border-radius: 6px;
 
-    color: var(--text);
+                <div class="flow-arrow">
+                    ↓
+                </div>
 
-    font-size: 10px;
 
-    font-weight: 700;
+                <div class="system-node">
 
-}
+                    <div class="node-icon">
+                        03
+                    </div>
 
+                    <div>
 
+                        <strong>
+                            Processing
+                        </strong>
 
-/* LCD PREVIEW */
+                        <span>
+                            Arduino Uno evaluates data
+                        </span>
 
-.lcd-preview {
+                    </div>
 
-    max-width: 310px;
+                </div>
 
-    margin-top: 22px;
 
-    padding: 18px 22px;
+                <div class="flow-arrow">
+                    ↓
+                </div>
 
-    display: flex;
 
-    flex-direction: column;
+                <div class="system-node">
 
-    border-radius: 8px;
+                    <div class="node-icon">
+                        04
+                    </div>
 
-    background: #132315;
+                    <div>
 
-    border:
-        5px solid #252b31;
+                        <strong>
+                            Output
+                        </strong>
 
-    box-shadow:
-        inset 0 0 20px
-        rgba(77, 255, 111, 0.08);
+                        <span>
+                            Servos operate the tap
+                        </span>
 
-    font-family:
-        "Courier New",
-        monospace;
+                    </div>
 
-    color: #82ff85;
+                </div>
 
-    font-size: 14px;
 
-    letter-spacing: 1px;
+            </div>
 
-}
+        </div>
 
+    </div>
 
-.active-lcd {
+</section>
 
-    box-shadow:
-        0 0 25px
-        rgba(67, 255, 106, 0.12),
-        inset 0 0 20px
-        rgba(77, 255, 111, 0.1);
 
-}
 
+<!-- =====================================================
+     ARCHITECTURE STATS
+===================================================== -->
 
+<section class="stats-section">
 
-/* DISTANCE FORMULA */
+    <div class="stats-grid">
 
-.technical-formula {
 
-    display: inline-block;
+        <div class="stat">
 
-    margin-top: 20px;
+            <strong>
+                1
+            </strong>
 
-    padding: 14px 18px;
+            <span>
+                MAIN CONTROLLER
+            </span>
 
-    border-radius: 8px;
+        </div>
 
-    background: var(--dark-blue);
 
-    color: #72d7ff;
+        <div class="stat">
 
-    font-family:
-        "Courier New",
-        monospace;
+            <strong>
+                1
+            </strong>
 
-    font-size: 13px;
+            <span>
+                DISTANCE SENSOR
+            </span>
 
-}
+        </div>
 
 
-.small-note {
+        <div class="stat">
 
-    margin-top: 12px;
+            <strong>
+                2
+            </strong>
 
-    font-size: 11px !important;
+            <span>
+                SERVO ACTUATORS
+            </span>
 
-    font-style: italic;
+        </div>
 
-}
 
+        <div class="stat">
 
+            <strong>
+                1
+            </strong>
 
-/* DECISION BOX */
+            <span>
+                LCD INTERFACE
+            </span>
 
-.decision-box {
+        </div>
 
-    margin-top: 23px;
 
-    display: grid;
+    </div>
 
-    grid-template-columns:
-        1.5fr 1fr 1fr;
+</section>
 
-    border:
-        1px solid var(--border);
 
-    border-radius: 10px;
 
-    overflow: hidden;
+<!-- =====================================================
+     SYSTEM ARCHITECTURE FLOW
+===================================================== -->
 
-}
+<section class="section">
 
+    <div class="container">
 
-.decision-box > div {
 
-    padding: 18px;
+        <div class="section-heading">
 
-}
+            <span class="section-label">
+                ARCHITECTURE FLOW
+            </span>
 
+            <h2>
+                Complete System Signal Path
+            </h2>
 
-.decision-box > div:first-child {
+            <p>
 
-    background: var(--background);
+                Information moves from the physical
+                environment into the sensing layer, through
+                the Arduino control layer and finally into
+                mechanical action and user feedback.
 
-}
+            </p>
 
+        </div>
 
-.decision-label {
 
-    display: block;
 
-    margin-bottom: 7px;
+        <div class="workflow">
 
-    color: var(--text-light);
 
-    font-size: 8px;
+            <!-- INPUT -->
 
-    font-weight: 800;
+            <div class="workflow-step">
 
-    letter-spacing: 1px;
+                <div class="workflow-number">
+                    01
+                </div>
 
-}
+                <div class="workflow-content">
 
+                    <span class="section-label">
+                        PHYSICAL INPUT
+                    </span>
 
-.decision-box strong {
+                    <h3>
+                        User Places a Hand Near the Dispenser
+                    </h3>
 
-    color: var(--dark);
+                    <p>
 
-    font-size: 12px;
+                        The interaction begins when a user
+                        places a hand within the sensing region
+                        in front of the ultrasonic sensor.
 
-}
+                    </p>
 
+                    <p>
 
-.decision-result {
+                        No physical button, switch or tap
+                        contact is required to initiate the
+                        sensing process.
 
-    display: flex;
+                    </p>
 
-    flex-direction: column;
+                </div>
 
-    justify-content: center;
+            </div>
 
-    text-align: center;
 
-    font-size: 12px;
 
-    font-weight: 900;
+            <!-- SENSOR -->
 
-}
+            <div class="workflow-step">
 
+                <div class="workflow-number">
+                    02
+                </div>
 
-.decision-result span {
+                <div class="workflow-content">
 
-    margin-top: 4px;
+                    <span class="section-label">
+                        SENSING LAYER
+                    </span>
 
-    font-size: 9px;
+                    <h3>
+                        HC-SR04 Measures Distance
+                    </h3>
 
-    font-weight: 600;
+                    <p>
 
-}
+                        The ultrasonic sensor emits a sound
+                        pulse and measures the time required
+                        for the reflected echo to return.
 
+                    </p>
 
-.decision-result.yes {
+                    <p>
 
-    background: #ebfff2;
+                        This timing information is sent to the
+                        Arduino Uno for distance calculation.
 
-    color: #138a48;
+                    </p>
 
-}
+                </div>
 
+            </div>
 
-.decision-result.no {
 
-    background: #fff5f3;
 
-    color: #c43221;
+            <!-- PROCESSING -->
 
-}
+            <div class="workflow-step">
 
+                <div class="workflow-number">
+                    03
+                </div>
 
+                <div class="workflow-content">
 
-/* SERVO STATES */
+                    <span class="section-label">
+                        PROCESSING LAYER
+                    </span>
 
-.servo-state {
+                    <h3>
+                        Arduino Uno Processes the Sensor Data
+                    </h3>
 
-    max-width: 450px;
+                    <p>
 
-    margin-top: 22px;
+                        The Arduino Uno acts as the central
+                        processing unit of AquaSense.
 
-    display: grid;
+                    </p>
 
-    grid-template-columns:
-        1fr auto 1fr;
+                    <p>
 
-    align-items: center;
+                        It converts ultrasonic echo timing into
+                        a distance measurement and evaluates
+                        that value using the programmed control
+                        logic.
 
-    gap: 18px;
+                    </p>
 
-}
+                </div>
 
+            </div>
 
-.servo-state > div:not(.servo-arrow) {
 
-    padding: 17px;
 
-    border:
-        1px solid var(--border);
+            <!-- DECISION -->
 
-    border-radius: 9px;
+            <div class="workflow-step">
 
-    background: var(--background);
+                <div class="workflow-number">
+                    04
+                </div>
 
-    text-align: center;
+                <div class="workflow-content">
 
-}
+                    <span class="section-label">
+                        DECISION LAYER
+                    </span>
 
+                    <h3>
+                        Detection Threshold Is Evaluated
+                    </h3>
 
-.servo-state span {
+                    <p>
 
-    display: block;
+                        The controller checks whether the
+                        measured distance satisfies:
 
-    margin-bottom: 5px;
+                    </p>
 
-    color: var(--text-light);
+                    <p>
+                        <strong>
+                            Distance &gt; 0 cm AND Distance ≤ 15 cm
+                        </strong>
+                    </p>
 
-    font-size: 8px;
+                    <p>
 
-    font-weight: 800;
+                        If the condition is false, monitoring
+                        continues.
 
-    letter-spacing: 1px;
+                        If it is true, Arduino begins the
+                        dispensing sequence.
 
-}
+                    </p>
 
+                </div>
 
-.servo-state strong {
+            </div>
 
-    color: var(--primary);
 
-    font-size: 25px;
 
-}
+            <!-- ACTUATION -->
 
+            <div class="workflow-step">
 
-.servo-arrow {
+                <div class="workflow-number">
+                    05
+                </div>
 
-    color: var(--primary);
+                <div class="workflow-content">
 
-    font-size: 22px;
+                    <span class="section-label">
+                        ACTUATION LAYER
+                    </span>
 
-}
+                    <h3>
+                        Dual Servo Motors Operate the Tap
+                    </h3>
 
+                    <p>
 
+                        Arduino sends position commands to both
+                        SG90 servo motors.
 
-/* DURATION */
+                    </p>
 
-.duration-indicator {
+                    <p>
 
-    max-width: 310px;
+                        The servos move from the closed
+                        position of 0° to the programmed open
+                        position of 90°.
 
-    margin-top: 15px;
+                    </p>
 
-    display: flex;
+                </div>
 
-    justify-content: space-between;
+            </div>
 
-    padding: 10px 13px;
 
-    border:
-        1px solid var(--border);
 
-    border-radius: 7px;
+            <!-- MECHANICAL -->
 
-    background: var(--background);
+            <div class="workflow-step">
 
-}
+                <div class="workflow-number">
+                    06
+                </div>
 
+                <div class="workflow-content">
 
-.duration-indicator span {
+                    <span class="section-label">
+                        MECHANICAL OUTPUT
+                    </span>
 
-    color: var(--text-light);
+                    <h3>
+                        Tap Mechanism Opens
+                    </h3>
 
-    font-size: 10px;
+                    <p>
 
-}
+                        Servo rotation is converted into
+                        physical movement of the tap mechanism.
 
+                    </p>
 
-.duration-indicator strong {
+                    <p>
 
-    color: var(--primary);
+                        Water is allowed to flow for the
+                        programmed dispensing period of
+                        approximately three seconds.
 
-    font-size: 11px;
+                    </p>
 
-}
+                </div>
 
+            </div>
 
 
-/* CYCLE */
 
-.cycle-loop {
+            <!-- RESET -->
 
-    margin-top: 22px;
+            <div class="workflow-step">
 
-    padding: 16px;
+                <div class="workflow-number">
+                    07
+                </div>
 
-    display: flex;
+                <div class="workflow-content">
 
-    flex-wrap: wrap;
+                    <span class="section-label">
+                        RESET
+                    </span>
 
-    gap: 12px;
+                    <h3>
+                        Tap Automatically Closes
+                    </h3>
 
-    align-items: center;
+                    <p>
 
-    justify-content: center;
+                        After the dispensing period, Arduino
+                        commands both servos to return to 0°.
 
-    border-radius: 9px;
+                    </p>
 
-    background: var(--primary-light);
+                    <p>
 
-    color: var(--primary-dark);
+                        The mechanical tap closes and the
+                        system returns to monitoring mode.
 
-    font-size: 11px;
+                    </p>
 
-    font-weight: 800;
+                </div>
 
-}
+            </div>
 
 
-.cycle-loop span {
+        </div>
 
-    color: var(--primary);
+    </div>
 
-}
+</section>
 
 
 
-/* =========================================================
-   LOGIC PANEL
-   ========================================================= */
+<!-- =====================================================
+     ARCHITECTURE LAYERS
+===================================================== -->
 
-.logic-panel {
+<section class="section-soft">
 
-    max-width: 700px;
+    <div class="container">
 
-    margin: auto;
 
-    text-align: center;
+        <div class="section-heading">
 
-}
+            <span class="section-label">
+                SYSTEM LAYERS
+            </span>
 
+            <h2>
+                Five Layers of the AquaSense Architecture
+            </h2>
 
-.logic-start,
-.logic-decision {
+            <p>
 
-    max-width: 420px;
+                Separating the prototype into functional
+                layers makes the complete engineering system
+                easier to understand, troubleshoot and expand.
 
-    margin: auto;
+            </p>
 
-    padding: 23px;
+        </div>
 
-    border-radius: 12px;
 
-}
 
+        <div class="card-grid">
 
-.logic-start {
 
-    background: var(--dark-blue);
+            <!-- LAYER 1 -->
 
-}
+            <article class="card">
 
+                <div class="card-icon">
+                    01
+                </div>
 
-.logic-start span,
-.logic-decision span {
+                <h3>
+                    Input Layer
+                </h3>
 
-    display: block;
+                <p>
 
-    margin-bottom: 6px;
+                    Represents the physical interaction between
+                    the user and the system.
 
-    font-size: 8px;
+                    A hand entering the sensing region becomes
+                    the trigger condition for the automation
+                    process.
 
-    font-weight: 800;
+                </p>
 
-    letter-spacing: 1.4px;
+            </article>
 
-}
 
 
-.logic-start span {
+            <!-- LAYER 2 -->
 
-    color: #70d9ff;
+            <article class="card">
 
-}
+                <div class="card-icon">
+                    02
+                </div>
 
+                <h3>
+                    Sensing Layer
+                </h3>
 
-.logic-start strong {
+                <p>
 
-    color: var(--white);
+                    The HC-SR04 ultrasonic sensor detects the
+                    presence and distance of an object without
+                    requiring physical contact.
 
-}
+                </p>
 
+            </article>
 
-.logic-arrow {
 
-    padding: 13px;
 
-    color: var(--primary);
+            <!-- LAYER 3 -->
 
-    font-size: 24px;
+            <article class="card">
 
-}
+                <div class="card-icon">
+                    03
+                </div>
 
+                <h3>
+                    Control Layer
+                </h3>
 
-.logic-decision {
+                <p>
 
-    background: var(--primary-light);
+                    Arduino Uno receives sensor data, performs
+                    calculations, applies decision logic and
+                    coordinates all system outputs.
 
-    border:
-        1px solid
-        rgba(23, 105, 224, 0.2);
+                </p>
 
-}
+            </article>
 
 
-.logic-decision span {
 
-    color: var(--primary);
+            <!-- LAYER 4 -->
 
-}
+            <article class="card">
 
+                <div class="card-icon">
+                    04
+                </div>
 
-.logic-decision strong {
+                <h3>
+                    Actuation Layer
+                </h3>
 
-    color: var(--dark);
+                <p>
 
-}
+                    Two SG90 servo motors receive position
+                    commands from Arduino and convert them
+                    into controlled mechanical rotation.
 
+                </p>
 
-.logic-branches {
+            </article>
 
-    margin-top: 22px;
 
-    display: grid;
 
-    grid-template-columns:
-        1fr 1fr;
+            <!-- LAYER 5 -->
 
-    gap: 18px;
+            <article class="card">
 
-}
+                <div class="card-icon">
+                    05
+                </div>
 
+                <h3>
+                    Feedback Layer
+                </h3>
 
-.logic-branch {
+                <p>
 
-    padding: 25px;
+                    The 16×2 I2C LCD communicates system
+                    status to the user during monitoring,
+                    dispensing and completion.
 
-    background: var(--white);
+                </p>
 
-    border:
-        1px solid var(--border);
+            </article>
 
-    border-radius: 12px;
 
-}
+        </div>
 
+    </div>
 
-.branch-no,
-.branch-yes {
+</section>
 
-    display: inline-block;
 
-    margin-bottom: 10px;
 
-    padding: 5px 9px;
+<!-- =====================================================
+     CENTRAL CONTROLLER
+===================================================== -->
 
-    border-radius: 5px;
+<section class="section-blue">
 
-    font-size: 9px;
+    <div class="container">
 
-    font-weight: 900;
 
-}
+        <div class="section-heading">
 
+            <span class="section-label">
+                CENTRAL CONTROL
+            </span>
 
-.branch-no {
+            <h2>
+                Arduino Uno Is the Core of the Architecture
+            </h2>
 
-    background: #fff1ef;
+            <p>
 
-    color: #c43221;
+                Every major subsystem communicates directly
+                or indirectly through the Arduino Uno.
 
-}
+            </p>
 
+        </div>
 
-.branch-yes {
 
-    background: #eafff1;
 
-    color: #138a48;
+        <div class="card-grid">
 
-}
 
+            <article class="card">
 
-.logic-branch strong {
+                <div class="card-icon">
+                    IN
+                </div>
 
-    display: block;
+                <h3>
+                    Sensor Input
+                </h3>
 
-    color: var(--dark);
+                <p>
 
-    font-size: 15px;
+                    Arduino generates the HC-SR04 trigger pulse
+                    and reads the returning echo signal to
+                    determine object distance.
 
-}
+                </p>
 
+            </article>
 
-.logic-branch p {
 
-    margin-top: 6px;
 
-    color: var(--text-light);
+            <article class="card">
 
-    font-size: 11px;
+                <div class="card-icon">
+                    CPU
+                </div>
 
-}
+                <h3>
+                    Logic Processing
+                </h3>
 
+                <p>
 
+                    The controller calculates distance and
+                    determines whether the detection threshold
+                    has been satisfied.
 
-/* =========================================================
-   COMPONENT ROLE CARDS
-   ========================================================= */
+                </p>
 
-.role-grid {
+            </article>
 
-    max-width: 1100px;
 
-    margin: auto;
 
-    display: grid;
+            <article class="card">
 
-    grid-template-columns:
-        repeat(4, 1fr);
+                <div class="card-icon">
+                    OUT
+                </div>
 
-    gap: 17px;
+                <h3>
+                    Servo Control
+                </h3>
 
-}
+                <p>
 
+                    Arduino generates position commands that
+                    control the open and closed positions of
+                    both SG90 servo motors.
 
-.role-card {
+                </p>
 
-    padding: 28px;
+            </article>
 
-    background: var(--white);
 
-    border:
-        1px solid var(--border);
 
-    border-radius: 13px;
+            <article class="card">
 
-}
+                <div class="card-icon">
+                    UI
+                </div>
 
+                <h3>
+                    LCD Communication
+                </h3>
 
-.role-card > span {
+                <p>
 
-    color: var(--primary);
+                    Arduino sends status information to the
+                    LCD through I2C communication for clear
+                    user feedback.
 
-    font-size: 8px;
+                </p>
 
-    font-weight: 800;
+            </article>
 
-    letter-spacing: 1.3px;
 
-}
+        </div>
 
+    </div>
 
-.role-card h3 {
+</section>
 
-    margin:
-        9px 0;
 
-    color: var(--dark);
 
-    font-size: 19px;
+<!-- =====================================================
+     SIGNAL CONNECTION MAP
+===================================================== -->
 
-}
+<section class="section">
 
+    <div class="container">
 
-.role-card p {
 
-    color: var(--text-light);
+        <div class="section-heading">
 
-    font-size: 12px;
+            <span class="section-label">
+                CONNECTION MAP
+            </span>
 
-    line-height: 1.7;
+            <h2>
+                How the Main Components Communicate
+            </h2>
 
-}
+            <p>
 
+                Each subsystem has a defined relationship with
+                the Arduino controller.
 
+            </p>
 
-/* ENGINEERING NOTE */
+        </div>
 
-.engineering-note {
 
-    max-width: 1050px;
 
-    margin: auto;
+        <div class="workflow">
 
-    padding: 45px;
 
-    display: grid;
+            <div class="workflow-step">
 
-    grid-template-columns:
-        1fr auto;
+                <div class="workflow-number">
+                    A
+                </div>
 
-    align-items: center;
+                <div class="workflow-content">
 
-    gap: 40px;
+                    <h3>
+                        HC-SR04 → Arduino Uno
+                    </h3>
 
-    border:
-        1px solid
-        #f0dca5;
+                    <p>
 
-    border-radius: 15px;
+                        The ultrasonic sensor provides distance
+                        measurement information through its
+                        trigger and echo interface.
 
-    background:
-        #fffaf0;
+                    </p>
 
-}
+                    <p>
 
+                        <strong>
+                            Trig → Digital Pin 9
+                        </strong>
 
-.engineering-note h2 {
+                        <br>
 
-    margin-bottom: 15px;
+                        <strong>
+                            Echo → Digital Pin 10
+                        </strong>
 
-    color: var(--dark);
+                    </p>
 
-    font-size: 30px;
+                </div>
 
-}
+            </div>
 
 
-.engineering-note p {
 
-    max-width: 720px;
+            <div class="workflow-step">
 
-    margin-bottom: 10px;
+                <div class="workflow-number">
+                    B
+                </div>
 
-    color: var(--text-light);
+                <div class="workflow-content">
 
-    font-size: 13px;
+                    <h3>
+                        Arduino Uno → Servo 1
+                    </h3>
 
-    line-height: 1.7;
+                    <p>
 
-}
+                        Servo 1 receives its position command
+                        from Arduino.
 
+                    </p>
 
+                    <p>
 
-/* =========================================================
-   RESPONSIVE WORKING PRINCIPLE
-   ========================================================= */
+                        <strong>
+                            Signal → Digital Pin 6
+                        </strong>
 
-@media (max-width: 950px) {
+                    </p>
 
-    .principle-chain {
+                </div>
 
-        display: grid;
+            </div>
 
-        grid-template-columns:
-            1fr 1fr;
 
-        gap: 15px;
 
-    }
+            <div class="workflow-step">
 
+                <div class="workflow-number">
+                    C
+                </div>
 
-    .principle-connector {
+                <div class="workflow-content">
 
-        display: none;
+                    <h3>
+                        Arduino Uno → Servo 2
+                    </h3>
 
-    }
+                    <p>
 
+                        Servo 2 operates together with Servo 1
+                        during the dispensing sequence.
 
-    .role-grid {
+                    </p>
 
-        grid-template-columns:
-            1fr 1fr;
+                    <p>
 
-    }
+                        <strong>
+                            Signal → Digital Pin 7
+                        </strong>
 
+                    </p>
 
-    .engineering-note {
+                </div>
 
-        grid-template-columns: 1fr;
+            </div>
 
-    }
 
-}
 
+            <div class="workflow-step">
 
-@media (max-width: 650px) {
+                <div class="workflow-number">
+                    D
+                </div>
 
-    .principle-chain,
-    .role-grid,
-    .logic-branches {
+                <div class="workflow-content">
 
-        grid-template-columns: 1fr;
+                    <h3>
+                        Arduino Uno ↔ 16×2 I2C LCD
+                    </h3>
 
-    }
+                    <p>
 
+                        The LCD uses I2C communication to
+                        receive text and system-status data
+                        from the Arduino Uno.
 
-    .operation-timeline::before {
+                    </p>
 
-        left: 25px;
+                    <p>
 
-    }
+                        On a standard Arduino Uno:
 
+                        <br>
 
-    .operation-step {
+                        <strong>
+                            SDA → A4
+                        </strong>
 
-        grid-template-columns:
-            52px 1fr;
+                        <br>
 
-        gap: 13px;
+                        <strong>
+                            SCL → A5
+                        </strong>
 
-    }
+                    </p>
 
+                </div>
 
-    .operation-number {
+            </div>
 
-        width: 52px;
-        height: 52px;
 
-        border-width: 5px;
+        </div>
 
-    }
+    </div>
 
+</section>
 
-    .operation-content {
 
-        padding: 23px;
 
-    }
+<!-- =====================================================
+     DATA VS POWER FLOW
+===================================================== -->
 
+<section class="section-soft">
 
-    .decision-box {
+    <div class="container">
 
-        grid-template-columns: 1fr;
 
-    }
+        <div class="section-heading">
 
+            <span class="section-label">
+                ENGINEERING VIEW
+            </span>
 
-    .servo-state {
+            <h2>
+                Signal Flow and Power Flow Are Different
+            </h2>
 
-        grid-template-columns: 1fr;
+            <p>
 
-    }
+                Understanding this distinction is important
+                when designing, wiring and troubleshooting the
+                physical prototype.
 
+            </p>
 
-    .servo-arrow {
+        </div>
 
-        transform:
-            rotate(90deg);
 
-    }
 
+        <div class="card-grid">
 
-    .engineering-note {
 
-        padding: 28px;
+            <article class="card">
 
-    }
+                <div class="card-icon">
+                    SIG
+                </div>
 
-}
+                <h3>
+                    Signal Flow
+                </h3>
+
+                <p>
+
+                    Signal connections carry information and
+                    control commands.
+
+                </p>
+
+                <p>
+
+                    Examples include the ultrasonic trigger and
+                    echo signals, servo control signals and
+                    I2C communication with the LCD.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    PWR
+                </div>
+
+                <h3>
+                    Power Flow
+                </h3>
+
+                <p>
+
+                    Power connections provide the electrical
+                    energy required for the Arduino, sensor,
+                    display and servo motors to operate.
+
+                </p>
+
+                <p>
+
+                    Servo motors can draw significantly more
+                    current than logic-level sensors, so power
+                    delivery must be considered carefully in
+                    the physical implementation.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    GND
+                </div>
+
+                <h3>
+                    Common Ground
+                </h3>
+
+                <p>
+
+                    When an external power supply is used for
+                    the servo motors, the external supply
+                    ground and Arduino ground should share a
+                    common electrical reference for reliable
+                    control signals.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONTROL PATH
+===================================================== -->
+
+<section class="section-blue">
+
+    <div class="container">
+
+        <div class="content-block">
+
+            <span class="section-label">
+                ARCHITECTURE SUMMARY
+            </span>
+
+            <h2>
+                One Complete Information Path
+            </h2>
+
+            <p>
+
+                User's Hand → HC-SR04 Ultrasonic Sensor →
+                Arduino Uno → Distance Calculation →
+                Threshold Decision → Dual SG90 Servo Motors →
+                Mechanical Tap Movement → Water Dispensing →
+                Automatic Closing.
+
+            </p>
+
+            <p>
+
+                In parallel, the Arduino Uno communicates with
+                the 16×2 I2C LCD to provide real-time status
+                information throughout the operating cycle.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="workflow.html"
+                    class="btn btn-primary"
+                >
+                    Continue to System Workflow →
+                </a>
+
+                <a
+                    href="technical-specs.html"
+                    class="btn btn-secondary"
+                >
+                    Technical Specifications
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     EXPLORE SUBSYSTEMS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                EXPLORE THE SYSTEM
+            </span>
+
+            <h2>
+                Study Each Engineering Layer
+            </h2>
+
+            <p>
+
+                Continue into the detailed pages for the
+                physical hardware, circuit implementation and
+                embedded control software.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    HW
+                </div>
+
+                <h3>
+                    Hardware
+                </h3>
+
+                <p>
+
+                    Explore the Arduino Uno, ultrasonic sensor,
+                    SG90 servos, LCD and supporting components.
+
+                </p>
+
+                <a
+                    href="../hardware/hardware.html"
+                    class="card-link"
+                >
+                    Explore hardware →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    PCB
+                </div>
+
+                <h3>
+                    Circuit Design
+                </h3>
+
+                <p>
+
+                    View the circuit diagram and understand
+                    the electrical connections between the
+                    major components.
+
+                </p>
+
+                <a
+                    href="../design/circuit.html"
+                    class="card-link"
+                >
+                    View circuit →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    SW
+                </div>
+
+                <h3>
+                    Embedded Software
+                </h3>
+
+                <p>
+
+                    Study the Arduino program responsible for
+                    sensing, decisions, timing, LCD control and
+                    servo actuation.
+
+                </p>
+
+                <a
+                    href="../software/code.html"
+                    class="card-link"
+                >
+                    View source code →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                💧 AquaSense
+            </div>
+
+            <p>
+
+                A Phase 1 automatic touchless water dispenser
+                integrating ultrasonic sensing, embedded
+                control, servo actuation and custom mechanical
+                design.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+
+            <div>
+
+                <h4>
+                    Project
+                </h4>
+
+                <a href="../project/overview.html">
+                    Overview
+                </a>
+
+                <a href="../project/working-principle.html">
+                    Working Principle
+                </a>
+
+                <a href="workflow.html">
+                    Workflow
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Engineering
+                </h4>
+
+                <a href="../hardware/hardware.html">
+                    Hardware
+                </a>
+
+                <a href="../design/circuit.html">
+                    Circuit
+                </a>
+
+                <a href="../design/cad.html">
+                    CAD Models
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="../software/code.html">
+                    Source Code
+                </a>
+
+                <a href="../documentation/downloads.html">
+                    Downloads
+                </a>
+
+                <a href="../future/phase2.html">
+                    Phase 2
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            AquaSense — Automatic Touchless Water Dispenser
+        </p>
+
+        <p>
+            Phase 1 Engineering Prototype •
+            <span class="current-year"></span>
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+    class="back-to-top"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+
+
+
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
+
+<script src="../../js/script.js"></script>
+
+
+</body>
+
+</html>

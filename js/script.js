@@ -1,22 +1,21 @@
 /* =========================================================
-   AQUASENSE — GLOBAL JAVASCRIPT
+   AQUASENSE
    Automatic Touchless Water Dispenser
+   Global JavaScript
 ========================================================= */
 
 document.addEventListener("DOMContentLoaded", () => {
 
-    /* =====================================================
+    /* =========================================
        1. MOBILE NAVIGATION
-    ===================================================== */
+    ========================================= */
 
     const menuToggle = document.querySelector(".menu-toggle");
     const navLinks = document.querySelector(".nav-links");
 
     if (menuToggle && navLinks) {
 
-        menuToggle.addEventListener("click", (event) => {
-
-            event.stopPropagation();
+        menuToggle.addEventListener("click", () => {
 
             navLinks.classList.toggle("active");
 
@@ -32,9 +31,9 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 
-    /* =====================================================
-       2. MOBILE DROPDOWN MENUS
-    ===================================================== */
+    /* =========================================
+       2. MOBILE DROPDOWNS
+    ========================================= */
 
     const dropdowns = document.querySelectorAll(".dropdown");
 
@@ -50,14 +49,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
                 event.preventDefault();
 
-                event.stopPropagation();
-
                 dropdowns.forEach((item) => {
 
                     if (item !== dropdown) {
-
                         item.classList.remove("active");
-
                     }
 
                 });
@@ -71,44 +66,9 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       3. CLOSE MOBILE MENU WHEN CLICKING OUTSIDE
-    ===================================================== */
-
-    document.addEventListener("click", (event) => {
-
-        if (!navLinks) return;
-
-        const clickedInsideNav =
-            event.target.closest(".nav-container");
-
-        if (!clickedInsideNav) {
-
-            navLinks.classList.remove("active");
-
-            dropdowns.forEach((dropdown) => {
-
-                dropdown.classList.remove("active");
-
-            });
-
-            if (menuToggle) {
-
-                menuToggle.setAttribute(
-                    "aria-expanded",
-                    "false"
-                );
-
-            }
-
-        }
-
-    });
-
-
-    /* =====================================================
-       4. CLOSE MOBILE MENU AFTER SELECTING LINK
-    ===================================================== */
+    /* =========================================
+       3. CLOSE MOBILE MENU AFTER LINK CLICK
+    ========================================= */
 
     const navigationLinks =
         document.querySelectorAll(".nav-links a");
@@ -117,28 +77,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
         link.addEventListener("click", () => {
 
-            if (window.innerWidth <= 850) {
+            if (
+                window.innerWidth <= 850 &&
+                navLinks
+            ) {
 
-                if (navLinks) {
-
-                    navLinks.classList.remove("active");
-
-                }
-
-                dropdowns.forEach((dropdown) => {
-
-                    dropdown.classList.remove("active");
-
-                });
-
-                if (menuToggle) {
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
+                navLinks.classList.remove("active");
 
             }
 
@@ -147,351 +91,187 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       5. ACTIVE PAGE NAVIGATION
-    ===================================================== */
+    /* =========================================
+       4. RESET MENU WHEN WINDOW RESIZES
+    ========================================= */
 
-    const currentPage =
-        window.location.pathname
-            .split("/")
-            .pop()
-            .toLowerCase() || "index.html";
+    window.addEventListener("resize", () => {
 
-    document
-        .querySelectorAll(".nav-links a")
-        .forEach((link) => {
+        if (window.innerWidth > 850) {
 
-            const href = link
-                .getAttribute("href");
-
-            if (!href) return;
-
-            const cleanHref =
-                href.split("#")[0]
-                    .split("/")
-                    .pop()
-                    .toLowerCase();
-
-            if (
-                cleanHref &&
-                cleanHref === currentPage
-            ) {
-
-                link.classList.add("active");
-
+            if (navLinks) {
+                navLinks.classList.remove("active");
             }
 
-        });
-
-
-    /* =====================================================
-       6. SMOOTH SCROLL FOR SAME-PAGE LINKS
-    ===================================================== */
-
-    document
-        .querySelectorAll('a[href^="#"]')
-        .forEach((anchor) => {
-
-            anchor.addEventListener(
-                "click",
-                function (event) {
-
-                    const targetID =
-                        this.getAttribute("href");
-
-                    if (
-                        !targetID ||
-                        targetID === "#"
-                    ) {
-
-                        return;
-
-                    }
-
-                    const target =
-                        document.querySelector(targetID);
-
-                    if (target) {
-
-                        event.preventDefault();
-
-                        target.scrollIntoView({
-
-                            behavior: "smooth",
-
-                            block: "start"
-
-                        });
-
-                    }
-
-                }
-            );
-
-        });
-
-
-    /* =====================================================
-       7. NAVBAR SHADOW ON SCROLL
-    ===================================================== */
-
-    const navbar =
-        document.querySelector(".navbar");
-
-    function updateNavbar() {
-
-        if (!navbar) return;
-
-        if (window.scrollY > 20) {
-
-            navbar.style.boxShadow =
-                "0 8px 25px rgba(15, 23, 42, 0.08)";
-
-        } else {
-
-            navbar.style.boxShadow =
-                "none";
+            dropdowns.forEach((dropdown) => {
+                dropdown.classList.remove("active");
+            });
 
         }
 
-    }
-
-    updateNavbar();
-
-    window.addEventListener(
-        "scroll",
-        updateNavbar,
-        { passive: true }
-    );
-
-
-    /* =====================================================
-       8. COPY CODE BUTTON
-    ===================================================== */
-
-    const copyButtons =
-        document.querySelectorAll(".copy-code");
-
-    copyButtons.forEach((button) => {
-
-        button.addEventListener(
-            "click",
-            async () => {
-
-                const codeContainer =
-                    button.closest(
-                        ".code-container"
-                    );
-
-                if (!codeContainer) return;
-
-                const code =
-                    codeContainer.querySelector(
-                        "pre code"
-                    ) ||
-                    codeContainer.querySelector(
-                        "pre"
-                    );
-
-                if (!code) return;
-
-                const originalText =
-                    button.textContent;
-
-                try {
-
-                    await navigator.clipboard.writeText(
-                        code.innerText
-                    );
-
-                    button.textContent =
-                        "Copied ✓";
-
-                    setTimeout(() => {
-
-                        button.textContent =
-                            originalText;
-
-                    }, 1800);
-
-                } catch (error) {
-
-                    console.error(
-                        "Unable to copy code:",
-                        error
-                    );
-
-                    button.textContent =
-                        "Copy failed";
-
-                    setTimeout(() => {
-
-                        button.textContent =
-                            originalText;
-
-                    }, 1800);
-
-                }
-
-            }
-        );
-
     });
 
 
-    /* =====================================================
-       9. BACK TO TOP BUTTON
-    ===================================================== */
+    /* =========================================
+       5. BACK TO TOP BUTTON
+    ========================================= */
 
     const backToTop =
         document.querySelector(".back-to-top");
 
     if (backToTop) {
 
-        function toggleBackToTop() {
+        window.addEventListener("scroll", () => {
 
-            if (window.scrollY > 500) {
+            if (window.scrollY > 400) {
 
-                backToTop.classList.add(
-                    "visible"
-                );
+                backToTop.classList.add("visible");
 
             } else {
 
-                backToTop.classList.remove(
-                    "visible"
-                );
+                backToTop.classList.remove("visible");
 
             }
 
-        }
+        });
 
-        toggleBackToTop();
+        backToTop.addEventListener("click", () => {
 
-        window.addEventListener(
-            "scroll",
-            toggleBackToTop,
-            { passive: true }
-        );
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
 
-        backToTop.addEventListener(
-            "click",
-            () => {
-
-                window.scrollTo({
-
-                    top: 0,
-
-                    behavior: "smooth"
-
-                });
-
-            }
-        );
+        });
 
     }
 
 
-    /* =====================================================
-       10. RESPONSIVE RESET
-    ===================================================== */
+    /* =========================================
+       6. SMOOTH INTERNAL ANCHOR SCROLLING
+    ========================================= */
 
-    window.addEventListener(
-        "resize",
-        () => {
+    const internalLinks =
+        document.querySelectorAll('a[href^="#"]');
 
-            if (window.innerWidth > 850) {
+    internalLinks.forEach((link) => {
 
-                if (navLinks) {
+        link.addEventListener("click", (event) => {
 
-                    navLinks.classList.remove(
-                        "active"
-                    );
-
-                }
-
-                dropdowns.forEach(
-                    (dropdown) => {
-
-                        dropdown.classList.remove(
-                            "active"
-                        );
-
-                    }
-                );
-
-                if (menuToggle) {
-
-                    menuToggle.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                }
-
-            }
-
-        }
-    );
-
-
-    /* =====================================================
-       11. EXTERNAL LINKS SECURITY
-    ===================================================== */
-
-    document
-        .querySelectorAll(
-            'a[target="_blank"]'
-        )
-        .forEach((link) => {
+            const targetId =
+                link.getAttribute("href");
 
             if (
-                !link.hasAttribute("rel")
+                !targetId ||
+                targetId === "#"
             ) {
+                return;
+            }
 
-                link.setAttribute(
-                    "rel",
-                    "noopener noreferrer"
+            const target =
+                document.querySelector(targetId);
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            target.scrollIntoView({
+                behavior: "smooth",
+                block: "start"
+            });
+
+        });
+
+    });
+
+
+    /* =========================================
+       7. COPY CODE BUTTON
+    ========================================= */
+
+    const copyButtons =
+        document.querySelectorAll(".copy-code");
+
+    copyButtons.forEach((button) => {
+
+        button.addEventListener("click", async () => {
+
+            const codeContainer =
+                button.closest(".code-container");
+
+            if (!codeContainer) return;
+
+            const code =
+                codeContainer.querySelector("code");
+
+            if (!code) return;
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    code.innerText
+                );
+
+                const originalText =
+                    button.textContent;
+
+                button.textContent = "Copied";
+
+                setTimeout(() => {
+
+                    button.textContent =
+                        originalText;
+
+                }, 1600);
+
+            } catch (error) {
+
+                console.error(
+                    "Unable to copy code:",
+                    error
                 );
 
             }
 
         });
 
-
-    /* =====================================================
-       12. IMAGE ERROR HANDLING
-    ===================================================== */
-
-    document
-        .querySelectorAll("img")
-        .forEach((image) => {
-
-            image.addEventListener(
-                "error",
-                () => {
-
-                    console.warn(
-                        "Image could not be loaded:",
-                        image.getAttribute("src")
-                    );
-
-                    image.classList.add(
-                        "image-error"
-                    );
-
-                }
-            );
-
-        });
+    });
 
 
-    /* =====================================================
-       13. AQUASENSE INITIALIZATION
-    ===================================================== */
+    /* =========================================
+       8. CURRENT YEAR
+    ========================================= */
 
-    console.log(
-        "AquaSense website initialized successfully."
-    );
+    const yearElements =
+        document.querySelectorAll(".current-year");
+
+    const currentYear =
+        new Date().getFullYear();
+
+    yearElements.forEach((element) => {
+
+        element.textContent =
+            currentYear;
+
+    });
+
+
+    /* =========================================
+       9. EXTERNAL LINKS SECURITY
+    ========================================= */
+
+    const externalLinks =
+        document.querySelectorAll(
+            'a[target="_blank"]'
+        );
+
+    externalLinks.forEach((link) => {
+
+        link.setAttribute(
+            "rel",
+            "noopener noreferrer"
+        );
+
+    });
 
 });

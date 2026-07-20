@@ -12,17 +12,15 @@
 
     <meta
         name="description"
-        content="AquaSense system workflow — detailed operating sequence of the automatic touchless water dispenser."
+        content="AquaSense is a Phase 1 automatic touchless water dispenser engineering prototype using ultrasonic sensing, Arduino control and servo-based tap actuation."
     >
 
-    <title>
-        System Workflow | AquaSense
-    </title>
+    <title>AquaSense | Automatic Touchless Water Dispenser</title>
 
     <!-- GLOBAL STYLESHEET -->
     <link
         rel="stylesheet"
-        href="../../css/style.css"
+        href="css/style.css"
     >
 
 </head>
@@ -31,9 +29,9 @@
 <body>
 
 
-<!-- ======================================================
+<!-- =====================================================
      NAVIGATION
-======================================================= -->
+===================================================== -->
 
 <header class="navbar">
 
@@ -43,7 +41,7 @@
         <!-- LOGO -->
 
         <a
-            href="../../index.html"
+            href="index.html"
             class="logo"
             aria-label="AquaSense Home"
         >
@@ -78,12 +76,14 @@
         </button>
 
 
-        <!-- NAVIGATION -->
+        <!-- NAVIGATION LINKS -->
 
         <nav class="nav-links">
 
-
-            <a href="../../index.html">
+            <a
+                href="index.html"
+                class="active"
+            >
                 Home
             </a>
 
@@ -98,11 +98,11 @@
 
                 <div class="dropdown-content">
 
-                    <a href="../project/overview.html">
+                    <a href="pages/project/overview.html">
                         Project Overview
                     </a>
 
-                    <a href="../project/working-principle.html">
+                    <a href="pages/project/working-principle.html">
                         Working Principle
                     </a>
 
@@ -121,18 +121,15 @@
 
                 <div class="dropdown-content">
 
-                    <a href="architecture.html">
+                    <a href="pages/system/architecture.html">
                         System Architecture
                     </a>
 
-                    <a
-                        href="workflow.html"
-                        class="active"
-                    >
+                    <a href="pages/system/workflow.html">
                         System Workflow
                     </a>
 
-                    <a href="technical-specs.html">
+                    <a href="pages/system/technical-specs.html">
                         Technical Specifications
                     </a>
 
@@ -151,15 +148,15 @@
 
                 <div class="dropdown-content">
 
-                    <a href="../hardware/hardware.html">
+                    <a href="pages/hardware/hardware.html">
                         Hardware
                     </a>
 
-                    <a href="../design/circuit.html">
+                    <a href="pages/design/circuit.html">
                         Circuit Design
                     </a>
 
-                    <a href="../design/cad.html">
+                    <a href="pages/design/cad.html">
                         CAD & 3D Models
                     </a>
 
@@ -178,11 +175,11 @@
 
                 <div class="dropdown-content">
 
-                    <a href="../software/code.html">
-                        Arduino Code
+                    <a href="pages/software/code.html">
+                        Source Code
                     </a>
 
-                    <a href="../software/code-explanation.html">
+                    <a href="pages/software/code-explanation.html">
                         Code Explanation
                     </a>
 
@@ -201,22 +198,21 @@
 
                 <div class="dropdown-content">
 
-                    <a href="../documentation/documentation.html">
+                    <a href="pages/documentation/documentation.html">
                         Documentation
                     </a>
 
-                    <a href="../documentation/downloads.html">
+                    <a href="pages/documentation/downloads.html">
                         Downloads
                     </a>
 
-                    <a href="../future/phase2.html">
+                    <a href="pages/future/phase2.html">
                         Phase 2
                     </a>
 
                 </div>
 
             </div>
-
 
         </nav>
 
@@ -225,8 +221,1323 @@
 </header>
 
 
-<!-- ======================================================
-     MAIN PAGE CONTENT STARTS HERE
-======================================================= -->
 
-<main class="workflow-page">
+<!-- =====================================================
+     MAIN CONTENT
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO SECTION
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+
+        <!-- HERO CONTENT -->
+
+        <div>
+
+            <span class="hero-badge">
+                PHASE 1 • ENGINEERING PROTOTYPE
+            </span>
+
+            <h1>
+
+                Intelligent Water
+                Dispensing Through
+
+                <span>
+                    Touchless Automation.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                AquaSense is an automatic touchless water
+                dispenser engineered using ultrasonic sensing,
+                Arduino-based embedded control and dual-servo
+                mechanical actuation.
+
+                The system detects a user's hand, automatically
+                operates the water tap and closes it after a
+                controlled dispensing cycle.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="pages/project/overview.html"
+                    class="btn btn-primary"
+                >
+                    Explore the Project →
+                </a>
+
+                <a
+                    href="pages/system/workflow.html"
+                    class="btn btn-secondary"
+                >
+                    View System Workflow
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SYSTEM PREVIEW CARD -->
+
+        <div class="system-card">
+
+            <div class="system-card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        SYSTEM OVERVIEW
+                    </span>
+
+                    <h3>
+                        Touchless Dispensing Cycle
+                    </h3>
+
+                </div>
+
+                <span class="status-badge">
+                    PHASE 1
+                </span>
+
+            </div>
+
+
+            <div class="system-flow">
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        01
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Hand Detection
+                        </strong>
+
+                        <span>
+                            HC-SR04 ultrasonic sensing
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        02
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Embedded Processing
+                        </strong>
+
+                        <span>
+                            Arduino Uno evaluates distance
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        03
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Servo Actuation
+                        </strong>
+
+                        <span>
+                            Dual SG90 servos operate the tap
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="flow-arrow">
+                    ↓
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        04
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Controlled Dispensing
+                        </strong>
+
+                        <span>
+                            Water dispenses and tap closes
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECT STATISTICS
+===================================================== -->
+
+<section class="stats-section">
+
+    <div class="stats-grid">
+
+
+        <div class="stat">
+
+            <strong>
+                ≤ 15 cm
+            </strong>
+
+            <span>
+                DETECTION RANGE
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                2
+            </strong>
+
+            <span>
+                SERVO ACTUATORS
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                3 sec
+            </strong>
+
+            <span>
+                DISPENSING CYCLE
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                100%
+            </strong>
+
+            <span>
+                TOUCHLESS OPERATION
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROJECT OVERVIEW
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                PROJECT OVERVIEW
+            </span>
+
+            <h2>
+                Engineering a Smarter Way
+                to Dispense Water
+            </h2>
+
+            <p>
+
+                Phase 1 establishes the sensing,
+                embedded-control and mechanical actuation
+                foundation required to automate a conventional
+                water dispensing mechanism.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <!-- PROBLEM -->
+
+            <article class="card">
+
+                <div class="card-icon">
+                    01
+                </div>
+
+                <h3>
+                    The Problem
+                </h3>
+
+                <p>
+
+                    Conventional water dispensers require
+                    physical contact with taps or controls.
+
+                    Repeated contact can reduce convenience,
+                    create hygiene concerns and result in
+                    unnecessary water flow when taps are not
+                    properly closed.
+
+                </p>
+
+                <a
+                    href="pages/project/overview.html"
+                    class="card-link"
+                >
+                    Understand the problem →
+                </a>
+
+            </article>
+
+
+
+            <!-- SOLUTION -->
+
+            <article class="card">
+
+                <div class="card-icon">
+                    02
+                </div>
+
+                <h3>
+                    The Solution
+                </h3>
+
+                <p>
+
+                    AquaSense detects the presence of a hand
+                    using ultrasonic distance measurement and
+                    automatically activates a servo-controlled
+                    dispensing mechanism without requiring
+                    physical contact.
+
+                </p>
+
+                <a
+                    href="pages/project/working-principle.html"
+                    class="card-link"
+                >
+                    See how it works →
+                </a>
+
+            </article>
+
+
+
+            <!-- ENGINEERING -->
+
+            <article class="card">
+
+                <div class="card-icon">
+                    03
+                </div>
+
+                <h3>
+                    Engineering Approach
+                </h3>
+
+                <p>
+
+                    The prototype integrates electronics,
+                    embedded programming, mechanical actuation,
+                    circuit design and custom 3D-designed
+                    enclosures into one functional system.
+
+                </p>
+
+                <a
+                    href="pages/system/architecture.html"
+                    class="card-link"
+                >
+                    Explore architecture →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HOW THE SYSTEM WORKS
+===================================================== -->
+
+<section class="section-soft">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                SYSTEM WORKFLOW
+            </span>
+
+            <h2>
+                From Detection to Dispensing
+            </h2>
+
+            <p>
+
+                AquaSense follows a programmed sensing and
+                actuation sequence controlled by the Arduino
+                Uno.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="workflow">
+
+
+            <!-- STEP 1 -->
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    01
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Hand Enters Detection Zone
+                    </h3>
+
+                    <p>
+
+                        The HC-SR04 ultrasonic sensor
+                        continuously measures the distance
+                        between the dispenser and nearby
+                        objects.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 2 -->
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    02
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Arduino Evaluates Distance
+                    </h3>
+
+                    <p>
+
+                        The Arduino Uno receives the measured
+                        distance and compares it with the
+                        programmed detection threshold of
+                        15 cm.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 3 -->
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    03
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Servo Mechanism Opens the Tap
+                    </h3>
+
+                    <p>
+
+                        When valid detection occurs, the
+                        controller commands both servo motors
+                        to move from their closed position to
+                        the programmed open position.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 4 -->
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Water Is Dispensed
+                    </h3>
+
+                    <p>
+
+                        The tap remains open for the programmed
+                        dispensing interval while the LCD
+                        provides system feedback to the user.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- STEP 5 -->
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    05
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Tap Automatically Closes
+                    </h3>
+
+                    <p>
+
+                        After the dispensing period, both
+                        servos return to their closed position
+                        and the system returns to monitoring
+                        mode.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="text-center mt-40">
+
+            <a
+                href="pages/system/workflow.html"
+                class="btn btn-primary"
+            >
+                Explore Complete Workflow →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ENGINEERING MODULES
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                ENGINEERING
+            </span>
+
+            <h2>
+                Explore the System
+                Layer by Layer
+            </h2>
+
+            <p>
+
+                The project is documented across dedicated
+                engineering layers so the hardware, software,
+                mechanical design and control logic can be
+                studied independently.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    HW
+                </div>
+
+                <h3>
+                    Hardware System
+                </h3>
+
+                <p>
+
+                    Explore the Arduino Uno, HC-SR04 ultrasonic
+                    sensor, SG90 servo motors, 16×2 I2C LCD
+                    and supporting power system.
+
+                </p>
+
+                <a
+                    href="pages/hardware/hardware.html"
+                    class="card-link"
+                >
+                    Explore hardware →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    CK
+                </div>
+
+                <h3>
+                    Circuit Design
+                </h3>
+
+                <p>
+
+                    Review the electrical connections between
+                    the controller, ultrasonic sensor, display
+                    and servo actuation system.
+
+                </p>
+
+                <a
+                    href="pages/design/circuit.html"
+                    class="card-link"
+                >
+                    View circuit →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    3D
+                </div>
+
+                <h3>
+                    CAD & Mechanical Design
+                </h3>
+
+                <p>
+
+                    Inspect the custom main enclosure, lid,
+                    servo housing and mechanical components
+                    designed for the Phase 1 prototype.
+
+                </p>
+
+                <a
+                    href="pages/design/cad.html"
+                    class="card-link"
+                >
+                    Explore CAD →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    SW
+                </div>
+
+                <h3>
+                    Embedded Software
+                </h3>
+
+                <p>
+
+                    Examine the Arduino program responsible for
+                    sensing, decision-making, LCD feedback and
+                    servo control.
+
+                </p>
+
+                <a
+                    href="pages/software/code.html"
+                    class="card-link"
+                >
+                    View source code →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    AR
+                </div>
+
+                <h3>
+                    System Architecture
+                </h3>
+
+                <p>
+
+                    Understand how sensing, processing,
+                    actuation, user feedback and mechanical
+                    systems interact as one architecture.
+
+                </p>
+
+                <a
+                    href="pages/system/architecture.html"
+                    class="card-link"
+                >
+                    View architecture →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    TS
+                </div>
+
+                <h3>
+                    Technical Specifications
+                </h3>
+
+                <p>
+
+                    Review operating parameters, pin
+                    assignments, programmed thresholds,
+                    timing and component-level specifications.
+
+                </p>
+
+                <a
+                    href="pages/system/technical-specs.html"
+                    class="card-link"
+                >
+                    View specifications →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PHASE 1 ENGINEERING SUMMARY
+===================================================== -->
+
+<section class="section-blue">
+
+    <div class="container">
+
+        <div class="content-block">
+
+            <span class="section-label">
+                PHASE 1 DEVELOPMENT
+            </span>
+
+            <h2>
+                A Complete Functional Prototype Foundation
+            </h2>
+
+            <p>
+
+                Phase 1 focuses on proving the fundamental
+                automation concept.
+
+                The system combines ultrasonic proximity
+                detection, Arduino-based decision logic,
+                dual-servo mechanical actuation, LCD user
+                feedback and custom enclosure development.
+
+                This creates a working engineering foundation
+                that can later be expanded with smarter
+                monitoring, connectivity and advanced water
+                management capabilities.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="pages/project/overview.html"
+                    class="btn btn-primary"
+                >
+                    Read Project Overview
+                </a>
+
+                <a
+                    href="pages/future/phase2.html"
+                    class="btn btn-secondary"
+                >
+                    Explore Phase 2 →
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     DOCUMENTATION & DOWNLOADS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                PROJECT RESOURCES
+            </span>
+
+            <h2>
+                Documentation & Engineering Files
+            </h2>
+
+            <p>
+
+                Access the technical report, user manual,
+                source code and engineering resources used
+                for the AquaSense Phase 1 prototype.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="download-grid">
+
+
+            <!-- REPORT -->
+
+            <article class="download-card">
+
+                <div class="card-icon">
+                    PDF
+                </div>
+
+                <h3>
+                    Phase 1 Project Report
+                </h3>
+
+                <p>
+
+                    Complete project documentation covering
+                    the problem, design approach, components,
+                    implementation and results.
+
+                </p>
+
+                <a
+                    href="documents/Report.pdf"
+                    target="_blank"
+                    class="btn btn-secondary"
+                >
+                    Open Report
+                </a>
+
+            </article>
+
+
+
+            <!-- USER MANUAL -->
+
+            <article class="download-card">
+
+                <div class="card-icon">
+                    MAN
+                </div>
+
+                <h3>
+                    User Manual
+                </h3>
+
+                <p>
+
+                    Operating instructions and practical
+                    guidance for using the automatic touchless
+                    water dispenser prototype.
+
+                </p>
+
+                <a
+                    href="documents/User-Manual.pdf"
+                    target="_blank"
+                    class="btn btn-secondary"
+                >
+                    Open Manual
+                </a>
+
+            </article>
+
+
+
+            <!-- SOURCE CODE -->
+
+            <article class="download-card">
+
+                <div class="card-icon">
+                    SRC
+                </div>
+
+                <h3>
+                    Arduino Source Code
+                </h3>
+
+                <p>
+
+                    Explore the embedded control program used
+                    for ultrasonic sensing, LCD feedback and
+                    dual-servo operation.
+
+                </p>
+
+                <a
+                    href="pages/software/code.html"
+                    class="btn btn-secondary"
+                >
+                    View Code
+                </a>
+
+            </article>
+
+
+        </div>
+
+
+
+        <div class="text-center mt-40">
+
+            <a
+                href="pages/documentation/downloads.html"
+                class="btn btn-primary"
+            >
+                View All Downloads →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FUTURE DEVELOPMENT
+===================================================== -->
+
+<section class="section-soft">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                FUTURE DEVELOPMENT
+            </span>
+
+            <h2>
+                From Prototype to Smart Water Platform
+            </h2>
+
+            <p>
+
+                Phase 1 establishes the automation foundation.
+                Future development can transform AquaSense
+                into a connected system capable of monitoring,
+                analytics and intelligent water management.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    IoT
+                </div>
+
+                <h3>
+                    IoT Connectivity
+                </h3>
+
+                <p>
+
+                    Future versions can integrate wireless
+                    connectivity for remote system monitoring,
+                    alerts and operational status.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    DATA
+                </div>
+
+                <h3>
+                    Water Usage Analytics
+                </h3>
+
+                <p>
+
+                    Dispensing events and water consumption
+                    data can be recorded to understand usage
+                    patterns and improve efficiency.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    AI
+                </div>
+
+                <h3>
+                    Intelligent Control
+                </h3>
+
+                <p>
+
+                    Additional sensors and smarter control
+                    logic can enable adaptive dispensing,
+                    predictive maintenance and improved
+                    resource management.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+
+
+        <div class="text-center mt-40">
+
+            <a
+                href="pages/future/phase2.html"
+                class="btn btn-primary"
+            >
+                Explore Phase 2 Roadmap →
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <!-- BRAND -->
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                💧 AquaSense
+            </div>
+
+            <p>
+
+                A Phase 1 automatic touchless water dispenser
+                integrating ultrasonic sensing, embedded
+                control, servo actuation and custom mechanical
+                design.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- FOOTER LINKS -->
+
+        <div class="footer-links">
+
+
+            <div>
+
+                <h4>
+                    Project
+                </h4>
+
+                <a href="pages/project/overview.html">
+                    Overview
+                </a>
+
+                <a href="pages/project/working-principle.html">
+                    Working Principle
+                </a>
+
+                <a href="pages/system/workflow.html">
+                    Workflow
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Engineering
+                </h4>
+
+                <a href="pages/hardware/hardware.html">
+                    Hardware
+                </a>
+
+                <a href="pages/design/circuit.html">
+                    Circuit
+                </a>
+
+                <a href="pages/design/cad.html">
+                    CAD Models
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="pages/software/code.html">
+                    Source Code
+                </a>
+
+                <a href="pages/documentation/downloads.html">
+                    Downloads
+                </a>
+
+                <a href="pages/future/phase2.html">
+                    Phase 2
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            AquaSense — Automatic Touchless Water Dispenser
+        </p>
+
+        <p>
+            Phase 1 Engineering Prototype •
+            <span class="current-year"></span>
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<!-- =====================================================
+     BACK TO TOP
+===================================================== -->
+
+<button
+    class="back-to-top"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+
+
+
+<!-- =====================================================
+     GLOBAL JAVASCRIPT
+===================================================== -->
+
+<script src="js/script.js"></script>
+
+
+</body>
+
+</html>

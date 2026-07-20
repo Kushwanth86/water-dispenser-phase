@@ -1161,3 +1161,116 @@ p {
     }
 
 }
+/* =========================================================
+   HOMEPAGE FONT SIZE REFINEMENTS
+========================================================= */
+
+/* Main Hero Heading */
+.hero h1 {
+    font-size: clamp(48px, 4.6vw, 72px);
+    line-height: 1.05;
+    letter-spacing: -2.5px;
+    max-width: 780px;
+}
+
+/* Hero Description */
+.hero-description {
+    font-size: 17px;
+    line-height: 1.8;
+    max-width: 760px;
+}
+
+/* Hero Badge */
+.hero-badge {
+    font-size: 10px;
+    letter-spacing: 1.8px;
+}
+
+/* Navigation */
+.nav-links > a,
+.dropbtn {
+    font-size: 14px;
+}
+
+/* Logo */
+.logo-title {
+    font-size: 24px;
+}
+
+.logo-subtitle {
+    font-size: 9px;
+}
+
+/* System Overview Card */
+.system-card h3 {
+    font-size: 21px;
+}
+
+.system-node strong {
+    font-size: 14px;
+}
+
+.system-node span {
+    font-size: 12px;
+}
+
+/* Main Section Headings */
+.section-heading h2,
+.content-block h2 {
+    font-size: clamp(34px, 3.2vw, 50px);
+    line-height: 1.12;
+    letter-spacing: -1.5px;
+}
+
+/* Section Description */
+.section-heading p,
+.content-block p {
+    font-size: 16px;
+    line-height: 1.75;
+}
+
+/* Cards */
+.card h3,
+.download-card h3 {
+    font-size: 20px;
+}
+
+.card p,
+.download-card p {
+    font-size: 14px;
+    line-height: 1.75;
+}
+
+/* Buttons */
+.btn {
+    font-size: 14px;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+
+    .hero h1 {
+        font-size: clamp(42px, 8vw, 60px);
+        letter-spacing: -2px;
+    }
+
+}
+
+@media (max-width: 600px) {
+
+    .hero h1 {
+        font-size: 40px;
+        line-height: 1.08;
+        letter-spacing: -1.5px;
+    }
+
+    .hero-description {
+        font-size: 15px;
+    }
+
+    .section-heading h2,
+    .content-block h2 {
+        font-size: 32px;
+    }
+
+}

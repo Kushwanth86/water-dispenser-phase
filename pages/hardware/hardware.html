@@ -1,0 +1,2325 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="Hardware components used in the AquaSense Phase 1 automatic touchless water dispenser including Arduino Uno, HC-SR04, SG90 servo motors and I2C LCD."
+    >
+
+    <title>Hardware | AquaSense</title>
+
+    <link
+        rel="stylesheet"
+        href="../../css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     NAVIGATION
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+
+        <a
+            href="../../index.html"
+            class="logo"
+            aria-label="AquaSense Home"
+        >
+
+            <div class="logo-icon">
+                💧
+            </div>
+
+            <div class="logo-text">
+
+                <span class="logo-title">
+                    AquaSense
+                </span>
+
+                <span class="logo-subtitle">
+                    SMART WATER SYSTEM
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false"
+        >
+            ☰
+        </button>
+
+
+        <nav class="nav-links">
+
+
+            <a href="../../index.html">
+                Home
+            </a>
+
+
+            <!-- PROJECT -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Project ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../project/overview.html">
+                        Project Overview
+                    </a>
+
+                    <a href="../project/working-principle.html">
+                        Working Principle
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEM -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    System ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../system/architecture.html">
+                        System Architecture
+                    </a>
+
+                    <a href="../system/workflow.html">
+                        System Workflow
+                    </a>
+
+                    <a href="../system/technical-specs.html">
+                        Technical Specifications
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ENGINEERING -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Engineering ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a
+                        href="hardware.html"
+                        class="active"
+                    >
+                        Hardware
+                    </a>
+
+                    <a href="../design/circuit.html">
+                        Circuit Design
+                    </a>
+
+                    <a href="../design/cad.html">
+                        CAD & 3D Models
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOFTWARE -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Software ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../software/code.html">
+                        Source Code
+                    </a>
+
+                    <a href="../software/code-explanation.html">
+                        Code Explanation
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- RESOURCES -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Resources ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../documentation/documentation.html">
+                        Documentation
+                    </a>
+
+                    <a href="../documentation/downloads.html">
+                        Downloads
+                    </a>
+
+                    <a href="../future/phase2.html">
+                        Phase 2
+                    </a>
+
+                </div>
+
+            </div>
+
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+    <div class="hero-container">
+
+
+        <div>
+
+            <div class="breadcrumb">
+
+                <a href="../../index.html">
+                    Home
+                </a>
+
+                <span>›</span>
+
+                <span>
+                    Engineering
+                </span>
+
+                <span>›</span>
+
+                <strong>
+                    Hardware
+                </strong>
+
+            </div>
+
+
+            <span class="hero-badge">
+                HARDWARE SYSTEM
+            </span>
+
+
+            <h1>
+
+                The Physical Hardware
+
+                <span>
+                    Behind AquaSense.
+                </span>
+
+            </h1>
+
+
+            <p class="hero-description">
+
+                AquaSense combines sensing, embedded
+                processing, mechanical actuation and user
+                feedback hardware into one coordinated
+                automatic water dispensing system.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="#components"
+                    class="btn btn-primary"
+                >
+                    Explore Components ↓
+                </a>
+
+                <a
+                    href="../design/circuit.html"
+                    class="btn btn-secondary"
+                >
+                    View Circuit Design
+                </a>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- HARDWARE SUMMARY -->
+
+        <div class="system-card">
+
+            <div class="system-card-header">
+
+                <div>
+
+                    <span class="section-label">
+                        HARDWARE STACK
+                    </span>
+
+                    <h3>
+                        Phase 1 Electronics
+                    </h3>
+
+                </div>
+
+                <span class="status-badge">
+                    4 CORE TYPES
+                </span>
+
+            </div>
+
+
+            <div class="system-flow">
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        MCU
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            Arduino Uno
+                        </strong>
+
+                        <span>
+                            Main embedded controller
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        US
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            HC-SR04
+                        </strong>
+
+                        <span>
+                            Touchless distance sensing
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        2×
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            SG90 Servos
+                        </strong>
+
+                        <span>
+                            Mechanical tap actuation
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+                <div class="system-node">
+
+                    <div class="node-icon">
+                        LCD
+                    </div>
+
+                    <div>
+
+                        <strong>
+                            16×2 I2C LCD
+                        </strong>
+
+                        <span>
+                            User status feedback
+                        </span>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HARDWARE SUMMARY
+===================================================== -->
+
+<section class="stats-section">
+
+    <div class="stats-grid">
+
+
+        <div class="stat">
+
+            <strong>
+                1
+            </strong>
+
+            <span>
+                ARDUINO UNO
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                1
+            </strong>
+
+            <span>
+                ULTRASONIC SENSOR
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                2
+            </strong>
+
+            <span>
+                SERVO MOTORS
+            </span>
+
+        </div>
+
+
+        <div class="stat">
+
+            <strong>
+                1
+            </strong>
+
+            <span>
+                I2C LCD
+            </span>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     COMPONENT OVERVIEW
+===================================================== -->
+
+<section
+    class="section"
+    id="components"
+>
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                CORE COMPONENTS
+            </span>
+
+            <h2>
+                Hardware Used in Phase 1
+            </h2>
+
+            <p>
+
+                Each component has a specific responsibility
+                in the sensing, processing, actuation or
+                feedback chain.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    MCU
+                </div>
+
+                <h3>
+                    Arduino Uno
+                </h3>
+
+                <p>
+
+                    The central embedded controller of the
+                    AquaSense system.
+
+                </p>
+
+                <p>
+
+                    It reads ultrasonic sensor data,
+                    calculates distance, evaluates the
+                    detection threshold, controls both servo
+                    motors and updates the LCD.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    US
+                </div>
+
+                <h3>
+                    HC-SR04
+                </h3>
+
+                <p>
+
+                    An ultrasonic distance sensor used for
+                    touchless hand detection.
+
+                </p>
+
+                <p>
+
+                    It allows the system to detect a nearby
+                    object without requiring any physical
+                    button or switch.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    S1
+                </div>
+
+                <h3>
+                    SG90 Servo Motor 1
+                </h3>
+
+                <p>
+
+                    Receives position commands from Arduino
+                    through digital pin D6.
+
+                </p>
+
+                <p>
+
+                    It contributes to the mechanical movement
+                    required to operate the water tap.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    S2
+                </div>
+
+                <h3>
+                    SG90 Servo Motor 2
+                </h3>
+
+                <p>
+
+                    Receives position commands from Arduino
+                    through digital pin D7.
+
+                </p>
+
+                <p>
+
+                    It operates together with Servo 1 during
+                    the automatic opening and closing cycle.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    LCD
+                </div>
+
+                <h3>
+                    16×2 I2C LCD
+                </h3>
+
+                <p>
+
+                    Provides visual feedback about the current
+                    system state.
+
+                </p>
+
+                <p>
+
+                    It displays startup messages, measured
+                    distance, dispensing status and completion
+                    information.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    PWR
+                </div>
+
+                <h3>
+                    Power & Wiring System
+                </h3>
+
+                <p>
+
+                    Provides electrical power and signal
+                    connections between the Arduino, sensor,
+                    servos and LCD.
+
+                </p>
+
+                <p>
+
+                    Reliable power delivery is particularly
+                    important for the servo motors because
+                    they require more current than logic-level
+                    sensors.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     ARDUINO UNO
+===================================================== -->
+
+<section class="section-soft">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                MAIN CONTROLLER
+            </span>
+
+            <h2>
+                Arduino Uno
+            </h2>
+
+            <p>
+
+                The Arduino Uno acts as the brain of the
+                Phase 1 AquaSense prototype.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    CPU
+                </div>
+
+                <h3>
+                    Central Processing
+                </h3>
+
+                <p>
+
+                    Executes the complete Arduino program and
+                    coordinates every major subsystem.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    IN
+                </div>
+
+                <h3>
+                    Sensor Input
+                </h3>
+
+                <p>
+
+                    Generates the ultrasonic trigger pulse and
+                    measures the returning echo duration from
+                    the HC-SR04.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    LOG
+                </div>
+
+                <h3>
+                    Decision Logic
+                </h3>
+
+                <p>
+
+                    Calculates distance and checks whether the
+                    measured object is within the programmed
+                    15 cm detection threshold.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    OUT
+                </div>
+
+                <h3>
+                    Output Control
+                </h3>
+
+                <p>
+
+                    Controls both servo motors and sends
+                    information to the LCD based on the
+                    current operating state.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HC-SR04
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                TOUCHLESS DETECTION
+            </span>
+
+            <h2>
+                HC-SR04 Ultrasonic Sensor
+            </h2>
+
+            <p>
+
+                The ultrasonic sensor is the primary input
+                device that enables touchless operation.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="workflow">
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    01
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Arduino Sends Trigger
+                    </h3>
+
+                    <p>
+
+                        Arduino sends a short pulse through
+                        digital pin D9 to the sensor's TRIG
+                        input.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    02
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Sensor Emits Ultrasonic Wave
+                    </h3>
+
+                    <p>
+
+                        The HC-SR04 transmits an ultrasonic
+                        sound pulse toward the area in front
+                        of the dispenser.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    03
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Echo Returns
+                    </h3>
+
+                    <p>
+
+                        When the wave reaches a hand or another
+                        object, part of the signal reflects
+                        back toward the sensor.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Arduino Measures Echo
+                    </h3>
+
+                    <p>
+
+                        The echo pulse is received through
+                        digital pin D10 and its duration is
+                        used to calculate distance.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SENSOR PINOUT
+===================================================== -->
+
+<section class="section-blue">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                SENSOR CONNECTIONS
+            </span>
+
+            <h2>
+                HC-SR04 Pin Functions
+            </h2>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    VCC
+                </div>
+
+                <h3>
+                    VCC
+                </h3>
+
+                <p>
+
+                    Provides power to the ultrasonic sensor.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    TRIG
+                </div>
+
+                <h3>
+                    Trigger
+                </h3>
+
+                <p>
+
+                    Connected to Arduino digital pin
+                    <strong>D9</strong>.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    ECHO
+                </div>
+
+                <h3>
+                    Echo
+                </h3>
+
+                <p>
+
+                    Connected to Arduino digital pin
+                    <strong>D10</strong>.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    GND
+                </div>
+
+                <h3>
+                    Ground
+                </h3>
+
+                <p>
+
+                    Provides the common electrical reference
+                    for the sensor circuit.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVO MOTORS
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                MECHANICAL ACTUATION
+            </span>
+
+            <h2>
+                Dual SG90 Servo System
+            </h2>
+
+            <p>
+
+                Two servo motors convert Arduino commands
+                into physical motion that operates the water
+                tap mechanism.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    S1
+                </div>
+
+                <h3>
+                    Servo Motor 1
+                </h3>
+
+                <p>
+
+                    <strong>
+                        Signal Pin:
+                    </strong>
+
+                    Arduino D6
+
+                </p>
+
+                <p>
+
+                    Operates as part of the dual-servo
+                    mechanical dispensing mechanism.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    S2
+                </div>
+
+                <h3>
+                    Servo Motor 2
+                </h3>
+
+                <p>
+
+                    <strong>
+                        Signal Pin:
+                    </strong>
+
+                    Arduino D7
+
+                </p>
+
+                <p>
+
+                    Moves together with Servo 1 during opening
+                    and closing.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    0°
+                </div>
+
+                <h3>
+                    Closed Position
+                </h3>
+
+                <p>
+
+                    Both servo motors are programmed to
+                    <strong>0°</strong> when the dispensing
+                    mechanism is closed.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    90°
+                </div>
+
+                <h3>
+                    Open Position
+                </h3>
+
+                <p>
+
+                    During valid hand detection, both servos
+                    move to the programmed
+                    <strong>90°</strong> position.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     SERVO SEQUENCE
+===================================================== -->
+
+<section class="section-soft">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                SERVO CONTROL
+            </span>
+
+            <h2>
+                Mechanical Actuation Sequence
+            </h2>
+
+        </div>
+
+
+
+        <div class="workflow">
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    01
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Standby
+                    </h3>
+
+                    <p>
+
+                        Servo 1 = 0°
+                        <br>
+                        Servo 2 = 0°
+
+                    </p>
+
+                    <p>
+
+                        The tap remains in its closed state.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    02
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Valid Hand Detection
+                    </h3>
+
+                    <p>
+
+                        Arduino detects an object within the
+                        programmed 15 cm range.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    03
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Open
+                    </h3>
+
+                    <p>
+
+                        Servo 1 → 90°
+                        <br>
+                        Servo 2 → 90°
+
+                    </p>
+
+                    <p>
+
+                        The mechanical tap is operated.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    04
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Dispense
+                    </h3>
+
+                    <p>
+
+                        The servos remain in the open position
+                        for approximately three seconds.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    05
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Close
+                    </h3>
+
+                    <p>
+
+                        Servo 1 → 0°
+                        <br>
+                        Servo 2 → 0°
+
+                    </p>
+
+                    <p>
+
+                        The tap automatically returns to its
+                        closed position.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LCD
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                USER INTERFACE
+            </span>
+
+            <h2>
+                16×2 I2C LCD Display
+            </h2>
+
+            <p>
+
+                The display provides simple visual
+                communication between the embedded system and
+                the user.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    16×2
+                </div>
+
+                <h3>
+                    Display Format
+                </h3>
+
+                <p>
+
+                    Two rows with sixteen character positions
+                    per row.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    I2C
+                </div>
+
+                <h3>
+                    Communication
+                </h3>
+
+                <p>
+
+                    Uses the I2C protocol to reduce the number
+                    of controller pins required for display
+                    communication.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    SDA
+                </div>
+
+                <h3>
+                    Data Line
+                </h3>
+
+                <p>
+
+                    On the Arduino Uno, the I2C SDA connection
+                    corresponds to <strong>A4 / SDA</strong>.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    SCL
+                </div>
+
+                <h3>
+                    Clock Line
+                </h3>
+
+                <p>
+
+                    On the Arduino Uno, the I2C SCL connection
+                    corresponds to <strong>A5 / SCL</strong>.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    27
+                </div>
+
+                <h3>
+                    Configured Address
+                </h3>
+
+                <p>
+
+                    The current program initializes the LCD
+                    using I2C address:
+
+                    <strong>0x27</strong>.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     LCD MESSAGES
+===================================================== -->
+
+<section class="section-blue">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                LCD STATES
+            </span>
+
+            <h2>
+                Information Shown to the User
+            </h2>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    01
+                </div>
+
+                <h3>
+                    Startup
+                </h3>
+
+                <p>
+
+                    Automatic Water
+                    <br>
+                    Dispenser
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    02
+                </div>
+
+                <h3>
+                    Monitoring
+                </h3>
+
+                <p>
+
+                    Place Hand
+                    <br>
+                    Dist: XX.X cm
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    03
+                </div>
+
+                <h3>
+                    Dispensing
+                </h3>
+
+                <p>
+
+                    Dispensing
+                    <br>
+                    Water...
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    04
+                </div>
+
+                <h3>
+                    Completion
+                </h3>
+
+                <p>
+
+                    Thank You
+                    <br>
+                    Visit Again
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     POWER SYSTEM
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                POWER SYSTEM
+            </span>
+
+            <h2>
+                Reliable Power for Electronics and Actuation
+            </h2>
+
+            <p>
+
+                The power arrangement is an important part of
+                the physical AquaSense prototype, especially
+                because servo motors can require considerably
+                more current than sensors and logic devices.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    MCU
+                </div>
+
+                <h3>
+                    Controller Power
+                </h3>
+
+                <p>
+
+                    The Arduino Uno provides the embedded
+                    processing platform and interfaces with
+                    the sensor, display and servo control
+                    signals.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    5V
+                </div>
+
+                <h3>
+                    Logic-Level Devices
+                </h3>
+
+                <p>
+
+                    The HC-SR04 and common 16×2 I2C LCD
+                    modules operate within the 5 V logic
+                    environment used by the Arduino Uno.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    AMP
+                </div>
+
+                <h3>
+                    Servo Current
+                </h3>
+
+                <p>
+
+                    Servo motors can produce short current
+                    peaks during movement or mechanical load.
+
+                    The power source must be capable of
+                    supporting both servos reliably.
+
+                </p>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    GND
+                </div>
+
+                <h3>
+                    Common Ground
+                </h3>
+
+                <p>
+
+                    If the servos use an external regulated
+                    power source, its ground should be
+                    connected to the Arduino ground to provide
+                    a common reference for the servo control
+                    signals.
+
+                </p>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     CONNECTION MATRIX
+===================================================== -->
+
+<section class="section-soft">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                HARDWARE CONNECTIONS
+            </span>
+
+            <h2>
+                Component-to-Controller Map
+            </h2>
+
+        </div>
+
+
+
+        <div class="workflow">
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    D6
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Servo Motor 1
+                    </h3>
+
+                    <p>
+                        Signal → Arduino Digital Pin 6
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    D7
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        Servo Motor 2
+                    </h3>
+
+                    <p>
+                        Signal → Arduino Digital Pin 7
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    D9
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        HC-SR04 Trigger
+                    </h3>
+
+                    <p>
+                        TRIG → Arduino Digital Pin 9
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    D10
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        HC-SR04 Echo
+                    </h3>
+
+                    <p>
+                        ECHO → Arduino Digital Pin 10
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    A4
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        LCD SDA
+                    </h3>
+
+                    <p>
+                        SDA → Arduino A4 / SDA
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="workflow-step">
+
+                <div class="workflow-number">
+                    A5
+                </div>
+
+                <div class="workflow-content">
+
+                    <h3>
+                        LCD SCL
+                    </h3>
+
+                    <p>
+                        SCL → Arduino A5 / SCL
+                    </p>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     HARDWARE RELATIONSHIP
+===================================================== -->
+
+<section class="section-blue">
+
+    <div class="container">
+
+        <div class="content-block">
+
+            <span class="section-label">
+                HARDWARE RELATIONSHIP
+            </span>
+
+            <h2>
+                How the Components Work as One System
+            </h2>
+
+            <p>
+
+                HC-SR04 detects the user's hand → Arduino Uno
+                calculates the distance → Arduino checks the
+                15 cm threshold → SG90 servo motors operate
+                the tap → Water is dispensed → Servos return
+                to the closed position.
+
+            </p>
+
+            <p>
+
+                Throughout this sequence, the 16×2 I2C LCD
+                provides visual feedback about the current
+                state of the system.
+
+            </p>
+
+
+            <div class="hero-buttons">
+
+                <a
+                    href="../design/circuit.html"
+                    class="btn btn-primary"
+                >
+                    View Circuit Design →
+                </a>
+
+                <a
+                    href="../system/architecture.html"
+                    class="btn btn-secondary"
+                >
+                    System Architecture
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+     NEXT ENGINEERING PAGES
+===================================================== -->
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="section-heading">
+
+            <span class="section-label">
+                CONTINUE ENGINEERING
+            </span>
+
+            <h2>
+                From Components to Physical Implementation
+            </h2>
+
+            <p>
+
+                Now that the individual hardware components
+                are defined, the next pages show how they are
+                electrically connected and mechanically
+                packaged.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="card-grid">
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    CKT
+                </div>
+
+                <h3>
+                    Circuit Design
+                </h3>
+
+                <p>
+
+                    View the actual circuit diagram and study
+                    the electrical connections between all
+                    major components.
+
+                </p>
+
+                <a
+                    href="../design/circuit.html"
+                    class="card-link"
+                >
+                    View circuit →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    CAD
+                </div>
+
+                <h3>
+                    CAD & 3D Models
+                </h3>
+
+                <p>
+
+                    Explore the main box, main lid, servo box
+                    and servo lid designed for the prototype.
+
+                </p>
+
+                <a
+                    href="../design/cad.html"
+                    class="card-link"
+                >
+                    Explore CAD →
+                </a>
+
+            </article>
+
+
+
+            <article class="card">
+
+                <div class="card-icon">
+                    CODE
+                </div>
+
+                <h3>
+                    Embedded Software
+                </h3>
+
+                <p>
+
+                    See how the Arduino program controls these
+                    hardware components as one coordinated
+                    system.
+
+                </p>
+
+                <a
+                    href="../software/code.html"
+                    class="card-link"
+                >
+                    View code →
+                </a>
+
+            </article>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<!-- =====================================================
+     FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                💧 AquaSense
+            </div>
+
+            <p>
+
+                A Phase 1 automatic touchless water dispenser
+                integrating ultrasonic sensing, embedded
+                control, servo actuation and custom mechanical
+                design.
+
+            </p>
+
+        </div>
+
+
+
+        <div class="footer-links">
+
+
+            <div>
+
+                <h4>
+                    Project
+                </h4>
+
+                <a href="../project/overview.html">
+                    Overview
+                </a>
+
+                <a href="../project/working-principle.html">
+                    Working Principle
+                </a>
+
+                <a href="../system/workflow.html">
+                    Workflow
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Engineering
+                </h4>
+
+                <a href="hardware.html">
+                    Hardware
+                </a>
+
+                <a href="../design/circuit.html">
+                    Circuit
+                </a>
+
+                <a href="../design/cad.html">
+                    CAD Models
+                </a>
+
+            </div>
+
+
+
+            <div>
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="../software/code.html">
+                    Source Code
+                </a>
+
+                <a href="../documentation/downloads.html">
+                    Downloads
+                </a>
+
+                <a href="../future/phase2.html">
+                    Phase 2
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <div class="footer-bottom">
+
+        <p>
+            AquaSense — Automatic Touchless Water Dispenser
+        </p>
+
+        <p>
+            Phase 1 Engineering Prototype •
+            <span class="current-year"></span>
+        </p>
+
+    </div>
+
+</footer>
+
+
+
+<button
+    class="back-to-top"
+    aria-label="Back to top"
+>
+    ↑
+</button>
+
+
+<script src="../../js/script.js"></script>
+
+
+</body>
+
+</html>
