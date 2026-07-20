@@ -1,0 +1,1515 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="Working principle of the AquaSense Automatic Touchless Water Dispenser Phase 1 prototype.">
+
+    <title>Working Principle | AquaSense</title>
+
+    <link rel="stylesheet" href="../../css/style.css">
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+                     NAVIGATION BAR
+===================================================== -->
+
+<header class="navbar">
+
+    <div class="nav-container">
+
+        <a href="../../index.html" class="logo">
+
+            <span class="logo-icon">💧</span>
+
+            <div class="logo-text">
+
+                <span class="logo-title">
+                    AquaSense
+                </span>
+
+                <span class="logo-subtitle">
+                    Smart Water System
+                </span>
+
+            </div>
+
+        </a>
+
+
+        <button
+            class="menu-toggle"
+            id="menuToggle"
+            aria-label="Open navigation menu"
+            aria-expanded="false">
+
+            ☰
+
+        </button>
+
+
+        <nav class="nav-links" id="navLinks">
+
+            <a href="../../index.html">
+                Home
+            </a>
+
+
+            <!-- PROJECT -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Project ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="overview.html">
+                        Project Overview
+                    </a>
+
+                    <a href="working-principle.html"
+                       class="active">
+                        Working Principle
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SYSTEM -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    System ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../system/architecture.html">
+                        System Architecture
+                    </a>
+
+                    <a href="../system/workflow.html">
+                        System Workflow
+                    </a>
+
+                    <a href="../system/technical-specs.html">
+                        Technical Specifications
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- ENGINEERING -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Engineering ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../hardware/hardware.html">
+                        Hardware
+                    </a>
+
+                    <a href="../design/circuit.html">
+                        Circuit Design
+                    </a>
+
+                    <a href="../design/cad.html">
+                        CAD & 3D Models
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- SOFTWARE -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Software ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../software/code.html">
+                        Arduino Code
+                    </a>
+
+                    <a href="../software/code-explanation.html">
+                        Code Explanation
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- DOCUMENTATION -->
+
+            <div class="dropdown">
+
+                <button class="dropbtn">
+                    Documentation ▾
+                </button>
+
+                <div class="dropdown-content">
+
+                    <a href="../documentation/documentation.html">
+                        Documentation Center
+                    </a>
+
+                    <a href="../documentation/downloads.html">
+                        Downloads
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <a href="../future/phase2.html">
+                Phase 2
+            </a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+
+<main>
+
+
+<!-- =====================================================
+                       PAGE HERO
+===================================================== -->
+
+<section class="inner-hero">
+
+    <div class="inner-hero-content">
+
+        <div class="breadcrumb">
+
+            <a href="../../index.html">
+                Home
+            </a>
+
+            <span>›</span>
+
+            <a href="overview.html">
+                Project
+            </a>
+
+            <span>›</span>
+
+            <strong>
+                Working Principle
+            </strong>
+
+        </div>
+
+
+        <span class="section-label">
+            WORKING PRINCIPLE
+        </span>
+
+
+        <h1>
+            How the Touchless
+            Dispensing System Works
+        </h1>
+
+
+        <p>
+
+            The Phase 1 prototype follows a programmed
+            sensing-and-actuation sequence. The ultrasonic
+            sensor measures distance, the Arduino evaluates
+            the reading, and the servo mechanism controls
+            the tap when the detection condition is satisfied.
+
+        </p>
+
+
+        <div class="hero-buttons">
+
+            <a
+                href="#operation-sequence"
+                class="btn btn-primary">
+
+                Explore Operation ↓
+
+            </a>
+
+            <a
+                href="../system/workflow.html"
+                class="btn btn-secondary">
+
+                View System Workflow →
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                  PRINCIPLE SUMMARY
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            CORE PRINCIPLE
+        </span>
+
+        <h2>
+            Sense → Decide → Act → Reset
+        </h2>
+
+        <p>
+
+            The dispenser converts a physical event —
+            a hand entering the detection zone —
+            into an automated mechanical response.
+
+        </p>
+
+    </div>
+
+
+    <div class="principle-chain">
+
+
+        <div class="principle-card">
+
+            <span class="principle-step">
+                01
+            </span>
+
+            <div class="principle-symbol">
+                ◉
+            </div>
+
+            <h3>
+                Sense
+            </h3>
+
+            <p>
+
+                HC-SR04 measures the distance
+                of an object in front of the dispenser.
+
+            </p>
+
+        </div>
+
+
+        <div class="principle-connector">
+            →
+        </div>
+
+
+        <div class="principle-card">
+
+            <span class="principle-step">
+                02
+            </span>
+
+            <div class="principle-symbol">
+                ◆
+            </div>
+
+            <h3>
+                Decide
+            </h3>
+
+            <p>
+
+                Arduino compares the measured distance
+                with the programmed 15 cm threshold.
+
+            </p>
+
+        </div>
+
+
+        <div class="principle-connector">
+            →
+        </div>
+
+
+        <div class="principle-card">
+
+            <span class="principle-step">
+                03
+            </span>
+
+            <div class="principle-symbol">
+                ⚙
+            </div>
+
+            <h3>
+                Act
+            </h3>
+
+            <p>
+
+                Two servo motors move to the programmed
+                open position and operate the tap.
+
+            </p>
+
+        </div>
+
+
+        <div class="principle-connector">
+            →
+        </div>
+
+
+        <div class="principle-card">
+
+            <span class="principle-step">
+                04
+            </span>
+
+            <div class="principle-symbol">
+                ↻
+            </div>
+
+            <h3>
+                Reset
+            </h3>
+
+            <p>
+
+                After dispensing, the servos return
+                to the closed position and the system
+                waits for another detection.
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+               COMPLETE OPERATION SEQUENCE
+===================================================== -->
+
+<section
+    class="section section-alt"
+    id="operation-sequence">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            OPERATION SEQUENCE
+        </span>
+
+        <h2>
+            Step-by-Step System Operation
+        </h2>
+
+        <p>
+
+            The following sequence represents the behavior
+            implemented in the Phase 1 Arduino program.
+
+        </p>
+
+    </div>
+
+
+    <div class="operation-timeline">
+
+
+        <!-- STEP 1 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                01
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    INITIALIZATION
+                </span>
+
+                <h3>
+                    System Powers On
+                </h3>
+
+                <p>
+
+                    When the system starts, the Arduino Uno
+                    initializes serial communication, the LCD,
+                    ultrasonic sensor pins and both servo motors.
+
+                </p>
+
+                <div class="operation-data">
+
+                    <span>
+                        Servo 1 → 0°
+                    </span>
+
+                    <span>
+                        Servo 2 → 0°
+                    </span>
+
+                    <span>
+                        LCD → Active
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 2 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                02
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    USER FEEDBACK
+                </span>
+
+                <h3>
+                    Startup Message Appears
+                </h3>
+
+                <p>
+
+                    The 16×2 LCD displays the startup message
+                    “Automatic Water / Dispenser” for approximately
+                    two seconds before entering normal operation.
+
+                </p>
+
+                <div class="lcd-preview">
+
+                    <span>
+                        Automatic Water
+                    </span>
+
+                    <span>
+                        Dispenser
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 3 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                03
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    SENSING
+                </span>
+
+                <h3>
+                    Ultrasonic Distance Is Measured
+                </h3>
+
+                <p>
+
+                    Arduino sends a short trigger pulse to the
+                    HC-SR04. The sensor emits an ultrasonic pulse
+                    and measures the time required for the echo
+                    to return.
+
+                </p>
+
+                <div class="technical-formula">
+
+                    Distance =
+                    (Echo Time × Speed of Sound) ÷ 2
+
+                </div>
+
+                <p class="small-note">
+
+                    Division by two accounts for the sound
+                    travelling from the sensor to the object
+                    and then returning to the sensor.
+
+                </p>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 4 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                04
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    READY STATE
+                </span>
+
+                <h3>
+                    System Waits for a Hand
+                </h3>
+
+                <p>
+
+                    During normal operation, the LCD displays
+                    “Place Hand” together with the measured
+                    distance.
+
+                </p>
+
+                <div class="lcd-preview">
+
+                    <span>
+                        Place Hand
+                    </span>
+
+                    <span>
+                        Dist: XX.X cm
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 5 -->
+
+        <article class="operation-step decision-step">
+
+            <div class="operation-number">
+                05
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    DECISION
+                </span>
+
+                <h3>
+                    Arduino Checks the Detection Threshold
+                </h3>
+
+                <p>
+
+                    The measured distance is checked against
+                    the programmed detection condition.
+
+                </p>
+
+
+                <div class="decision-box">
+
+                    <div>
+
+                        <span class="decision-label">
+                            CONDITION
+                        </span>
+
+                        <strong>
+                            Distance &gt; 0 cm
+                            AND
+                            Distance ≤ 15 cm
+                        </strong>
+
+                    </div>
+
+
+                    <div class="decision-result yes">
+
+                        YES
+
+                        <span>
+                            Start Dispensing
+                        </span>
+
+                    </div>
+
+
+                    <div class="decision-result no">
+
+                        NO
+
+                        <span>
+                            Continue Monitoring
+                        </span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 6 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                06
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    ACTUATION
+                </span>
+
+                <h3>
+                    Servo Motors Open the Tap
+                </h3>
+
+                <p>
+
+                    When a valid detection occurs,
+                    Arduino commands both servo motors
+                    to move from their closed position
+                    to the programmed open position.
+
+                </p>
+
+
+                <div class="servo-state">
+
+                    <div>
+
+                        <span>
+                            CLOSED
+                        </span>
+
+                        <strong>
+                            0°
+                        </strong>
+
+                    </div>
+
+
+                    <div class="servo-arrow">
+                        →
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            OPEN
+                        </span>
+
+                        <strong>
+                            90°
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 7 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                07
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    DISPENSING
+                </span>
+
+                <h3>
+                    Water Is Dispensed
+                </h3>
+
+                <p>
+
+                    The tap remains in its actuated position
+                    for approximately three seconds according
+                    to the current Phase 1 program.
+
+                </p>
+
+
+                <div class="lcd-preview active-lcd">
+
+                    <span>
+                        Dispensing
+                    </span>
+
+                    <span>
+                        Water...
+                    </span>
+
+                </div>
+
+
+                <div class="duration-indicator">
+
+                    <span>
+                        Programmed Duration
+                    </span>
+
+                    <strong>
+                        3 seconds
+                    </strong>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 8 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                08
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    CLOSING
+                </span>
+
+                <h3>
+                    Servo Motors Close the Tap
+                </h3>
+
+                <p>
+
+                    After the programmed dispensing interval,
+                    Arduino commands both servos to return
+                    to the 0° closed position.
+
+                </p>
+
+
+                <div class="servo-state">
+
+                    <div>
+
+                        <span>
+                            OPEN
+                        </span>
+
+                        <strong>
+                            90°
+                        </strong>
+
+                    </div>
+
+
+                    <div class="servo-arrow">
+                        →
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            CLOSED
+                        </span>
+
+                        <strong>
+                            0°
+                        </strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 9 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                09
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    COMPLETION
+                </span>
+
+                <h3>
+                    Completion Message Is Displayed
+                </h3>
+
+                <p>
+
+                    The LCD informs the user that the
+                    dispensing cycle has completed.
+
+                </p>
+
+
+                <div class="lcd-preview">
+
+                    <span>
+                        Thank You
+                    </span>
+
+                    <span>
+                        Visit Again
+                    </span>
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+
+        <!-- STEP 10 -->
+
+        <article class="operation-step">
+
+            <div class="operation-number">
+                10
+            </div>
+
+            <div class="operation-content">
+
+                <span class="operation-tag">
+                    RESET
+                </span>
+
+                <h3>
+                    System Returns to Monitoring
+                </h3>
+
+                <p>
+
+                    After the completion message,
+                    the display is cleared and the main
+                    program loop continues measuring distance.
+
+                    The dispenser is ready for the next
+                    detection cycle.
+
+                </p>
+
+                <div class="cycle-loop">
+
+                    Detect
+                    <span>→</span>
+                    Decide
+                    <span>→</span>
+                    Dispense
+                    <span>→</span>
+                    Close
+                    <span>→</span>
+                    Repeat
+
+                </div>
+
+            </div>
+
+        </article>
+
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                 CONTROL LOGIC SUMMARY
+===================================================== -->
+
+<section class="section">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            CONTROL LOGIC
+        </span>
+
+        <h2>
+            Phase 1 Decision Logic
+        </h2>
+
+        <p>
+
+            At its core, the control system follows
+            one simple decision.
+
+        </p>
+
+    </div>
+
+
+    <div class="logic-panel">
+
+
+        <div class="logic-start">
+
+            <span>
+                SENSOR INPUT
+            </span>
+
+            <strong>
+                Measure Distance
+            </strong>
+
+        </div>
+
+
+        <div class="logic-arrow">
+            ↓
+        </div>
+
+
+        <div class="logic-decision">
+
+            <span>
+                DECISION
+            </span>
+
+            <strong>
+                Is distance between
+                0 and 15 cm?
+            </strong>
+
+        </div>
+
+
+        <div class="logic-branches">
+
+
+            <div class="logic-branch">
+
+                <span class="branch-no">
+                    NO
+                </span>
+
+                <strong>
+                    Keep Monitoring
+                </strong>
+
+                <p>
+                    Continue measuring distance.
+                </p>
+
+            </div>
+
+
+            <div class="logic-branch">
+
+                <span class="branch-yes">
+                    YES
+                </span>
+
+                <strong>
+                    Start Dispensing
+                </strong>
+
+                <p>
+                    Open servos → wait 3 sec → close.
+                </p>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                 HARDWARE ROLE SUMMARY
+===================================================== -->
+
+<section class="section section-alt">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            COMPONENT ROLES
+        </span>
+
+        <h2>
+            How Each Major Component Contributes
+        </h2>
+
+    </div>
+
+
+    <div class="role-grid">
+
+
+        <article class="role-card">
+
+            <span>
+                INPUT
+            </span>
+
+            <h3>
+                HC-SR04
+            </h3>
+
+            <p>
+
+                Provides distance information
+                to determine whether a hand is
+                inside the detection zone.
+
+            </p>
+
+        </article>
+
+
+        <article class="role-card">
+
+            <span>
+                PROCESSING
+            </span>
+
+            <h3>
+                Arduino Uno
+            </h3>
+
+            <p>
+
+                Executes the program, evaluates
+                distance and coordinates the LCD
+                and servo motors.
+
+            </p>
+
+        </article>
+
+
+        <article class="role-card">
+
+            <span>
+                OUTPUT
+            </span>
+
+            <h3>
+                Servo Motors
+            </h3>
+
+            <p>
+
+                Convert Arduino commands into
+                mechanical movement of the tap mechanism.
+
+            </p>
+
+        </article>
+
+
+        <article class="role-card">
+
+            <span>
+                INTERFACE
+            </span>
+
+            <h3>
+                16×2 LCD
+            </h3>
+
+            <p>
+
+                Communicates instructions,
+                distance and system status
+                to the user.
+
+            </p>
+
+        </article>
+
+    </div>
+
+
+    <div class="center-button">
+
+        <a
+            href="../hardware/hardware.html"
+            class="btn btn-primary">
+
+            Explore Hardware →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                  ENGINEERING NOTE
+===================================================== -->
+
+<section class="section">
+
+    <div class="engineering-note">
+
+        <div>
+
+            <span class="section-label">
+                IMPORTANT ENGINEERING NOTE
+            </span>
+
+            <h2>
+                Software Command vs.
+                Physical Tap Position
+            </h2>
+
+            <p>
+
+                In the current Phase 1 design, Arduino commands
+                the servos to 0° or 90°, but the software does
+                not independently verify that the physical tap
+                actually reached the requested position.
+
+            </p>
+
+            <p>
+
+                Mechanical alignment, servo linkage and
+                calibration must therefore be checked during
+                prototype assembly and testing.
+
+            </p>
+
+        </div>
+
+
+        <a
+            href="../future/phase2.html"
+            class="btn btn-secondary">
+
+            See Future Improvements →
+
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<!-- =====================================================
+                      NEXT LAYER
+===================================================== -->
+
+<section class="section section-alt">
+
+    <div class="section-heading">
+
+        <span class="section-label">
+            NEXT LAYER
+        </span>
+
+        <h2>
+            Explore the System Engineering
+        </h2>
+
+    </div>
+
+
+    <div class="next-page-grid">
+
+
+        <a
+            href="../system/architecture.html"
+            class="next-page-card">
+
+            <span>
+                SYSTEM
+            </span>
+
+            <h3>
+                Architecture
+            </h3>
+
+            <p>
+
+                Understand how every major subsystem
+                connects together.
+
+            </p>
+
+            <strong>
+                Explore →
+            </strong>
+
+        </a>
+
+
+        <a
+            href="../system/workflow.html"
+            class="next-page-card">
+
+            <span>
+                PROCESS
+            </span>
+
+            <h3>
+                System Workflow
+            </h3>
+
+            <p>
+
+                View the complete information and
+                control flow through the system.
+
+            </p>
+
+            <strong>
+                Explore →
+            </strong>
+
+        </a>
+
+
+        <a
+            href="../software/code-explanation.html"
+            class="next-page-card">
+
+            <span>
+                SOFTWARE
+            </span>
+
+            <h3>
+                Code Explanation
+            </h3>
+
+            <p>
+
+                Understand how this working principle
+                is implemented in Arduino code.
+
+            </p>
+
+            <strong>
+                Explore →
+            </strong>
+
+        </a>
+
+
+    </div>
+
+</section>
+
+
+
+</main>
+
+
+
+<!-- =====================================================
+                         FOOTER
+===================================================== -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-brand">
+
+            <div class="footer-logo">
+                💧 AquaSense
+            </div>
+
+            <p>
+
+                Automatic Touchless Water Dispenser —
+                Phase 1 Engineering Prototype.
+
+            </p>
+
+        </div>
+
+
+        <div class="footer-links">
+
+
+            <div>
+
+                <h4>
+                    Project
+                </h4>
+
+                <a href="overview.html">
+                    Overview
+                </a>
+
+                <a href="working-principle.html">
+                    Working Principle
+                </a>
+
+                <a href="../system/workflow.html">
+                    Workflow
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Engineering
+                </h4>
+
+                <a href="../hardware/hardware.html">
+                    Hardware
+                </a>
+
+                <a href="../design/circuit.html">
+                    Circuit
+                </a>
+
+                <a href="../design/cad.html">
+                    CAD Models
+                </a>
+
+            </div>
+
+
+            <div>
+
+                <h4>
+                    Resources
+                </h4>
+
+                <a href="../software/code.html">
+                    Arduino Code
+                </a>
+
+                <a href="../documentation/documentation.html">
+                    Documentation
+                </a>
+
+                <a href="../documentation/downloads.html">
+                    Downloads
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+    <div class="footer-bottom">
+
+        <p>
+            Automatic Touchless Water Dispenser | Phase 1
+        </p>
+
+        <p>
+            Engineering • Automation • Innovation
+        </p>
+
+    </div>
+
+</footer>
+
+
+<script src="../../js/script.js"></script>
+
+
+</body>
+
+</html>
