@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Overview | AquaSense</title>
+    <title>Learning Journey | AquaSense</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
@@ -20,7 +20,7 @@
                 <ul class="nav-links">
                     <li><a href="../../pages/overview/overview.html">Overview</a></li>
                     <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html" class="active">Hardware</a></li>
+                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
                     <li><a href="../../pages/software/code.html">Software</a></li>
                     <li><a href="../../pages/cad/cad.html">CAD</a></li>
                     <li><a href="../../pages/testing/testing.html">Testing</a></li>
@@ -36,32 +36,36 @@
 
     <main class="container">
         <header class="page-header reveal-on-scroll">
-            <span class="page-number">03 — HARDWARE</span>
-            <h1>Physical Setup</h1>
-            <p>Structural integration and physical configuration of the prototype.</p>
+            <span class="page-number">08 — LEARNING</span>
+            <h1>Engineering Insights</h1>
+            <p>Key technical skills, design challenges, and takeaways from the development process.</p>
         </header>
 
-        <section class="content-grid reveal-on-scroll">
+        <section class="card-grid reveal-on-scroll">
+            
             <div class="glass-panel">
-                <h3 class="text-accent">Mechanical Integration</h3>
-                <p>The Phase 1 prototype integrates off-the-shelf electronic modules with custom 3D-printed mechanical housings. The primary design constraint was ensuring the servo motor had sufficient torque and structural bracing to operate the mechanical valve continuously without decoupling.</p>
-                <p>The ultrasonic sensor is mounted externally, facing downwards toward the dispensing area to isolate false-positive readings from environmental interference.</p>
+                <h3 class="text-accent">Embedded Systems</h3>
+                <p>Gained hands-on experience interfacing digital sensors (HC-SR04) with microcontroller interrupt registers, managing PWM timing constraints, and optimizing loop frequency for real-time responsiveness.</p>
             </div>
 
             <div class="glass-panel">
-                <h3 class="text-accent">Prototype Assembly</h3>
-                <div class="image-panel">
-                    <img src="../../assets/images/hardware/hardware-setup.png" alt="AquaSense Prototype Physical Setup">
-                </div>
+                <h3 class="text-accent">Mechatronic Design</h3>
+                <p>Learned how to balance electronic power loads with mechanical actuator torque limits, mitigating physical valve friction using custom-tolerance 3D enclosure structures.</p>
             </div>
+
+            <div class="glass-panel">
+                <h3 class="text-accent">Iterative Prototyping</h3>
+                <p>Understood the importance of empirical testing cycles—identifying acoustic wave deflection issues during edge-case testing and adjusting code-level delay buffers to eliminate mechanical jitter.</p>
+            </div>
+
         </section>
 
         <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/system/workingprinciple.html" class="btn btn-outline">
-                &larr; Previous: Working Principle
+            <a href="../../pages/demo/demo.html" class="btn btn-outline">
+                &larr; Previous: Prototype Demo
             </a>
-            <a href="../../pages/hardware/components.html" class="btn btn-primary">
-                Next: Components &rarr;
+            <a href="../../pages/team/teamjourney.html" class="btn btn-primary">
+                Next: Team Journey &rarr;
             </a>
         </nav>
     </main>

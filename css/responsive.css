@@ -1,0 +1,60 @@
+/* ==========================================================================
+   AQUASENSE - RESPONSIVE DESIGN
+   File: css/responsive.css
+   ========================================================================== */
+
+@media screen and (max-width: 1024px) {
+    h1 { font-size: 3rem; }
+    h2 { font-size: 2.5rem; }
+    
+    .hero-layout {
+        grid-template-columns: 1fr;
+        gap: 4rem;
+        text-align: center;
+    }
+    
+    .hero-content {
+        order: 2;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-visual {
+        order: 1;
+    }
+    
+    .tag-group, .btn-group {
+        justify-content: center;
+    }
+    
+    .nav-links {
+        display: none; /* Will be toggled via JS in Step 3 */
+    }
+}
+
+@media screen and (max-width: 768px) {
+    :root {
+        --section-padding: 60px 5%;
+    }
+    
+    h1 { font-size: 2.5rem; }
+    
+    .btn {
+        width: 100%;
+    }
+    
+    .btn-group {
+        width: 100%;
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .search-trigger {
+        padding: 6px;
+    }
+    .search-trigger span {
+        display: none; /* Hide 'Ctrl+K' on mobile */
+    }
+}

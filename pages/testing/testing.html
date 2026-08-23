@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Testing Results | AquaSense</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-rootpath="../../">
+
+    <header class="main-header" id="mainHeader">
+        <div class="container nav-container">
+            <a href="../../index.html" class="logo-container">
+                <span class="logo-title">AquaSense</span>
+                <span class="logo-subtitle">Engineering Prototype</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
+                    <li><a href="../../pages/system/architecture.html">System</a></li>
+                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../../pages/software/code.html">Software</a></li>
+                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
+                    <li><a href="../../pages/testing/testing.html" class="active">Testing</a></li>
+                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+                </ul>
+            </nav>
+            <button class="search-trigger" id="searchBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Search (Ctrl+K)</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header reveal-on-scroll">
+            <span class="page-number">06 — TESTING</span>
+            <h1>Methodology & Results</h1>
+            <p>Empirical evaluation of the prototype's sensor accuracy and mechanical reliability.</p>
+        </header>
+
+        <section class="content-grid single-col reveal-on-scroll">
+            
+            <div class="glass-panel">
+                <h3 class="text-accent">Primary Test Matrix</h3>
+                <p>The following conditions were tested over 50 consecutive cycles to determine the operational reliability of the dispensing loop.</p>
+                
+                <div class="table-wrapper">
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Test Condition</th>
+                                <th>Expected Behavior</th>
+                                <th>Actual Behavior</th>
+                                <th>Result</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>Object &lt; 15cm (Center)</td>
+                                <td>Valve opens instantly</td>
+                                <td>Valve opens at 180ms latency</td>
+                                <td class="status-pass">PASS</td>
+                            </tr>
+                            <tr>
+                                <td>Object &lt; 15cm (Edge)</td>
+                                <td>Valve opens</td>
+                                <td>Intermittent detection</td>
+                                <td class="status-warn">MARGINAL</td>
+                            </tr>
+                            <tr>
+                                <td>Object Removed</td>
+                                <td>Valve closes (1s delay)</td>
+                                <td>Valve closes accurately</td>
+                                <td class="status-pass">PASS</td>
+                            </tr>
+                            <tr>
+                                <td>Continuous Object (10s+)</td>
+                                <td>Valve remains open</td>
+                                <td>Valve remains open</td>
+                                <td class="status-pass">PASS</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+        </section>
+
+        <section class="content-grid reveal-on-scroll" style="margin-top: 3rem;">
+            <div class="glass-panel">
+                <h3 class="text-accent">Observations & Limitations</h3>
+                <ul style="list-style-position: inside; color: var(--text-muted); line-height: 1.8; margin-bottom: 1.5rem;">
+                    <li><strong>Acoustic Interference:</strong> Glass containers occasionally reflect ultrasonic waves at severe angles, causing micro-stutters in detection.</li>
+                    <li><strong>Mechanical Wear:</strong> The SG90 servo gear exhibits slight heat generation after 20 continuous actuations. A metal-gear variant is recommended for Phase 2.</li>
+                </ul>
+            </div>
+            
+            <div class="glass-panel" style="display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center;">
+                <h3 class="text-accent">Full Test Report</h3>
+                <p style="margin-bottom: 2rem;">Download the complete raw data and engineering notes from the testing phase.</p>
+                <a href="../../documents/Test-Results.pdf" target="_blank" class="btn btn-outline">
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="margin-right: 8px;"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><polyline points="7 10 12 15 17 10"></polyline><line x1="12" y1="15" x2="12" y2="3"></line></svg>
+                    View Test Results PDF
+                </a>
+            </div>
+        </section>
+
+        <nav class="sequential-nav reveal-on-scroll">
+            <a href="../../pages/cad/3d-viewer.html" class="btn btn-outline">
+                &larr; Previous: 3D Viewer
+            </a>
+            <a href="../../pages/demo/demo.html" class="btn btn-primary">
+                Next: Prototype Demo &rarr;
+            </a>
+        </nav>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

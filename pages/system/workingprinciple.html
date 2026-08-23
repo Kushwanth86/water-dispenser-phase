@@ -3,14 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>System Architecture | AquaSense</title>
+    <title>Working Principle | AquaSense</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
 <body data-rootpath="../../">
 
-    <!-- GLOBAL NAVIGATION -->
     <header class="main-header" id="mainHeader">
         <div class="container nav-container">
             <a href="../../index.html" class="logo-container">
@@ -35,52 +34,33 @@
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="container">
         <header class="page-header reveal-on-scroll">
             <span class="page-number">02 — SYSTEM</span>
-            <h1>Architecture</h1>
-            <p>High-level block diagram and component integration mapping.</p>
+            <h1>Working Principle</h1>
+            <p>Understanding the physics and logic behind the detection and actuation loop.</p>
         </header>
 
         <section class="content-grid reveal-on-scroll">
-            <!-- Left: Text & Logic Flow -->
             <div class="glass-panel">
-                <h3 class="text-accent">Control Flow</h3>
-                <p>The system operates on a linear decision tree. The primary logic controller (Arduino Uno) acts as the central hub, interfacing continuously with the sensor matrix to determine mechanical output.</p>
-                
-                <div class="flow-diagram">
-                    <div class="flow-node">User Object (Input)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">HC-SR04 Sensor (Detection)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">Arduino Uno (Decision / Logic)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">SG90 Servo Motor (Actuation)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">Water Dispensing (Physical Output)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">16x2 LCD (User Feedback)</div>
-                </div>
+                <h3 class="text-accent">1. Ultrasonic Detection</h3>
+                <p>The HC-SR04 sensor operates by transmitting high-frequency sound waves (40 kHz) and calculating the time it takes for the echo to return. The Arduino continuously pulses the trigger pin for 10 microseconds.</p>
+                <p>If an object (e.g., a hand or a glass) disrupts the wave within the predefined threshold distance (e.g., < 15cm), the system interprets this as an active dispense request.</p>
             </div>
 
-            <!-- Right: Schematic Image -->
             <div class="glass-panel">
-                <h3 class="text-accent">System Diagram</h3>
-                <p>The visual representation of hardware connections and data flow between the microcontroller and peripherals.</p>
-                <div class="image-panel">
-                    <img src="../../assets/images/architecture/architecture.jpeg" alt="AquaSense System Architecture Diagram">
-                </div>
+                <h3 class="text-accent">2. Servo Actuation</h3>
+                <p>Upon positive detection, the microcontroller sends a PWM (Pulse Width Modulation) signal to the SG90 servo motor. The motor rotates from its resting state (0°) to an open state (e.g., 90°), physically pulling the dispenser valve open.</p>
+                <p>To prevent overflow, the system includes a time-delay buffer. Once the object is removed, the servo returns to 0°, securely closing the valve.</p>
             </div>
         </section>
 
-        <!-- Sequential Navigation -->
         <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/overview/overview.html" class="btn btn-outline">
-                &larr; Previous: Overview
+            <a href="../../pages/system/workflow.html" class="btn btn-outline">
+                &larr; Previous: Workflow
             </a>
-            <a href="../../pages/system/workflow.html" class="btn btn-primary">
-                Next: Workflow &rarr;
+            <a href="../../pages/hardware/hardware.html" class="btn btn-primary">
+                Next: Hardware &rarr;
             </a>
         </nav>
     </main>

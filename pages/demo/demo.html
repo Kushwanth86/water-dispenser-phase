@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Overview | AquaSense</title>
+    <title>Hardware Demo | AquaSense</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
@@ -20,7 +20,7 @@
                 <ul class="nav-links">
                     <li><a href="../../pages/overview/overview.html">Overview</a></li>
                     <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html" class="active">Hardware</a></li>
+                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
                     <li><a href="../../pages/software/code.html">Software</a></li>
                     <li><a href="../../pages/cad/cad.html">CAD</a></li>
                     <li><a href="../../pages/testing/testing.html">Testing</a></li>
@@ -36,32 +36,48 @@
 
     <main class="container">
         <header class="page-header reveal-on-scroll">
-            <span class="page-number">03 — HARDWARE</span>
-            <h1>Physical Setup</h1>
-            <p>Structural integration and physical configuration of the prototype.</p>
+            <span class="page-number">07 — DEMO</span>
+            <h1>Hardware Demonstration</h1>
+            <p>Video presentation of the fully integrated Phase 1 prototype.</p>
         </header>
 
         <section class="content-grid reveal-on-scroll">
-            <div class="glass-panel">
-                <h3 class="text-accent">Mechanical Integration</h3>
-                <p>The Phase 1 prototype integrates off-the-shelf electronic modules with custom 3D-printed mechanical housings. The primary design constraint was ensuring the servo motor had sufficient torque and structural bracing to operate the mechanical valve continuously without decoupling.</p>
-                <p>The ultrasonic sensor is mounted externally, facing downwards toward the dispensing area to isolate false-positive readings from environmental interference.</p>
+            
+            <!-- Left: Video Player -->
+            <div class="video-wrapper">
+                <video controls preload="metadata">
+                    <!-- Path relative to the current directory -->
+                    <source src="../../media/Hardware-Demo-Video.mp4" type="video/mp4">
+                    Your browser does not support the video tag. 
+                    <a href="../../media/Hardware-Demo-Video.mp4" class="text-accent">Download the video directly</a>.
+                </video>
             </div>
 
-            <div class="glass-panel">
-                <h3 class="text-accent">Prototype Assembly</h3>
-                <div class="image-panel">
-                    <img src="../../assets/images/hardware/hardware-setup.png" alt="AquaSense Prototype Physical Setup">
+            <!-- Right: Explanation -->
+            <div class="glass-panel" style="display: flex; flex-direction: column; justify-content: center;">
+                <h3 class="text-accent">Prototype in Action</h3>
+                <p>This demonstration validates the core mechanical and software loops engineered throughout Phase 1.</p>
+                
+                <ul style="list-style-position: inside; color: var(--text-muted); line-height: 1.8; margin-top: 1rem;">
+                    <li><strong>0:00 - 0:05</strong> System boot and LCD initialization sequence.</li>
+                    <li><strong>0:06 - 0:15</strong> Positive object detection and immediate servo actuation.</li>
+                    <li><strong>0:16 - End</strong> The 1-second delay buffer executing flawlessly upon object removal to prevent immediate shutoff jitter.</li>
+                </ul>
+
+                <div class="tag-group" style="margin-top: 2rem;">
+                    <span class="tag">Functional Test</span>
+                    <span class="tag">Real-time Feedback</span>
                 </div>
             </div>
+
         </section>
 
         <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/system/workingprinciple.html" class="btn btn-outline">
-                &larr; Previous: Working Principle
+            <a href="../../pages/testing/testing.html" class="btn btn-outline">
+                &larr; Previous: Testing Results
             </a>
-            <a href="../../pages/hardware/components.html" class="btn btn-primary">
-                Next: Components &rarr;
+            <a href="../../pages/learning/learning.html" class="btn btn-primary">
+                Next: Learning Journey &rarr;
             </a>
         </nav>
     </main>

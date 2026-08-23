@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hardware Overview | AquaSense</title>
+    <title>Circuit Schematic | AquaSense</title>
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
@@ -37,37 +37,36 @@
     <main class="container">
         <header class="page-header reveal-on-scroll">
             <span class="page-number">03 — HARDWARE</span>
-            <h1>Physical Setup</h1>
-            <p>Structural integration and physical configuration of the prototype.</p>
+            <h1>Circuit Schematic</h1>
+            <p>Phase 1 electrical wiring and I/O pin mapping.</p>
         </header>
 
-        <section class="content-grid reveal-on-scroll">
-            <div class="glass-panel">
-                <h3 class="text-accent">Mechanical Integration</h3>
-                <p>The Phase 1 prototype integrates off-the-shelf electronic modules with custom 3D-printed mechanical housings. The primary design constraint was ensuring the servo motor had sufficient torque and structural bracing to operate the mechanical valve continuously without decoupling.</p>
-                <p>The ultrasonic sensor is mounted externally, facing downwards toward the dispensing area to isolate false-positive readings from environmental interference.</p>
-            </div>
-
-            <div class="glass-panel">
-                <h3 class="text-accent">Prototype Assembly</h3>
-                <div class="image-panel">
-                    <img src="../../assets/images/hardware/hardware-setup.png" alt="AquaSense Prototype Physical Setup">
+        <section class="content-grid single-col reveal-on-scroll">
+            <div class="glass-panel text-center">
+                <h3 class="text-accent" style="margin-bottom: 0.5rem;">Interactive Schematic</h3>
+                <p>Click the diagram to expand and inspect individual pin connections.</p>
+                
+                <div class="image-panel" style="background: white; padding: 1rem;">
+                    <!-- Adding 'zoomable' class triggers the viewer.js logic -->
+                    <img src="../../assets/images/circuit/circuit.png" alt="AquaSense Circuit Diagram" class="zoomable" title="Click to zoom">
                 </div>
             </div>
         </section>
 
         <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/system/workingprinciple.html" class="btn btn-outline">
-                &larr; Previous: Working Principle
+            <a href="../../pages/hardware/components.html" class="btn btn-outline">
+                &larr; Previous: Components
             </a>
-            <a href="../../pages/hardware/components.html" class="btn btn-primary">
-                Next: Components &rarr;
+            <a href="../../pages/software/code.html" class="btn btn-primary">
+                Next: Software Code &rarr;
             </a>
         </nav>
     </main>
 
+    <!-- JS Scripts (Viewer is included) -->
     <script src="../../js/main.js"></script>
     <script src="../../js/navigation.js"></script>
     <script src="../../js/animations.js"></script>
+    <script src="../../js/viewer.js"></script>
 </body>
 </html>

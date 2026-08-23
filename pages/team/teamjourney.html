@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team Journey | AquaSense</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-rootpath="../../">
+
+    <header class="main-header" id="mainHeader">
+        <div class="container nav-container">
+            <a href="../../index.html" class="logo-container">
+                <span class="logo-title">AquaSense</span>
+                <span class="logo-subtitle">Engineering Prototype</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
+                    <li><a href="../../pages/system/architecture.html">System</a></li>
+                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../../pages/software/code.html">Software</a></li>
+                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
+                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
+                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+                </ul>
+            </nav>
+            <button class="search-trigger" id="searchBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Search (Ctrl+K)</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header reveal-on-scroll">
+            <span class="page-number">09 — TEAM</span>
+            <h1>Development Timeline</h1>
+            <p>From initial concept formulation to a functional Phase 1 prototype.</p>
+        </header>
+
+        <section class="reveal-on-scroll" style="max-width: 900px; margin: 0 auto;">
+            <div class="timeline">
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker">01</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Idea & Concept Definition</h3>
+                        <p>Identified cross-contamination issues in traditional public dispensers and conceptualized a touchless ultrasonic-activated valve mechanism.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">02</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Component Selection</h3>
+                        <p>Evaluated microcontrollers and settled on the Arduino Uno combined with the HC-SR04 sensor and an SG90 servo motor for reliable actuation.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">03</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Circuit & Software Architecture</h3>
+                        <p>Designed the wiring schematic and drafted the core C++ control logic loops for distance calculation and PWM timing.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">04</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">CAD Modeling & 3D Printing</h3>
+                        <p>Designed custom enclosures (main box and lid) to house the electronics securely while maintaining a clean external profile.</p>
+                    </div>
+                </div>
+
+                <div class="timeline-item">
+                    <div class="timeline-marker">05</div>
+                    <div class="timeline-content">
+                        <h3 class="timeline-title">Prototype Assembly & Testing</h3>
+                        <p>Integrated all hardware components, ran empirical multi-cycle stress tests, documented system limits, and planned Phase 2 enhancements.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <nav class="sequential-nav reveal-on-scroll">
+            <a href="../../pages/learning/learning.html" class="btn btn-outline">
+                &larr; Previous: Learning Journey
+            </a>
+            <a href="../../pages/documentation/documentation.html" class="btn btn-primary">
+                Next: Documentation Library &rarr;
+            </a>
+        </nav>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>

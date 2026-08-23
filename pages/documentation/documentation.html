@@ -1,1678 +1,218 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
-
-    <meta
-        name="description"
-        content="Official project documentation for the AquaSense automatic touchless water dispenser including the Phase 1 project report and user manual."
-    >
-
-    <title>Documentation | AquaSense</title>
-
-    <link
-        rel="stylesheet"
-        href="../../css/style.css"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Documentation Library | AquaSense</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
 </head>
+<body data-rootpath="../../">
 
-
-<body>
-
-
-<!-- =====================================================
-     NAVIGATION
-===================================================== -->
-
-<header class="navbar">
-
-    <div class="nav-container">
-
-        <a
-            href="../../index.html"
-            class="logo"
-            aria-label="AquaSense Home"
-        >
-
-            <div class="logo-icon">
-                💧
-            </div>
-
-            <div class="logo-text">
-
-                <span class="logo-title">
-                    AquaSense
-                </span>
-
-                <span class="logo-subtitle">
-                    SMART WATER SYSTEM
-                </span>
-
-            </div>
-
-        </a>
-
-
-        <button
-            class="menu-toggle"
-            aria-label="Open navigation menu"
-            aria-expanded="false"
-        >
-            ☰
-        </button>
-
-
-        <nav class="nav-links">
-
-            <a href="../../index.html">
-                Home
+    <header class="main-header" id="mainHeader">
+        <div class="container nav-container">
+            <a href="../../index.html" class="logo-container">
+                <span class="logo-title">AquaSense</span>
+                <span class="logo-subtitle">Engineering Prototype</span>
             </a>
-
-
-            <!-- PROJECT -->
-
-            <div class="dropdown">
-
-                <button class="dropbtn">
-                    Project ▾
-                </button>
-
-                <div class="dropdown-content">
-
-                    <a href="../project/overview.html">
-                        Project Overview
-                    </a>
-
-                    <a href="../project/working-principle.html">
-                        Working Principle
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- SYSTEM -->
-
-            <div class="dropdown">
-
-                <button class="dropbtn">
-                    System ▾
-                </button>
-
-                <div class="dropdown-content">
-
-                    <a href="../system/architecture.html">
-                        System Architecture
-                    </a>
-
-                    <a href="../system/workflow.html">
-                        System Workflow
-                    </a>
-
-                    <a href="../system/technical-specs.html">
-                        Technical Specifications
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- ENGINEERING -->
-
-            <div class="dropdown">
-
-                <button class="dropbtn">
-                    Engineering ▾
-                </button>
-
-                <div class="dropdown-content">
-
-                    <a href="../hardware/hardware.html">
-                        Hardware
-                    </a>
-
-                    <a href="../design/circuit.html">
-                        Circuit Design
-                    </a>
-
-                    <a href="../design/cad.html">
-                        CAD & 3D Models
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- SOFTWARE -->
-
-            <div class="dropdown">
-
-                <button class="dropbtn">
-                    Software ▾
-                </button>
-
-                <div class="dropdown-content">
-
-                    <a href="../software/code.html">
-                        Source Code
-                    </a>
-
-                    <a href="../software/code-explanation.html">
-                        Code Explanation
-                    </a>
-
-                </div>
-
-            </div>
-
-
-            <!-- RESOURCES -->
-
-            <div class="dropdown">
-
-                <button class="dropbtn">
-                    Resources ▾
-                </button>
-
-                <div class="dropdown-content">
-
-                    <a
-                        href="documentation.html"
-                        class="active"
-                    >
-                        Documentation
-                    </a>
-
-                    <a href="downloads.html">
-                        Downloads
-                    </a>
-
-                    <a href="../future/phase2.html">
-                        Phase 2
-                    </a>
-
-                </div>
-
-            </div>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-
-<!-- =====================================================
-     MAIN
-===================================================== -->
-
-<main>
-
-
-<!-- =====================================================
-     HERO
-===================================================== -->
-
-<section class="hero">
-
-    <div class="hero-container">
-
-
-        <div>
-
-            <div class="breadcrumb">
-
-                <a href="../../index.html">
-                    Home
-                </a>
-
-                <span>›</span>
-
-                <span>
-                    Resources
-                </span>
-
-                <span>›</span>
-
-                <strong>
-                    Documentation
-                </strong>
-
-            </div>
-
-
-            <span class="hero-badge">
-                PROJECT DOCUMENTATION
-            </span>
-
-
-            <h1>
-
-                Engineering Knowledge,
-
-                <span>
-                    Documented.
-                </span>
-
-            </h1>
-
-
-            <p class="hero-description">
-
-                The AquaSense documentation package records
-                the engineering, development and operation
-                of the Phase 1 automatic touchless water
-                dispenser.
-
-                Access the complete project report and the
-                dedicated user manual from one place.
-
-            </p>
-
-
-            <div class="hero-buttons">
-
-                <a
-                    href="#documents"
-                    class="btn btn-primary"
-                >
-                    Explore Documents ↓
-                </a>
-
-                <a
-                    href="downloads.html"
-                    class="btn btn-secondary"
-                >
-                    Download Center
-                </a>
-
-            </div>
-
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
+                    <li><a href="../../pages/system/architecture.html">System</a></li>
+                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../../pages/software/code.html">Software</a></li>
+                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
+                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
+                    <li><a href="../../pages/documentation/documentation.html" class="active">Docs</a></li>
+                </ul>
+            </nav>
+            <button class="search-trigger" id="searchBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Search (Ctrl+K)</span>
+            </button>
         </div>
+    </header>
 
+    <main class="container">
+        <header class="page-header reveal-on-scroll">
+            <span class="page-number">10 — DOCUMENTATION</span>
+            <h1>Engineering Library</h1>
+            <p>Access and download all technical documents, reports, and specification sheets.</p>
+        </header>
 
-
-        <!-- DOCUMENT OVERVIEW CARD -->
-
-        <div class="system-card">
-
-            <div class="system-card-header">
-
+        <section class="doc-grid reveal-on-scroll">
+            
+            <!-- 1 -->
+            <div class="doc-card">
                 <div>
-
-                    <span class="section-label">
-                        DOCUMENT LIBRARY
-                    </span>
-
-                    <h3>
-                        Phase 1 Resources
-                    </h3>
-
+                    <div class="doc-category">Project</div>
+                    <div class="doc-title">Project Overview</div>
+                    <div class="doc-desc">High-level summary of objectives, scope, and prototype architecture.</div>
                 </div>
-
-                <span class="status-badge">
-                    PDF
-                </span>
-
+                <div class="doc-actions">
+                    <a href="../../documents/Project-Overview.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Project-Overview.pdf" download class="btn btn-primary">Download</a>
+                </div>
             </div>
 
-
-            <div class="system-flow">
-
-
-                <div class="system-node">
-
-                    <div class="node-icon">
-                        01
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Project Report
-                        </strong>
-
-                        <span>
-                            Engineering & development record
-                        </span>
-
-                    </div>
-
+            <!-- 2 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Project</div>
+                    <div class="doc-title">Technical Report</div>
+                    <div class="doc-desc">Comprehensive documentation of the Phase 1 development cycle.</div>
                 </div>
-
-
-                <div class="flow-arrow">
-                    ↓
+                <div class="doc-actions">
+                    <a href="../../documents/Report.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Report.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
-
-                <div class="system-node">
-
-                    <div class="node-icon">
-                        02
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            User Manual
-                        </strong>
-
-                        <span>
-                            Installation & operation guide
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    ↓
-                </div>
-
-
-                <div class="system-node">
-
-                    <div class="node-icon">
-                        03
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Technical Resources
-                        </strong>
-
-                        <span>
-                            Code, circuit & CAD files
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="flow-arrow">
-                    ↓
-                </div>
-
-
-                <div class="system-node">
-
-                    <div class="node-icon">
-                        04
-                    </div>
-
-                    <div>
-
-                        <strong>
-                            Phase 2
-                        </strong>
-
-                        <span>
-                            Future development roadmap
-                        </span>
-
-                    </div>
-
-                </div>
-
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DOCUMENT STATS
-===================================================== -->
-
-<section class="stats-section">
-
-    <div class="stats-grid">
-
-        <div class="stat">
-
-            <strong>
-                2
-            </strong>
-
-            <span>
-                CORE DOCUMENTS
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                PDF
-            </strong>
-
-            <span>
-                DOCUMENT FORMAT
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                4
-            </strong>
-
-            <span>
-                CAD MODELS
-            </span>
-
-        </div>
-
-
-        <div class="stat">
-
-            <strong>
-                1
-            </strong>
-
-            <span>
-                ARDUINO SOURCE
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DOCUMENTS
-===================================================== -->
-
-<section
-    class="section"
-    id="documents"
->
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                DOCUMENT LIBRARY
-            </span>
-
-            <h2>
-                Official AquaSense Documents
-            </h2>
-
-            <p>
-
-                Two primary documents support the Phase 1
-                prototype: the engineering project report
-                and the product user manual.
-
-            </p>
-
-        </div>
-
-
-        <div class="card-grid">
-
-
-            <!-- PROJECT REPORT -->
-
-            <article class="card">
-
-                <div class="card-icon">
-                    PDF
+            <!-- 3 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">System</div>
+                    <div class="doc-title">User Manual</div>
+                    <div class="doc-desc">Operational instructions, safety guidelines, and troubleshooting.</div>
                 </div>
-
-                <span class="section-label">
-                    ENGINEERING DOCUMENT
-                </span>
-
-                <h3>
-                    Phase 1 Project Report
-                </h3>
-
-                <p>
-
-                    The complete engineering record of the
-                    AquaSense automatic touchless water
-                    dispenser.
-
-                    It documents the project concept,
-                    hardware architecture, circuit design,
-                    embedded software, CAD development,
-                    working principle and prototype
-                    implementation.
-
-                </p>
-
-
-                <div
-                    style="
-                        margin-top:25px;
-                        display:flex;
-                        gap:12px;
-                        flex-wrap:wrap;
-                    "
-                >
-
-                    <a
-                        href="../../documents/Report.pdf"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-primary"
-                    >
-                        View Report →
-                    </a>
-
-                    <a
-                        href="../../documents/Report.pdf"
-                        download
-                        class="btn btn-secondary"
-                    >
-                        Download PDF ↓
-                    </a>
-
+                <div class="doc-actions">
+                    <a href="../../documents/User-Manual.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/User-Manual.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
-            </article>
-
-
-
-            <!-- USER MANUAL -->
-
-            <article class="card">
-
-                <div class="card-icon">
-                    PDF
-                </div>
-
-                <span class="section-label">
-                    OPERATION GUIDE
-                </span>
-
-                <h3>
-                    AquaSense User Manual
-                </h3>
-
-                <p>
-
-                    A practical guide for understanding,
-                    operating and maintaining the AquaSense
-                    prototype.
-
-                    The manual provides operating
-                    instructions, system startup guidance,
-                    safety information, troubleshooting and
-                    basic maintenance procedures.
-
-                </p>
-
-
-                <div
-                    style="
-                        margin-top:25px;
-                        display:flex;
-                        gap:12px;
-                        flex-wrap:wrap;
-                    "
-                >
-
-                    <a
-                        href="../../documents/User-Manual.pdf"
-                        target="_blank"
-                        rel="noopener"
-                        class="btn btn-primary"
-                    >
-                        View User Manual →
-                    </a>
-
-                    <a
-                        href="../../documents/User-Manual.pdf"
-                        download
-                        class="btn btn-secondary"
-                    >
-                        Download PDF ↓
-                    </a>
-
-                </div>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     PROJECT REPORT CONTENT
-===================================================== -->
-
-<section class="section-soft">
-
-    <div class="container">
-
-        <div class="content-block">
-
-            <span class="section-label">
-                PROJECT REPORT
-            </span>
-
-            <h2>
-                What the Engineering Report Represents
-            </h2>
-
-            <p>
-
-                The project report acts as the technical
-                record of Phase 1.
-
-                It explains not only what was built, but also
-                how the individual engineering domains work
-                together to create the complete prototype.
-
-            </p>
-
-
-            <div
-                class="card-grid"
-                style="margin-top:35px;"
-            >
-
-
-                <article class="card">
-
-                    <div class="card-icon">
-                        01
-                    </div>
-
-                    <h3>
-                        Project Concept
-                    </h3>
-
-                    <p>
-
-                        Defines the problem, proposed solution,
-                        objectives and overall purpose of the
-                        touchless dispensing system.
-
-                    </p>
-
-                </article>
-
-
-                <article class="card">
-
-                    <div class="card-icon">
-                        02
-                    </div>
-
-                    <h3>
-                        System Architecture
-                    </h3>
-
-                    <p>
-
-                        Describes how sensing, embedded
-                        processing, user feedback and
-                        mechanical actuation are connected.
-
-                    </p>
-
-                </article>
-
-
-                <article class="card">
-
-                    <div class="card-icon">
-                        03
-                    </div>
-
-                    <h3>
-                        Hardware Design
-                    </h3>
-
-                    <p>
-
-                        Documents the Arduino Uno, HC-SR04,
-                        servo motors, LCD and supporting
-                        electrical components.
-
-                    </p>
-
-                </article>
-
-
-                <article class="card">
-
-                    <div class="card-icon">
-                        04
-                    </div>
-
-                    <h3>
-                        Circuit Integration
-                    </h3>
-
-                    <p>
-
-                        Records the electrical connections,
-                        control pins and relationships between
-                        the hardware components.
-
-                    </p>
-
-                </article>
-
-
-                <article class="card">
-
-                    <div class="card-icon">
-                        05
-                    </div>
-
-                    <h3>
-                        Embedded Software
-                    </h3>
-
-                    <p>
-
-                        Explains the Arduino control logic,
-                        sensing process, decision conditions
-                        and servo actuation sequence.
-
-                    </p>
-
-                </article>
-
-
-                <article class="card">
-
-                    <div class="card-icon">
-                        06
-                    </div>
-
-                    <h3>
-                        Mechanical Design
-                    </h3>
-
-                    <p>
-
-                        Documents the custom CAD enclosures
-                        and mechanical structures developed
-                        for the prototype.
-
-                    </p>
-
-                </article>
-
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     USER MANUAL
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="content-block">
-
-            <span class="section-label">
-                USER MANUAL
-            </span>
-
-            <h2>
-                From Prototype to Practical Operation
-            </h2>
-
-            <p>
-
-                The user manual focuses on using the product
-                rather than designing it.
-
-                It provides the information required to
-                understand the prototype, prepare it for use,
-                operate it correctly and respond to common
-                issues.
-
-            </p>
-
-
-            <div class="workflow">
-
-
-                <div class="workflow-step">
-
-                    <div class="workflow-number">
-                        01
-                    </div>
-
-                    <div class="workflow-content">
-
-                        <span class="section-label">
-                            INTRODUCTION
-                        </span>
-
-                        <h3>
-                            Understand the Product
-                        </h3>
-
-                        <p>
-
-                            Learn what AquaSense is, what the
-                            Phase 1 prototype does and how the
-                            touchless dispensing concept
-                            operates.
-
-                        </p>
-
-                    </div>
-
+            <!-- 4 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Hardware</div>
+                    <div class="doc-title">Bill of Materials (BOM)</div>
+                    <div class="doc-desc">Complete itemized list of components, quantities, and sources.</div>
                 </div>
-
-
-                <div class="workflow-step">
-
-                    <div class="workflow-number">
-                        02
-                    </div>
-
-                    <div class="workflow-content">
-
-                        <span class="section-label">
-                            SETUP
-                        </span>
-
-                        <h3>
-                            Prepare the System
-                        </h3>
-
-                        <p>
-
-                            Review the required connections,
-                            mechanical positioning and
-                            preparation steps before operating
-                            the prototype.
-
-                        </p>
-
-                    </div>
-
+                <div class="doc-actions">
+                    <a href="../../documents/BOM.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/BOM.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
-
-                <div class="workflow-step">
-
-                    <div class="workflow-number">
-                        03
-                    </div>
-
-                    <div class="workflow-content">
-
-                        <span class="section-label">
-                            OPERATION
-                        </span>
-
-                        <h3>
-                            Use the Touchless Dispenser
-                        </h3>
-
-                        <p>
-
-                            Follow the correct sequence for
-                            powering the system, positioning a
-                            hand and completing a dispensing
-                            cycle.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="workflow-step">
-
-                    <div class="workflow-number">
-                        04
-                    </div>
-
-                    <div class="workflow-content">
-
-                        <span class="section-label">
-                            SAFETY
-                        </span>
-
-                        <h3>
-                            Operate Responsibly
-                        </h3>
-
-                        <p>
-
-                            Follow electrical, mechanical and
-                            water-handling precautions while
-                            using the prototype.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
-
-                <div class="workflow-step">
-
-                    <div class="workflow-number">
-                        05
-                    </div>
-
-                    <div class="workflow-content">
-
-                        <span class="section-label">
-                            SUPPORT
-                        </span>
-
-                        <h3>
-                            Troubleshoot Common Issues
-                        </h3>
-
-                        <p>
-
-                            Use troubleshooting guidance to
-                            identify basic sensor, servo, LCD
-                            or power-related problems.
-
-                        </p>
-
-                    </div>
-
-                </div>
-
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DIGITAL ENGINEERING LIBRARY
-===================================================== -->
-
-<section class="section-blue">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                DIGITAL ENGINEERING LIBRARY
-            </span>
-
-            <h2>
-                More Than PDF Documentation
-            </h2>
-
-            <p>
-
-                The AquaSense project folder also contains
-                engineering files that allow the prototype
-                to be studied, reproduced and developed
-                further.
-
-            </p>
-
-        </div>
-
-
-        <div class="card-grid">
-
-
-            <article class="card">
-
-                <div class="card-icon">
-                    &lt;/&gt;
+            <!-- 5 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Hardware</div>
+                    <div class="doc-title">Hardware Wiring Guide</div>
+                    <div class="doc-desc">Detailed pin-to-pin connection specifications and power diagrams.</div>
                 </div>
-
-                <h3>
-                    Arduino Source Code
-                </h3>
-
-                <p>
-
-                    The complete embedded program controlling
-                    sensing, LCD feedback and servo
-                    actuation.
-
-                </p>
-
-                <a
-                    href="../software/code.html"
-                    class="text-link"
-                >
-                    Explore Source Code →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <div class="card-icon">
-                    PCB
+                <div class="doc-actions">
+                    <a href="../../documents/Hardware-Wiring.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Hardware-Wiring.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
-                <h3>
-                    Circuit Design
-                </h3>
-
-                <p>
-
-                    Visual documentation of the electrical
-                    connections between the Arduino and
-                    connected components.
-
-                </p>
-
-                <a
-                    href="../design/circuit.html"
-                    class="text-link"
-                >
-                    View Circuit →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <div class="card-icon">
-                    3D
-                </div>
-
-                <h3>
-                    CAD Models
-                </h3>
-
-                <p>
-
-                    Four STL models representing the custom
-                    main enclosure and servo enclosure
-                    components.
-
-                </p>
-
-                <a
-                    href="../design/cad.html"
-                    class="text-link"
-                >
-                    Explore CAD Models →
-                </a>
-
-            </article>
-
-
-            <article class="card">
-
-                <div class="card-icon">
-                    DL
-                </div>
-
-                <h3>
-                    Download Center
-                </h3>
-
-                <p>
-
-                    Centralized access to documents, source
-                    code and downloadable engineering files.
-
-                </p>
-
-                <a
-                    href="downloads.html"
-                    class="text-link"
-                >
-                    Open Downloads →
-                </a>
-
-            </article>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     DOCUMENTATION MAP
-===================================================== -->
-
-<section class="section">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                KNOWLEDGE MAP
-            </span>
-
-            <h2>
-                Explore the Project by Engineering Layer
-            </h2>
-
-            <p>
-
-                The website itself acts as an interactive
-                technical documentation system.
-
-                Each section explains a different layer of
-                the AquaSense prototype.
-
-            </p>
-
-        </div>
-
-
-        <div class="workflow">
-
-
-            <div class="workflow-step">
-
-                <div class="workflow-number">
-                    01
-                </div>
-
-                <div class="workflow-content">
-
-                    <h3>
-                        Project
-                    </h3>
-
-                    <p>
-
-                        Understand the project objective,
-                        concept and operating principle.
-
-                    </p>
-
-                    <a
-                        href="../project/overview.html"
-                        class="text-link"
-                    >
-                        Explore Project →
-                    </a>
-
-                </div>
-
             </div>
 
-
-            <div class="workflow-step">
-
-                <div class="workflow-number">
-                    02
+            <!-- 6 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Hardware</div>
+                    <div class="doc-title">Component Specifications</div>
+                    <div class="doc-desc">Datasheet summaries for Arduino, HC-SR04, and servo modules.</div>
                 </div>
-
-                <div class="workflow-content">
-
-                    <h3>
-                        System
-                    </h3>
-
-                    <p>
-
-                        Study the architecture, workflow and
-                        technical specifications.
-
-                    </p>
-
-                    <a
-                        href="../system/architecture.html"
-                        class="text-link"
-                    >
-                        Explore System →
-                    </a>
-
+                <div class="doc-actions">
+                    <a href="../../documents/Component-Specifications.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Component-Specifications.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
             </div>
 
-
-            <div class="workflow-step">
-
-                <div class="workflow-number">
-                    03
+            <!-- 7 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">System</div>
+                    <div class="doc-title">Working Principle</div>
+                    <div class="doc-desc">In-depth mathematical and physical analysis of acoustic detection.</div>
                 </div>
-
-                <div class="workflow-content">
-
-                    <h3>
-                        Hardware
-                    </h3>
-
-                    <p>
-
-                        Examine the electronic components
-                        responsible for sensing, processing,
-                        actuation and feedback.
-
-                    </p>
-
-                    <a
-                        href="../hardware/hardware.html"
-                        class="text-link"
-                    >
-                        Explore Hardware →
-                    </a>
-
+                <div class="doc-actions">
+                    <a href="../../documents/System-Working-Principle.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/System-Working-Principle.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
             </div>
 
-
-            <div class="workflow-step">
-
-                <div class="workflow-number">
-                    04
+            <!-- 8 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Software</div>
+                    <div class="doc-title">Source Code Documentation</div>
+                    <div class="doc-desc">Algorithmic logic breakdown and function references.</div>
                 </div>
-
-                <div class="workflow-content">
-
-                    <h3>
-                        Design
-                    </h3>
-
-                    <p>
-
-                        Review the electrical circuit and
-                        custom CAD enclosure designs.
-
-                    </p>
-
-                    <a
-                        href="../design/circuit.html"
-                        class="text-link"
-                    >
-                        Explore Design →
-                    </a>
-
+                <div class="doc-actions">
+                    <a href="../../documents/Source-Code-Documentation.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Source-Code-Documentation.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
             </div>
 
-
-            <div class="workflow-step">
-
-                <div class="workflow-number">
-                    05
+            <!-- 9 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Testing</div>
+                    <div class="doc-title">Test Results</div>
+                    <div class="doc-desc">Empirical cycle data, edge-case evaluations, and limitations.</div>
                 </div>
-
-                <div class="workflow-content">
-
-                    <h3>
-                        Software
-                    </h3>
-
-                    <p>
-
-                        Study the Arduino source code and
-                        understand the embedded control logic.
-
-                    </p>
-
-                    <a
-                        href="../software/code.html"
-                        class="text-link"
-                    >
-                        Explore Software →
-                    </a>
-
+                <div class="doc-actions">
+                    <a href="../../documents/Test-Results.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Test-Results.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
             </div>
 
-
-            <div class="workflow-step">
-
-                <div class="workflow-number">
-                    06
+            <!-- 10 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Learning</div>
+                    <div class="doc-title">Learning Journey</div>
+                    <div class="doc-desc">Reflections on mechatronic design and debugging takeaways.</div>
                 </div>
-
-                <div class="workflow-content">
-
-                    <h3>
-                        Future Development
-                    </h3>
-
-                    <p>
-
-                        Explore how the Phase 1 prototype can
-                        evolve into a more advanced smart
-                        water management system.
-
-                    </p>
-
-                    <a
-                        href="../future/phase2.html"
-                        class="text-link"
-                    >
-                        Explore Phase 2 →
-                    </a>
-
+                <div class="doc-actions">
+                    <a href="../../documents/Learning.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Learning.pdf" download class="btn btn-primary">Download</a>
                 </div>
-
             </div>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =====================================================
-     FILE PATH VERIFICATION
-===================================================== -->
-
-<section class="section-soft">
-
-    <div class="container">
-
-        <div class="content-block">
-
-            <span class="section-label">
-                DOCUMENT STORAGE
-            </span>
-
-            <h2>
-                Project Document Structure
-            </h2>
-
-            <p>
-
-                Both official PDF documents are stored in the
-                root-level <strong>documents</strong> folder.
-
-                This keeps the documentation separate from
-                website pages while allowing every page to
-                access the same files.
-
-            </p>
-
-
-            <div
-                style="
-                    margin-top:28px;
-                    padding:28px;
-                    background:#0f172a;
-                    border-radius:16px;
-                    overflow-x:auto;
-                "
-            >
-
-<pre style="
-margin:0;
-color:#dbeafe;
-font-family:Consolas, Monaco, 'Courier New', monospace;
-font-size:14px;
-line-height:1.9;
-"><code>WATER-DISPENSER-PHASE/
-│
-├── documents/
-│   ├── Report.pdf
-│   └── User-Manual.pdf
-│
-└── pages/
-    └── documentation/
-        ├── documentation.html
-        └── downloads.html</code></pre>
-
+            <!-- 11 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Team</div>
+                    <div class="doc-title">Team Journey</div>
+                    <div class="doc-desc">Development milestones and timeline documentation.</div>
+                </div>
+                <div class="doc-actions">
+                    <a href="../../documents/Team-Journey.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Team-Journey.pdf" download class="btn btn-primary">Download</a>
+                </div>
             </div>
 
-        </div>
+            <!-- 12 -->
+            <div class="doc-card">
+                <div>
+                    <div class="doc-category">Future</div>
+                    <div class="doc-title">Phase 2 Roadmap</div>
+                    <div class="doc-desc">Proposed smart features, IoT connectivity, and sensor scaling.</div>
+                </div>
+                <div class="doc-actions">
+                    <a href="../../documents/Phase-2-Enhanced-Smart-Dispenser.pdf" target="_blank" class="btn btn-outline">View</a>
+                    <a href="../../documents/Phase-2-Enhanced-Smart-Dispenser.pdf" download class="btn btn-primary">Download</a>
+                </div>
+            </div>
 
-    </div>
+        </section>
 
-</section>
-
-
-
-<!-- =====================================================
-     NEXT PAGE
-===================================================== -->
-
-<section class="section-blue">
-
-    <div class="container">
-
-        <div class="section-heading">
-
-            <span class="section-label">
-                NEXT SECTION
-            </span>
-
-            <h2>
-                Download the Project Resources
-            </h2>
-
-            <p>
-
-                Continue to the AquaSense Download Center to
-                access the report, user manual, Arduino
-                source file and CAD models directly.
-
-            </p>
-
-        </div>
-
-
-        <div
-            class="hero-buttons"
-            style="justify-content:center;"
-        >
-
-            <a
-                href="downloads.html"
-                class="btn btn-primary"
-            >
-                Open Download Center →
+        <nav class="sequential-nav reveal-on-scroll">
+            <a href="../../pages/team/teamjourney.html" class="btn btn-outline">
+                &larr; Previous: Team Journey
             </a>
-
-            <a
-                href="../../documents/Report.pdf"
-                target="_blank"
-                rel="noopener"
-                class="btn btn-secondary"
-            >
-                View Project Report
+            <a href="../../pages/presentation/presentation.html" class="btn btn-primary">
+                Next: Presentation &rarr;
             </a>
+        </nav>
+    </main>
 
-        </div>
-
-    </div>
-
-</section>
-
-
-</main>
-
-
-
-<!-- =====================================================
-     FOOTER
-===================================================== -->
-
-<footer class="footer">
-
-    <div class="footer-container">
-
-
-        <div class="footer-brand">
-
-            <div class="footer-logo">
-                💧 AquaSense
-            </div>
-
-            <p>
-
-                A Phase 1 automatic touchless water dispenser
-                integrating ultrasonic sensing, embedded
-                control, servo actuation and custom
-                mechanical design.
-
-            </p>
-
-        </div>
-
-
-        <div class="footer-links">
-
-
-            <div>
-
-                <h4>
-                    Project
-                </h4>
-
-                <a href="../project/overview.html">
-                    Overview
-                </a>
-
-                <a href="../project/working-principle.html">
-                    Working Principle
-                </a>
-
-                <a href="../system/workflow.html">
-                    Workflow
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Engineering
-                </h4>
-
-                <a href="../hardware/hardware.html">
-                    Hardware
-                </a>
-
-                <a href="../design/circuit.html">
-                    Circuit
-                </a>
-
-                <a href="../design/cad.html">
-                    CAD Models
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Resources
-                </h4>
-
-                <a href="../software/code.html">
-                    Source Code
-                </a>
-
-                <a href="downloads.html">
-                    Downloads
-                </a>
-
-                <a href="../future/phase2.html">
-                    Phase 2
-                </a>
-
-            </div>
-
-        </div>
-
-    </div>
-
-
-    <div class="footer-bottom">
-
-        <p>
-            AquaSense — Automatic Touchless Water Dispenser
-        </p>
-
-        <p>
-            Phase 1 Engineering Prototype •
-            <span class="current-year"></span>
-        </p>
-
-    </div>
-
-</footer>
-
-
-
-<!-- =====================================================
-     BACK TO TOP
-===================================================== -->
-
-<button
-    class="back-to-top"
-    aria-label="Back to top"
->
-    ↑
-</button>
-
-
-
-<!-- =====================================================
-     JAVASCRIPT
-===================================================== -->
-
-<script src="../../js/script.js"></script>
-
-
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/animations.js"></script>
 </body>
-
 </html>

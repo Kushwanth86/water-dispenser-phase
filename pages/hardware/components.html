@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Components | AquaSense</title>
+    <link rel="stylesheet" href="../../css/style.css">
+    <link rel="stylesheet" href="../../css/components.css">
+    <link rel="stylesheet" href="../../css/responsive.css">
+</head>
+<body data-rootpath="../../">
+
+    <header class="main-header" id="mainHeader">
+        <div class="container nav-container">
+            <a href="../../index.html" class="logo-container">
+                <span class="logo-title">AquaSense</span>
+                <span class="logo-subtitle">Engineering Prototype</span>
+            </a>
+            <nav>
+                <ul class="nav-links">
+                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
+                    <li><a href="../../pages/system/architecture.html">System</a></li>
+                    <li><a href="../../pages/hardware/hardware.html" class="active">Hardware</a></li>
+                    <li><a href="../../pages/software/code.html">Software</a></li>
+                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
+                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
+                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+                </ul>
+            </nav>
+            <button class="search-trigger" id="searchBtn">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                <span>Search (Ctrl+K)</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="container">
+        <header class="page-header reveal-on-scroll">
+            <span class="page-number">03 — HARDWARE</span>
+            <h1>System Components</h1>
+            <p>Detailed breakdown of the electronic peripherals utilized in the prototype.</p>
+        </header>
+
+        <section class="card-grid reveal-on-scroll">
+            
+            <!-- Arduino Uno -->
+            <div class="component-card">
+                <div class="card-img-wrapper">
+                    <img src="../../assets/images/hardware/arduino-uno.png" alt="Arduino Uno Rev3">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Arduino Uno</h3>
+                    <p class="card-spec"><strong>Role:</strong> Main Logic Controller</p>
+                    <p class="card-spec"><strong>MCU:</strong> ATmega328P</p>
+                    <p class="card-spec"><strong>Voltage:</strong> 5V Operating</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Processes sensor interrupts and commands the servo mechanism.</p>
+                </div>
+            </div>
+
+            <!-- HC-SR04 -->
+            <div class="component-card">
+                <div class="card-img-wrapper">
+                    <img src="../../assets/images/hardware/hc-sr04.jpg" alt="HC-SR04 Ultrasonic Sensor">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">HC-SR04</h3>
+                    <p class="card-spec"><strong>Role:</strong> Object Detection</p>
+                    <p class="card-spec"><strong>Range:</strong> 2cm – 400cm</p>
+                    <p class="card-spec"><strong>Frequency:</strong> 40kHz</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Emits acoustic pulses to detect hands or containers below the nozzle.</p>
+                </div>
+            </div>
+
+            <!-- Servo Motor -->
+            <div class="component-card">
+                <div class="card-img-wrapper">
+                    <img src="../../assets/images/hardware/servo.jpg" alt="SG90 Micro Servo">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">SG90 Servo</h3>
+                    <p class="card-spec"><strong>Role:</strong> Mechanical Actuation</p>
+                    <p class="card-spec"><strong>Torque:</strong> 1.8 kgf·cm</p>
+                    <p class="card-spec"><strong>Rotation:</strong> 180°</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Translates PWM signals into rotational force to physically open the valve.</p>
+                </div>
+            </div>
+
+            <!-- 16x2 LCD -->
+            <div class="component-card">
+                <div class="card-img-wrapper">
+                    <img src="../../assets/images/hardware/lcd.jpg" alt="16x2 Character LCD">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">16x2 LCD</h3>
+                    <p class="card-spec"><strong>Role:</strong> User Interface</p>
+                    <p class="card-spec"><strong>Interface:</strong> Parallel / I2C</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Displays real-time system status, dispense notifications, and error codes.</p>
+                </div>
+            </div>
+
+            <!-- Power Source -->
+            <div class="component-card">
+                <div class="card-img-wrapper">
+                    <img src="../../assets/images/hardware/battery.jpg" alt="Power Supply">
+                </div>
+                <div class="card-content">
+                    <h3 class="card-title">Power Module</h3>
+                    <p class="card-spec"><strong>Role:</strong> System Power</p>
+                    <p class="card-spec"><strong>Output:</strong> 9V / 5V DC</p>
+                    <p style="margin-top: 1rem; font-size: 0.95rem;">Supplies consistent voltage to the Arduino board and isolates the servo power draw.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <nav class="sequential-nav reveal-on-scroll">
+            <a href="../../pages/hardware/hardware.html" class="btn btn-outline">
+                &larr; Previous: Physical Setup
+            </a>
+            <a href="../../pages/hardware/circuit.html" class="btn btn-primary">
+                Next: Circuit &rarr;
+            </a>
+        </nav>
+    </main>
+
+    <script src="../../js/main.js"></script>
+    <script src="../../js/navigation.js"></script>
+    <script src="../../js/animations.js"></script>
+</body>
+</html>
