@@ -1,62 +1,46 @@
-/**
- * AQUASENSE - MAIN INITIALIZATION
- * File: js/main.js
- */
+/* js/main.js */
+document.addEventListener('DOMContentLoaded', () => {
+    // 1. Mobile Menu Toggle
+    const mobileToggle = document.querySelector('.mobile-menu-toggle');
+    const mainNav = document.querySelector('.main-nav');
 
-const UIComponents = {
-    init() {
-        this.setupCopyButtons();
-        this.setupAccordions();
-    },
-
-    setupCopyButtons() {
-        const copyBtns = document.querySelectorAll('.btn-copy');
-        copyBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                const targetId = btn.getAttribute('data-target');
-                const textToCopy = document.getElementById(targetId)?.innerText;
-                
-                if (textToCopy) {
-                    navigator.clipboard.writeText(textToCopy).then(() => {
-                        const originalText = btn.innerHTML;
-                        btn.innerHTML = `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg> Copied!`;
-                        btn.classList.add('copied');
-                        
-                        setTimeout(() => {
-                            btn.innerHTML = originalText;
-                            btn.classList.remove('copied');
-                        }, 2000);
-                    });
-                }
-            });
-        });
-    },
-
-    setupAccordions() {
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                
-                // Close other open items (optional, but keeps UI clean)
-                const allItems = document.querySelectorAll('.accordion-item');
-                allItems.forEach(otherItem => {
-                    if (otherItem !== item && otherItem.classList.contains('active')) {
-                        otherItem.classList.remove('active');
-                    }
-                });
-
-                // Toggle current item
-                item.classList.toggle('active');
-            });
+    if (mobileToggle && mainNav) {
+        mobileToggle.addEventListener('click', () => {
+            const isExpanded = mobileToggle.getAttribute('aria-expanded') === 'true';
+            mobileToggle.setAttribute('aria-expanded', !isExpanded);
+            mainNav.classList.toggle('nav-open');
+            
+            const lines = mobileToggle.querySelectorAll('.hamburger-line');
+            if (!isExpanded) {
+                lines[0].style.transform = 'translateY(6px) rotate(45deg)';
+                lines[1].style.opacity = '0';
+                lines[2].style.transform = 'translateY(-6px) rotate(-45deg)';
+            } else {
+                lines[0].style.transform = 'none';
+                lines[1].style.opacity = '1';
+                lines[2].style.transform = 'none';
+            }
         });
     }
-};
 
-document.addEventListener('DOMContentLoaded', () => {
-    // Initialize global modules
-    if (typeof Navigation !== 'undefined') Navigation.init();
-    if (typeof Animations !== 'undefined') Animations.init();
-    if (typeof Viewer !== 'undefined') Viewer.init();
-    UIComponents.init();
+    // 2. Header Scroll Effect
+    const header = document.querySelector('.site-header');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 20) {
+            header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.4)';
+            header.style.background = 'rgba(5, 10, 21, 0.98)';
+        } else {
+            header.style.boxShadow = 'none';
+            header.style.background = 'rgba(5, 10, 21, 0.95)';
+        }
+    });
 });
+
+function getBasePath() {
+    const path = window.location.pathname;
+    if (path.includes('/pages/')) {
+        const depth = path.split('/pages/')[1].split('/').length;
+        return '../'.repeat(depth);
+    }
+    return './';
+}

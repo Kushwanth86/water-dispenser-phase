@@ -4,101 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Team Journey | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">09 — TEAM</span>
-            <h1>Development Timeline</h1>
-            <p>From initial concept formulation to a functional Phase 1 prototype.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="teamjourney.html" class="tag active">09 Project Development Timeline</a>
+        </div>
 
-        <section class="reveal-on-scroll" style="max-width: 900px; margin: 0 auto;">
-            <div class="timeline">
-                
-                <div class="timeline-item">
-                    <div class="timeline-marker">01</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Idea & Concept Definition</h3>
-                        <p>Identified cross-contamination issues in traditional public dispensers and conceptualized a touchless ultrasonic-activated valve mechanism.</p>
-                    </div>
+        <section class="glass-panel mb-3">
+            <div class="phase-indicator">09 — Team Journey</div>
+            <h2>Development Timeline</h2>
+            <p class="mb-2">Chronological progression of project milestones from conceptualization to prototype validation.</p>
+            
+            <div class="mt-3" style="display: grid; gap: 1rem; border-left: 2px solid var(--accent-cyan); padding-left: 1.5rem; margin-left: 0.5rem;">
+                <div>
+                    <h4 class="text-cyan font-md">Phase A: Conceptualization</h4>
+                    <p class="font-sm text-secondary">Initial problem definition, targeting touchless hygiene, and outlining basic block requirements.</p>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">02</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Component Selection</h3>
-                        <p>Evaluated microcontrollers and settled on the Arduino Uno combined with the HC-SR04 sensor and an SG90 servo motor for reliable actuation.</p>
-                    </div>
+                <div>
+                    <h4 class="text-cyan font-md">Phase B: Component Selection & Breadboarding</h4>
+                    <p class="font-sm text-secondary">Sourcing the Arduino Uno, ultrasonic sensor, servo, and assembling the first test circuit.</p>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">03</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Circuit & Software Architecture</h3>
-                        <p>Designed the wiring schematic and drafted the core C++ control logic loops for distance calculation and PWM timing.</p>
-                    </div>
+                <div>
+                    <h4 class="text-cyan font-md">Phase C: Firmware & CAD Modeling</h4>
+                    <p class="font-sm text-secondary">Writing the C++ sensor loop logic and modeling the custom enclosure box in CAD software.</p>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">04</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">CAD Modeling & 3D Printing</h3>
-                        <p>Designed custom enclosures (main box and lid) to house the electronics securely while maintaining a clean external profile.</p>
-                    </div>
+                <div>
+                    <h4 class="text-cyan font-md">Phase D: Integration & Testing</h4>
+                    <p class="font-sm text-secondary">Assembling electronics inside the 3D printed enclosure and recording performance metrics.</p>
                 </div>
-
-                <div class="timeline-item">
-                    <div class="timeline-marker">05</div>
-                    <div class="timeline-content">
-                        <h3 class="timeline-title">Prototype Assembly & Testing</h3>
-                        <p>Integrated all hardware components, ran empirical multi-cycle stress tests, documented system limits, and planned Phase 2 enhancements.</p>
-                    </div>
-                </div>
-
             </div>
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/learning/learning.html" class="btn btn-outline">
-                &larr; Previous: Learning Journey
-            </a>
-            <a href="../../pages/documentation/documentation.html" class="btn btn-primary">
-                Next: Documentation Library &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../learning/learning.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>08 — Learning Journey</strong>
+                </a>
+                <a href="../documentation/documentation.html" class="seq-btn next">
+                    <span>Next: Docs →</span>
+                    <strong>10 — Documentation Hub</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

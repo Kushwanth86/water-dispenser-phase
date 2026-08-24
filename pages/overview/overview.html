@@ -5,14 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>01 Overview | AquaSense</title>
     
-    <!-- CSS -->
     <link rel="stylesheet" href="../../css/style.css">
-    <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
 <body data-rootpath="../../">
 
-    <!-- GLOBAL NAVIGATION -->
     <header class="main-header" id="mainHeader">
         <div class="container nav-container">
             <a href="../../index.html" class="logo-container">
@@ -31,28 +28,17 @@
                     <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
     <main class="container">
-        <!-- Page Header -->
-        <header class="page-header reveal-on-scroll">
+        <header class="page-header">
             <span class="page-number">01</span>
             <h1>Project Overview</h1>
             <p>Phase 1 Prototype of the Automatic Water Dispensing System.</p>
         </header>
 
-        <!-- Content Grid -->
-        <section class="content-grid reveal-on-scroll">
+        <section style="display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start;">
             <div class="glass-panel">
                 <h3 class="text-accent">The Problem</h3>
                 <p>Traditional water dispensers require physical contact, creating cross-contamination risks in public, office, or laboratory environments. Furthermore, manual valves often lead to mechanical wear and water wastage if left slightly open.</p>
@@ -77,18 +63,12 @@
             </div>
         </section>
 
-        <!-- Sequential Navigation -->
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../index.html" class="btn btn-outline">
-                &larr; Home
-            </a>
-            <a href="../../pages/system/architecture.html" class="btn btn-primary">
-                Next: System &rarr;
-            </a>
+        <nav style="display: flex; justify-content: space-between; align-items: center; padding: 3rem 0; margin-top: 5rem; border-top: 1px solid var(--border-color);">
+            <a href="../../index.html" class="btn btn-outline">&larr; Home</a>
+            <a href="../../pages/system/architecture.html" class="btn btn-primary">Next: System &rarr;</a>
         </nav>
     </main>
 
-    <!-- JS Scripts -->
     <script src="../../js/main.js"></script>
     <script src="../../js/navigation.js"></script>
     <script src="../../js/animations.js"></script>

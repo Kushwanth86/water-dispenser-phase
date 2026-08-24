@@ -4,105 +4,89 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Code Explanation | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html" class="active">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="code.html" class="active">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">04 — SOFTWARE</span>
-            <h1>Code Explanation</h1>
-            <p>Breakdown of the embedded architecture and logic sequences.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="code.html" class="tag">04.1 Source Code</a>
+            <a href="code-explanation.html" class="tag active">04.2 Logic & Explanation</a>
+        </div>
 
-        <section class="content-grid single-col reveal-on-scroll">
+        <section class="glass-panel mb-3">
+            <h2>Software Architecture & Logic</h2>
+            <p class="mb-2">Breakdown of operational loops, timing checks, and actuation triggers.</p>
             
-            <div class="accordion">
-                <!-- Accordion Item 1 -->
-                <div class="accordion-item active">
-                    <button class="accordion-header">
-                        1. Initialization & Setup
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>The <code>setup()</code> function prepares the microcontroller environment. It defines the trigger pin as an output and the echo pin as an input. It securely attaches the servo to pin 6 and immediately writes it to <code>0</code> (closed state) to ensure the valve doesn't accidentally open upon boot. Finally, it initializes the 16x2 LCD display and prints a welcome message.</p>
-                    </div>
+            <div class="bento-grid mt-2">
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">1. Ultrasonic Pulse Triggering</h3>
+                    <p class="font-sm text-secondary">Initiates a clean 10-microsecond HIGH pulse on the trigger pin. Uses <code>pulseIn()</code> to measure echo duration and computes distance in centimeters.</p>
                 </div>
 
-                <!-- Accordion Item 2 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        2. Sensor Reading Logic
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>In the main <code>loop()</code>, the Arduino pulls the trigger pin LOW for 2µs, then HIGH for 10µs. This specific timing fires a 40kHz acoustic burst from the HC-SR04. The <code>pulseIn()</code> function calculates how long it takes for the echo to return. This duration is mathematically converted into centimeters using the formula <code>(duration / 2) / 29.1</code>.</p>
-                    </div>
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">2. Threshold Evaluation</h3>
+                    <p class="font-sm text-secondary">If detected objects fall under the 15cm threshold, it validates container presence and switches the LCD status message.</p>
                 </div>
 
-                <!-- Accordion Item 3 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        3. Decision & Servo Actuation
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>The software checks if the calculated distance is less than <code>THRESHOLD_CM</code> (15cm) and greater than zero (to ignore false negative errors). If a hand or glass is detected, the servo writes to <code>90</code> degrees, pulling the physical valve open. It then triggers a 1-second delay buffer to provide a smooth pour and prevent mechanical jitter.</p>
-                    </div>
-                </div>
-
-                <!-- Accordion Item 4 -->
-                <div class="accordion-item">
-                    <button class="accordion-header">
-                        4. LCD Feedback & Safety
-                        <span class="accordion-icon">+</span>
-                    </button>
-                    <div class="accordion-content">
-                        <p>Throughout the logic branching, the LCD is updated in real-time. It displays "Dispensing..." when the threshold is met, and "Ready to Serve" when idle. An overall loop delay of <code>200ms</code> is added at the end of the script to prevent CPU overloading and stabilize sensor readings across consecutive loops.</p>
-                    </div>
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">3. Servo Actuation & Timing</h3>
+                    <p class="font-sm text-secondary">Commands the SG90 servo to rotate from 0° to 90° for a controlled duration before returning to 0° to close the valve.</p>
                 </div>
             </div>
-
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/software/code.html" class="btn btn-outline">
-                &larr; Previous: Source Code
-            </a>
-            <a href="../../pages/cad/cad.html" class="btn btn-primary">
-                Next: CAD / 3D &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="code.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>04.1 — Source Code</strong>
+                </a>
+                <a href="../cad/cad.html" class="seq-btn next">
+                    <span>Next: CAD →</span>
+                    <strong>05 — CAD & Models</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

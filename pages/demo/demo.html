@@ -4,86 +4,80 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardware Demo | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">07 — DEMO</span>
-            <h1>Hardware Demonstration</h1>
-            <p>Video presentation of the fully integrated Phase 1 prototype.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="demo.html" class="tag active">07 Hardware Demo Video</a>
+        </div>
 
-        <section class="content-grid reveal-on-scroll">
+        <section class="glass-panel mb-3">
+            <div class="phase-indicator">07 — Demo</div>
+            <h2>Live Prototype Demonstration</h2>
+            <p class="mb-2">Observe contactless detection, LCD status output, and valve servo actuation in real time.</p>
             
-            <!-- Left: Video Player -->
-            <div class="video-wrapper">
-                <video controls preload="metadata">
-                    <!-- Path relative to the current directory -->
+            <div class="mt-2" style="background: rgba(0,0,0,0.6); padding: 1rem; border-radius: 8px; border: 1px solid var(--border-light);">
+                <video controls width="100%" style="border-radius: 6px; max-height: 50vh; display: block;" preload="metadata">
                     <source src="../../media/Hardware-Demo-Video.mp4" type="video/mp4">
-                    Your browser does not support the video tag. 
-                    <a href="../../media/Hardware-Demo-Video.mp4" class="text-accent">Download the video directly</a>.
+                    Your browser does not support the video tag.
                 </video>
+                <p class="font-sm text-secondary mt-1 text-center">Video player controls enabled. Audio-free operational showcase.</p>
             </div>
-
-            <!-- Right: Explanation -->
-            <div class="glass-panel" style="display: flex; flex-direction: column; justify-content: center;">
-                <h3 class="text-accent">Prototype in Action</h3>
-                <p>This demonstration validates the core mechanical and software loops engineered throughout Phase 1.</p>
-                
-                <ul style="list-style-position: inside; color: var(--text-muted); line-height: 1.8; margin-top: 1rem;">
-                    <li><strong>0:00 - 0:05</strong> System boot and LCD initialization sequence.</li>
-                    <li><strong>0:06 - 0:15</strong> Positive object detection and immediate servo actuation.</li>
-                    <li><strong>0:16 - End</strong> The 1-second delay buffer executing flawlessly upon object removal to prevent immediate shutoff jitter.</li>
-                </ul>
-
-                <div class="tag-group" style="margin-top: 2rem;">
-                    <span class="tag">Functional Test</span>
-                    <span class="tag">Real-time Feedback</span>
-                </div>
-            </div>
-
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/testing/testing.html" class="btn btn-outline">
-                &larr; Previous: Testing Results
-            </a>
-            <a href="../../pages/learning/learning.html" class="btn btn-primary">
-                Next: Learning Journey &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../testing/testing.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>06 — Testing</strong>
+                </a>
+                <a href="../learning/learning.html" class="seq-btn next">
+                    <span>Next: Learning →</span>
+                    <strong>08 — Learning Journey</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

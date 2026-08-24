@@ -4,74 +4,87 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learning Journey | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">08 — LEARNING</span>
-            <h1>Engineering Insights</h1>
-            <p>Key technical skills, design challenges, and takeaways from the development process.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="learning.html" class="tag active">08 Engineering Learnings</a>
+        </div>
 
-        <section class="card-grid reveal-on-scroll">
+        <section class="glass-panel mb-3">
+            <div class="phase-indicator">08 — Learning</div>
+            <h2>Engineering Insights & Takeaways</h2>
+            <p class="mb-2">Key technical competencies and lessons learned across embedded systems, CAD modeling, and hardware debugging.</p>
             
-            <div class="glass-panel">
-                <h3 class="text-accent">Embedded Systems</h3>
-                <p>Gained hands-on experience interfacing digital sensors (HC-SR04) with microcontroller interrupt registers, managing PWM timing constraints, and optimizing loop frequency for real-time responsiveness.</p>
+            <div class="bento-grid mt-2">
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">Sensor Debouncing</h3>
+                    <p class="font-sm text-secondary">Filtered out acoustic echo interference and false triggers using temporal delays and conditional checks in C++.</p>
+                </div>
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">Power Management</h3>
+                    <p class="font-sm text-secondary">Managed voltage drops under heavy servo motor loads by structuring clean separate power distribution rails.</p>
+                </div>
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">3D Printing Tolerances</h3>
+                    <p class="font-sm text-secondary">Gained practical experience designing precise snap-fits and clearance gaps for mechanical housings in CAD.</p>
+                </div>
             </div>
-
-            <div class="glass-panel">
-                <h3 class="text-accent">Mechatronic Design</h3>
-                <p>Learned how to balance electronic power loads with mechanical actuator torque limits, mitigating physical valve friction using custom-tolerance 3D enclosure structures.</p>
-            </div>
-
-            <div class="glass-panel">
-                <h3 class="text-accent">Iterative Prototyping</h3>
-                <p>Understood the importance of empirical testing cycles—identifying acoustic wave deflection issues during edge-case testing and adjusting code-level delay buffers to eliminate mechanical jitter.</p>
-            </div>
-
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/demo/demo.html" class="btn btn-outline">
-                &larr; Previous: Prototype Demo
-            </a>
-            <a href="../../pages/team/teamjourney.html" class="btn btn-primary">
-                Next: Team Journey &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../demo/demo.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>07 — Video Demo</strong>
+                </a>
+                <a href="../team/teamjourney.html" class="seq-btn next">
+                    <span>Next: Team →</span>
+                    <strong>09 — Team Journey</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

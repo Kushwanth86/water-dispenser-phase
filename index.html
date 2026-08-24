@@ -3,146 +3,1094 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AquaSense | Automatic Water Dispenser Phase 1</title>
+    <title>AquaSense | Automatic Water Dispenser Engineering Presentation</title>
     
-    <!-- CSS -->
-    <link rel="stylesheet" href="css/style.css">
-    <link rel="stylesheet" href="css/components.css">
-    <link rel="stylesheet" href="css/responsive.css">
-    
-    <!-- Inline styles specifically for Hero Layout (to avoid polluting global css early) -->
+    <!-- Google Fonts for Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
     <style>
-        .hero-section {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            padding-top: 80px; 
-        }
-        
-        .hero-layout {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2rem;
-            align-items: center;
+        :root {
+            --bg-dark: #050A15;
+            --bg-surface: rgba(13, 22, 38, 0.85);
+            --bg-glass: rgba(16, 28, 48, 0.55);
+            --accent-cyan: #00E5FF;
+            --accent-hover: #00B3CC;
+            --text-primary: #F8FAFC;
+            --text-secondary: #94A3B8;
+            --border-light: rgba(0, 229, 255, 0.2);
+            --border-strong: rgba(0, 229, 255, 0.4);
+            
+            --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+            --max-width: 1400px;
+            --nav-height: 85px;
+            --transition-smooth: 300ms cubic-bezier(0.4, 0, 0.2, 1);
         }
 
-        .hero-visual img {
-            width: 100%;
-            max-width: 600px;
-            height: auto;
-            display: block;
+        *, *::before, *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            font-size: 16px;
+        }
+
+        body {
+            background-color: var(--bg-dark);
+            color: var(--text-primary);
+            font-family: var(--font-sans);
+            line-height: 1.6;
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* Engineering Grid Background */
+        .engineering-grid {
+            position: fixed;
+            top: 0; left: 0; width: 100vw; height: 100vh;
+            z-index: -1;
+            background-image: 
+                linear-gradient(var(--border-light) 1px, transparent 1px),
+                linear-gradient(90deg, var(--border-light) 1px, transparent 1px);
+            background-size: 50px 50px;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        /* Fluid Typography */
+        h1 { font-size: clamp(2.5rem, 5vw, 4.5rem); font-weight: 800; line-height: 1.1; }
+        h2 { font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 700; line-height: 1.2; }
+        h3 { font-size: clamp(1.25rem, 2vw, 1.6rem); font-weight: 600; }
+        p, li { font-size: clamp(1rem, 1.15vw, 1.2rem); color: var(--text-secondary); }
+
+        a { color: var(--text-primary); text-decoration: none; transition: color var(--transition-smooth); }
+        a:hover { color: var(--accent-cyan); }
+
+        /* Global Header */
+        .site-header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            height: var(--nav-height);
+            background: rgba(5, 10, 21, 0.95);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid var(--border-light);
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+            max-width: var(--max-width);
             margin: 0 auto;
-            filter: drop-shadow(0 0 30px rgba(0, 229, 255, 0.1));
-            animation: float 6s ease-in-out infinite;
+            padding: 0 2.5rem;
         }
-        
-        .phase-indicator {
+
+        .logo {
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--text-primary);
             display: flex;
             align-items: center;
-            gap: 1rem;
-            margin-bottom: 1.5rem;
+            gap: 0.5rem;
+            cursor: pointer;
+        }
+        .logo span { color: var(--accent-cyan); }
+
+        .main-nav ul {
+            display: flex;
+            gap: 1.5rem;
+            list-style: none;
+            align-items: center;
         }
 
-        .phase-line {
-            height: 1px;
-            width: 40px;
-            background-color: var(--accent-cyan);
-        }
-
-        .phase-text {
-            color: var(--accent-cyan);
+        .main-nav a {
+            font-size: 0.9rem;
             font-weight: 600;
-            letter-spacing: 0.1em;
+            color: var(--text-secondary);
             text-transform: uppercase;
-            font-size: 0.875rem;
+            letter-spacing: 0.05em;
+            padding: 0.5rem 0;
+            position: relative;
+            cursor: pointer;
         }
 
-        @keyframes float {
-            0% { transform: translateY(0px); }
-            50% { transform: translateY(-15px); }
-            100% { transform: translateY(0px); }
+        .main-nav a:hover, .main-nav a.active {
+            color: var(--accent-cyan);
+        }
+
+        .main-nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; width: 0; height: 2px;
+            background: var(--accent-cyan);
+            transition: width var(--transition-smooth);
+        }
+        .main-nav a:hover::after, .main-nav a.active::after { width: 100%; }
+
+        .nav-controls { display: flex; align-items: center; gap: 1.25rem; }
+
+        .search-trigger {
+            background: transparent;
+            border: 1px solid var(--border-light);
+            color: var(--text-secondary);
+            cursor: pointer;
+            font-size: 0.85rem;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            padding: 0.5rem 1rem;
+            border-radius: 6px;
+            transition: all var(--transition-smooth);
+        }
+        .search-trigger:hover { color: var(--accent-cyan); border-color: var(--accent-cyan); }
+
+        .kbd-hint {
+            background: var(--bg-surface);
+            border: 1px solid var(--border-strong);
+            padding: 0.15rem 0.4rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 0.7rem;
+        }
+
+        .mobile-menu-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            cursor: pointer;
+            padding: 0.5rem;
+        }
+        .hamburger-line {
+            display: block; width: 26px; height: 2px;
+            background: var(--text-primary); margin-bottom: 5px;
+            transition: var(--transition-smooth);
+        }
+        .hamburger-line:last-child { margin-bottom: 0; }
+
+        /* SPA Section Views */
+        .spa-section {
+            display: none;
+            padding-top: calc(var(--nav-height) + 3rem);
+            padding-bottom: 5rem;
+            max-width: var(--max-width);
+            margin: 0 auto;
+            padding-left: 2.5rem;
+            padding-right: 2.5rem;
+            animation: fadeIn 0.4s ease-out forwards;
+        }
+        .spa-section.active { display: block; }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Glass Panels */
+        .glass-panel {
+            background: var(--bg-glass);
+            -webkit-backdrop-filter: blur(16px);
+            backdrop-filter: blur(16px);
+            border: 1px solid var(--border-light);
+            border-radius: 16px;
+            padding: 3rem;
+            margin-bottom: 2.5rem;
+        }
+
+        /* Buttons & Tags */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0.85rem 1.75rem;
+            border-radius: 6px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            cursor: pointer;
+            transition: all var(--transition-smooth);
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .btn-primary {
+            background: transparent;
+            color: var(--accent-cyan);
+            border: 1px solid var(--accent-cyan);
+        }
+        .btn-primary:hover {
+            background: rgba(0, 229, 255, 0.15);
+            box-shadow: 0 0 20px rgba(0, 229, 255, 0.25);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border-strong);
+        }
+        .btn-secondary:hover {
+            border-color: var(--text-primary);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        .tag-group { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+        .tag {
+            font-size: 0.8rem;
+            padding: 0.45rem 1.1rem;
+            background: var(--bg-surface);
+            border: 1px solid var(--border-light);
+            border-radius: 50px;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        /* Grids & Layouts */
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1.1fr 0.9fr;
+            gap: 4rem;
+            align-items: center;
+        }
+        .hero-visual img {
+            width: 100%; max-width: 600px; height: auto;
+            border-radius: 12px; border: 1px solid var(--border-light);
+            box-shadow: 0 25px 50px rgba(0, 229, 255, 0.12);
+            cursor: zoom-in;
+            background: rgba(0,0,0,0.3);
+            min-height: 250px;
+            object-fit: contain;
+        }
+
+        .bento-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .bento-card {
+            background: rgba(0,0,0,0.3);
+            border: 1px solid var(--border-light);
+            border-radius: 12px;
+            padding: 2.25rem;
+            display: flex; flex-direction: column; gap: 1rem;
+        }
+        .bento-img {
+            width: 100%; height: 180px; object-fit: contain;
+            background: rgba(0,0,0,0.2); border-radius: 8px; padding: 0.75rem;
+            cursor: zoom-in;
+        }
+
+        /* Tables */
+        .overflow-x-auto { overflow-x: auto; width: 100%; margin-top: 2rem; }
+        .data-table {
+            width: 100%; border-collapse: collapse; text-align: left; font-size: 1rem;
+        }
+        .data-table th, .data-table td { padding: 1.1rem 1.25rem; }
+        .data-table thead tr { border-bottom: 2px solid var(--border-strong); background: rgba(0, 229, 255, 0.04); }
+        .data-table th { color: var(--accent-cyan); font-weight: 700; text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.05em; }
+        .data-table tbody tr { border-bottom: 1px solid var(--border-light); }
+
+        /* Code Viewer */
+        .code-container {
+            background: #020617; border: 1px solid var(--border-light);
+            border-radius: 12px; overflow: hidden; margin-top: 2rem;
+        }
+        .code-header-bar {
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 1rem 1.5rem; background: rgba(0, 229, 255, 0.06);
+            border-bottom: 1px solid var(--border-light); font-family: monospace; font-size: 0.9rem; color: var(--text-secondary);
+        }
+        .code-block {
+            padding: 2rem; overflow-x: auto; font-family: 'Courier New', Courier, monospace;
+            font-size: 0.95rem; color: #38BDF8; line-height: 1.6;
+        }
+        .code-keyword { color: #F43F5E; }
+        .code-type { color: #FBBF24; }
+        .code-comment { color: #64748B; font-style: italic; }
+        .code-string { color: #34D399; }
+
+        /* Sequential Navigation Bar */
+        .sequential-nav {
+            margin-top: 4rem; padding: 2.5rem 0 1rem;
+            border-top: 1px solid var(--border-light);
+            display: flex; justify-content: space-between; align-items: center;
+        }
+        .seq-btn { display: flex; flex-direction: column; gap: 0.25rem; cursor: pointer; background: none; border: none; text-align: left; }
+        .seq-btn.next { text-align: right; }
+        .seq-btn span { font-size: 0.8rem; text-transform: uppercase; color: var(--text-secondary); letter-spacing: 0.05em; }
+        .seq-btn strong { font-size: 1.25rem; color: var(--text-primary); transition: color var(--transition-smooth); }
+        .seq-btn:hover strong { color: var(--accent-cyan); }
+
+        /* Search & Asset Modals */
+        .search-overlay, .media-viewer-overlay {
+            position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+            background: rgba(5, 10, 21, 0.94); -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+            z-index: 9999; display: flex; justify-content: center; align-items: flex-start; padding-top: 12vh;
+            opacity: 0; pointer-events: none; transition: opacity var(--transition-smooth);
+        }
+        .search-overlay.active, .media-viewer-overlay.active { opacity: 1; pointer-events: all; }
+        .search-modal {
+            width: 100%; max-width: 650px; background: var(--bg-surface);
+            border: 1px solid var(--border-light); border-radius: 16px; overflow: hidden;
+        }
+        .search-header {
+            display: flex; padding: 1.25rem 1.5rem; border-bottom: 1px solid var(--border-light); gap: 1rem; background: rgba(0,0,0,0.4);
+        }
+        .search-header input { flex-grow: 1; background: transparent; border: none; color: var(--text-primary); font-size: 1.15rem; outline: none; }
+        .close-search, .close-viewer { background: transparent; border: none; color: var(--text-secondary); font-size: 1.6rem; cursor: pointer; }
+        .close-search:hover, .close-viewer:hover { color: var(--accent-cyan); }
+        .search-results { max-height: 55vh; overflow-y: auto; }
+        .search-result-item {
+            display: flex; padding: 1.2rem 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.04); gap: 1.25rem; align-items: center; cursor: pointer;
+        }
+        .search-result-item:hover { background: rgba(0, 229, 255, 0.08); }
+        .sr-category { font-size: 0.75rem; text-transform: uppercase; color: var(--accent-cyan); min-width: 80px; font-weight: 700; }
+        .sr-content h4 { font-size: 1.05rem; margin-bottom: 0.2rem; color: var(--text-primary); }
+        .sr-content p { font-size: 0.9rem; margin: 0; }
+        .search-empty { padding: 3rem; text-align: center; color: var(--text-secondary); font-size: 1.1rem; }
+
+        .media-viewer-overlay { align-items: center; padding: 2rem; }
+        .media-viewer-toolbar {
+            position: absolute; top: 0; left: 0; width: 100%; padding: 1.25rem 2.5rem;
+            display: flex; justify-content: space-between; align-items: center;
+            background: linear-gradient(to bottom, rgba(5,10,21,0.98), transparent); z-index: 10;
+        }
+        .media-viewer-content img { max-width: 90vw; max-height: 80vh; object-fit: contain; border-radius: 8px; }
+
+        /* Responsive Breakpoints */
+        @media (max-width: 1024px) {
+            .hero-grid { grid-template-columns: 1fr; text-align: center; gap: 3rem; }
+            .hero-content { align-items: center; }
+            .hero-content p { margin: 0 auto; }
+            .tag-group { justify-content: center; }
+            .hero-actions { justify-content: center; }
+        }
+        @media (max-width: 768px) {
+            .main-nav {
+                position: fixed; top: var(--nav-height); left: 0; width: 100%; height: calc(100vh - var(--nav-height));
+                background: rgba(5, 10, 21, 0.99); -webkit-backdrop-filter: blur(16px); backdrop-filter: blur(16px);
+                flex-direction: column; justify-content: flex-start; padding: 3rem 2rem;
+                transform: translateX(100%); transition: transform var(--transition-smooth); border-bottom: 1px solid var(--border-light);
+            }
+            .main-nav.nav-open { transform: translateX(0); }
+            .main-nav ul { flex-direction: column; gap: 2rem; align-items: flex-start; width: 100%; }
+            .main-nav a { font-size: 1.2rem; }
+            .search-trigger .kbd-hint { display: none; }
+            .mobile-menu-toggle { display: block; }
         }
     </style>
 </head>
-<body data-rootpath="./">
+<body>
 
-    <!-- GLOBAL NAVIGATION -->
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
+    <div class="engineering-grid"></div>
+
+    <!-- Global Header -->
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="logo" onclick="switchSection('overview')">Aqua<span>Sense</span></div>
             
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="pages/overview/overview.html">Overview</a></li>
-                    <li><a href="pages/system/architecture.html">System</a></li>
-                    <li><a href="pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="pages/software/code.html">Software</a></li>
-                    <li><a href="pages/cad/cad.html">CAD</a></li>
-                    <li><a href="pages/testing/testing.html">Testing</a></li>
-                    <li><a href="pages/documentation/documentation.html">Docs</a></li>
+            <nav class="main-nav" id="mainNav">
+                <ul>
+                    <li><a data-target="overview" class="nav-link active" onclick="switchSection('overview')">Overview</a></li>
+                    <li><a data-target="system" class="nav-link" onclick="switchSection('system')">System</a></li>
+                    <li><a data-target="hardware" class="nav-link" onclick="switchSection('hardware')">Hardware</a></li>
+                    <li><a data-target="software" class="nav-link" onclick="switchSection('software')">Software</a></li>
+                    <li><a data-target="cad" class="nav-link" onclick="switchSection('cad')">CAD</a></li>
+                    <li><a data-target="testing" class="nav-link" onclick="switchSection('testing')">Testing</a></li>
+                    <li><a data-target="demo" class="nav-link" onclick="switchSection('demo')">Demo</a></li>
+                    <li><a data-target="docs" class="nav-link" onclick="switchSection('docs')">Docs</a></li>
                 </ul>
             </nav>
 
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <circle cx="11" cy="11" r="8"></circle>
-                    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-                </svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- HERO SECTION -->
-    <main>
-        <section class="hero-section" id="hero">
-            <div class="container hero-layout">
-                
-                <!-- LEFT: Content -->
+    <!-- ==================== SECTION 01: OVERVIEW ==================== -->
+    <section id="overview" class="spa-section active">
+        <div class="glass-panel">
+            <div class="hero-grid">
                 <div class="hero-content">
-                    <div class="phase-indicator">
-                        <div class="phase-line"></div>
-                        <span class="phase-text">Phase 01 — Prototype</span>
-                    </div>
-                    
-                    <h1 class="hero-title">AquaSense</h1>
-                    <h2 class="text-accent" style="font-size: 1.5rem; margin-bottom: 1.5rem; font-weight: 500;">
-                        Automatic Water Dispenser
-                    </h2>
-                    
-                    <p>A sensor-based automated water dispensing system designed to provide contactless operation using ultrasonic detection, servo control, and real-time user feedback.</p>
+                    <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">Phase 01 — Prototype</div>
+                    <h1>AquaSense</h1>
+                    <h2 style="color: var(--text-secondary); margin-bottom: 1rem;">Automatic Water Dispenser</h2>
+                    <p style="margin-bottom: 2rem;">A sensor-based automated water dispensing system designed to provide contactless hygiene operation using precision ultrasonic detection, micro-servo valve control, and real-time LCD user feedback.</p>
                     
                     <div class="tag-group">
+                        <span class="tag">Embedded Systems</span>
                         <span class="tag">Arduino Uno</span>
-                        <span class="tag">HC-SR04</span>
-                        <span class="tag">Embedded C++</span>
                         <span class="tag">Mechatronics</span>
+                        <span class="tag">Contactless IoT</span>
                     </div>
 
-                    <div class="btn-group">
-                        <a href="pages/overview/overview.html" class="btn btn-primary">
-                            Explore Project
-                        </a>
-                        <a href="pages/documentation/documentation.html" class="btn btn-outline">
-                            View Documentation
-                        </a>
+                    <div class="hero-actions" style="display: flex; gap: 1rem; margin-top: 1.5rem;">
+                        <button class="btn btn-primary" onclick="switchSection('system')">Explore System</button>
+                        <button class="btn btn-secondary" onclick="switchSection('docs')">View Documentation</button>
                     </div>
                 </div>
 
-                <!-- RIGHT: Visual -->
-                <div class="hero-visual">
-                    <img src="assets/images/hero/final-render.png" alt="AquaSense Final Render Phase 1" />
+                <div class="hero-visual text-center">
+                    <img src="./assets/images/cad/final-render.png" alt="AquaSense Final Prototype Render" class="zoomable" onerror="this.src='assets/images/cad/final-render.png'">
+                    <p style="font-size: 0.9rem; margin-top: 0.75rem;" class="text-secondary">Click render to inspect full-screen asset</p>
                 </div>
             </div>
-        </section>
-    </main>
+        </div>
 
-    <!-- JS Scripts -->
-    <script src="js/main.js"></script>
-    <script src="js/navigation.js"></script>
-    <script src="js/animations.js"></script>
+        <div class="sequential-nav">
+            <div></div>
+            <button class="seq-btn next" onclick="switchSection('system')">
+                <span>Next Section →</span>
+                <strong>02 — System Architecture</strong>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ==================== SECTION 02: SYSTEM ==================== -->
+    <section id="system" class="spa-section">
+        <div class="glass-panel">
+            <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">02 — System Architecture & Workflow</div>
+            <h2 style="margin-bottom: 1.5rem;">System Logic & Operation</h2>
+            <p style="margin-bottom: 2.5rem;">The architecture separates the hardware into three synchronized layers: Input Detection, Microcontroller Logic, and Actuation/Feedback.</p>
+            
+            <div class="bento-grid" style="margin-bottom: 3rem;">
+                <div class="bento-card" style="border-left: 4px solid var(--accent-cyan);">
+                    <h3>1. Initialization</h3>
+                    <p>System powers on, the 16x2 LCD boots up displaying readiness, and the servo locks the control valve at 0°.</p>
+                </div>
+                <div class="bento-card" style="border-left: 4px solid var(--accent-cyan);">
+                    <h3>2. Proximity Scanning</h3>
+                    <p>The HC-SR04 ultrasonic sensor continuously pings acoustic waves while the LCD prompts the user with "Place Glass".</p>
+                </div>
+                <div class="bento-card" style="border-left: 4px solid var(--accent-cyan);">
+                    <h3>3. Threshold & Actuation</h3>
+                    <p>When container distance drops below 15cm, the MCU validates the trigger, rotates the servo to 90°, and dispenses water.</p>
+                </div>
+            </div>
+
+            <!-- Architecture Diagram -->
+            <div style="margin-bottom: 3rem;">
+                <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">System Architecture Diagram</h3>
+                <div class="text-center" style="background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-light);">
+                    <img src="./assets/images/architecture/architecture.jpeg" alt="System Architecture Diagram" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
+                    <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-secondary">Click diagram to zoom & inspect</p>
+                </div>
+            </div>
+
+            <!-- Workflow Flowchart -->
+            <div>
+                <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">System Workflow Flowchart</h3>
+                <div class="text-center" style="background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-light);">
+                    <img src="./assets/images/architecture/system-workflow.jpeg" alt="System Workflow Flowchart" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
+                    <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-secondary">Click flowchart to zoom & inspect</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sequential-nav">
+            <button class="seq-btn" onclick="switchSection('overview')">
+                <span>← Previous</span>
+                <strong>01 — Overview</strong>
+            </button>
+            <button class="seq-btn next" onclick="switchSection('hardware')">
+                <span>Next Section →</span>
+                <strong>03 — Hardware & Circuit</strong>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ==================== SECTION 03: HARDWARE ==================== -->
+    <section id="hardware" class="spa-section">
+        <div class="glass-panel">
+            <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">03 — Hardware & Bill of Materials</div>
+            <h2 style="margin-bottom: 1.5rem;">Electromechanical Components</h2>
+            <p style="margin-bottom: 2rem;">Physical components integrated into the Phase 1 prototype for high reliability and low power usage.</p>
+            
+            <div class="bento-grid">
+                <div class="bento-card">
+                    <h3>Arduino Uno Rev3</h3>
+                    <img src="assets/images/hardware/arduino-uno.png" alt="Arduino Uno" class="zoomable bento-img">
+                    <p><strong>Role:</strong> Central processing unit. Manages sensor timing and peripheral logic.</p>
+                </div>
+                <div class="bento-card">
+                    <h3>HC-SR04 Ultrasonic</h3>
+                    <img src="assets/images/hardware/hc-sr04.jpg" alt="Ultrasonic Sensor" class="zoomable bento-img">
+                    <p><strong>Role:</strong> Contactless detection via 40kHz acoustic echo ranging.</p>
+                </div>
+                <div class="bento-card">
+                    <h3>SG90 Micro Servo</h3>
+                    <img src="assets/images/hardware/servo.jpg" alt="Servo Motor" class="zoomable bento-img">
+                    <p><strong>Role:</strong> Mechanical valve actuator driven via PWM signals.</p>
+                </div>
+                <div class="bento-card">
+                    <h3>16×2 LCD Display</h3>
+                    <img src="assets/images/hardware/lcd.jpg" alt="LCD Display" class="zoomable bento-img">
+                    <p><strong>Role:</strong> Real-time user interface providing operational status feedback.</p>
+                </div>
+                <div class="bento-card">
+                    <h3>Power Supply</h3>
+                    <img src="assets/images/hardware/battery.jpg" alt="Battery Source" class="zoomable bento-img">
+                    <p><strong>Role:</strong> Energy source. Provides stable DC power to components.</p>
+                </div>
+            </div>
+
+            <!-- Circuit Schematic -->
+            <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-light);">
+                <div class="header-flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                    <div>
+                        <h2>Circuit Schematic</h2>
+                        <p>Complete wiring layout detailing GPIO pins and power distribution.</p>
+                    </div>
+                    <a href="assets/images/circuit/circuit.png" download class="btn btn-primary">Download Schematic PNG</a>
+                </div>
+
+                <div class="text-center" style="background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-light);">
+                    <img src="assets/images/circuit/circuit.png" alt="Circuit Wiring Schematic" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
+                    <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-cyan">Click schematic to zoom in</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="sequential-nav">
+            <button class="seq-btn" onclick="switchSection('system')">
+                <span>← Previous</span>
+                <strong>02 — System</strong>
+            </button>
+            <button class="seq-btn next" onclick="switchSection('software')">
+                <span>Next Section →</span>
+                <strong>04 — Software & Firmware</strong>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ==================== SECTION 04: SOFTWARE ==================== -->
+    <section id="software" class="spa-section">
+        <div class="glass-panel">
+            <div style="display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 1rem; margin-bottom: 1.5rem;">
+                <div>
+                    <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">04 — Firmware & Code Architecture</div>
+                    <h2>Arduino Sketch (`AquaSense_Phase1.ino`)</h2>
+                </div>
+                <button id="copyCodeBtn" class="btn btn-primary">Copy Source Code</button>
+            </div>
+            
+            <div class="code-container">
+                <div class="code-header-bar">
+                    <span>code/AquaSense_Phase1.ino</span>
+                    <span>C++ / Arduino</span>
+                </div>
+                <pre class="code-block" id="sourceCodeContent"><span class="code-comment">/*
+  Project: AquaSense Phase 1 Prototype
+  Controller: Arduino Uno
+  Components: HC-SR04 Ultrasonic Sensor, SG90 Servo Motor, 16x2 LCD
+*/</span>
+
+<span class="code-keyword">#include</span> <span class="code-string">&lt;Servo.h&gt;</span>
+<span class="code-keyword">#include</span> <span class="code-string">&lt;LiquidCrystal.h&gt;</span>
+
+<span class="code-type">const</span> <span class="code-type">int</span> trigPin = <span class="code-string">9</span>;
+<span class="code-type">const</span> <span class="code-type">int</span> echoPin = <span class="code-string">10</span>;
+<span class="code-type">const</span> <span class="code-type">int</span> servoPin = <span class="code-string">6</span>;
+
+Servo waterServo;
+LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string">11</span>, <span class="code-string">5</span>, <span class="code-string">4</span>, <span class="code-string">3</span>, <span class="code-string">2</span>);
+
+<span class="code-type">void</span> <span class="code-keyword">setup</span>() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  waterServo.attach(servoPin);
+  waterServo.write(<span class="code-string">0</span>); <span class="code-comment">// Initial closed valve state</span>
+  
+  lcd.begin(<span class="code-string">16</span>, <span class="code-string">2</span>);
+  lcd.print(<span class="code-string">"AquaSense Ready"</span>);
+}
+
+<span class="code-type">void</span> <span class="code-keyword">loop</span>() {
+  <span class="code-type">long</span> duration;
+  <span class="code-type">int</span> distance;
+
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(<span class="code-string">2</span>);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(<span class="code-string">10</span>);
+  digitalWrite(trigPin, LOW);
+
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * <span class="code-string">0.034</span> / <span class="code-string">2</span>;
+
+  <span class="code-keyword">if</span> (distance &gt; <span class="code-string">0</span> && distance &lt; <span class="code-string">15</span>) {
+    lcd.clear();
+    lcd.print(<span class="code-string">"Dispensing..."</span>);
+    waterServo.write(<span class="code-string">90</span>); <span class="code-comment">// Open valve</span>
+    delay(<span class="code-string">3000</span>);
+    waterServo.write(<span class="code-string">0</span>);  <span class="code-comment">// Close valve</span>
+  } <span class="code-keyword">else</span> {
+    lcd.setCursor(<span class="code-string">0</span>, <span class="code-string">0</span>);
+    lcd.print(<span class="code-string">"Place Glass    "</span>);
+  }
+  delay(<span class="code-string">500</span>);
+}</pre>
+            </div>
+        </div>
+
+        <div class="sequential-nav">
+            <button class="seq-btn" onclick="switchSection('hardware')">
+                <span>← Previous</span>
+                <strong>03 — Hardware</strong>
+            </button>
+            <button class="seq-btn next" onclick="switchSection('cad')">
+                <span>Next Section →</span>
+                <strong>05 — CAD & 3D Models</strong>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ==================== SECTION 05: CAD ==================== -->
+    <section id="cad" class="spa-section">
+        <div class="glass-panel">
+            <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">05 — Mechanical Enclosure & CAD</div>
+            <h2 style="margin-bottom: 1.5rem;">Enclosure Design & STL Assets</h2>
+            <p style="margin-bottom: 2rem;">Custom 3D-printable housing designed to securely house electronics and water valve components.</p>
+            
+            <div class="bento-grid">
+                <div class="bento-card">
+                    <h3>Main Enclosure Box</h3>
+                    <img src="assets/images/cad/main-box.png" alt="Main Box CAD Render" class="zoomable bento-img">
+                    <p>Protects Arduino and wiring channels.</p>
+                    <a href="models/main-box.stl" download class="btn btn-primary" style="margin-top: auto;">Download Box STL</a>
+                </div>
+                <div class="bento-card">
+                    <h3>Top Lid Mechanism</h3>
+                    <img src="assets/images/cad/main-lid.png" alt="Main Lid CAD Render" class="zoomable bento-img">
+                    <p>Secures ultrasonic sensor and service hatch.</p>
+                    <a href="models/main-lid.stl" download class="btn btn-primary" style="margin-top: auto;">Download Lid STL</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="sequential-nav">
+            <button class="seq-btn" onclick="switchSection('software')">
+                <span>← Previous</span>
+                <strong>04 — Software</strong>
+            </button>
+            <button class="seq-btn next" onclick="switchSection('testing')">
+                <span>Next Section →</span>
+                <strong>06 — Testing & Results</strong>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ==================== SECTION 06: TESTING ==================== -->
+    <section id="testing" class="spa-section">
+        <div class="glass-panel">
+            <div class="header-flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <div>
+                    <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">06 — Validation & Metrics</div>
+                    <h2>Prototype Testing & Performance</h2>
+                </div>
+                <a href="documents/Test-Results.pdf" download class="btn btn-primary">Download Test PDF</a>
+            </div>
+            <p>Evaluation metrics and operational limits recorded during phase 1 bench testing.</p>
+            
+            <div class="overflow-x-auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Test Parameter</th>
+                            <th>Target Condition</th>
+                            <th>Observed Result</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ultrasonic Range Detection</td>
+                            <td>&lt; 15 cm trigger distance</td>
+                            <td>Accurate within ±0.5 cm margin</td>
+                            <td class="text-cyan font-weight:700;">Passed</td>
+                        </tr>
+                        <tr>
+                            <td>Servo Response Latency</td>
+                            <td>&lt; 300 ms actuation delay</td>
+                            <td>~220 ms average response time</td>
+                            <td class="text-cyan font-weight:700;">Passed</td>
+                        </tr>
+                        <tr>
+                            <td>LCD Refresh Stability</td>
+                            <td>Real-time feedback update</td>
+                            <td>Stable, zero visual flicker</td>
+                            <td class="text-cyan font-weight:700;">Passed</td>
+                        </tr>
+                        <tr>
+                            <td>Power Rail Regulation</td>
+                            <td>Continuous multi-hour run</td>
+                            <td>Minor voltage dip under heavy servo load</td>
+                            <td style="color: #FBBF24;">Optimized (Phase 2)</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="sequential-nav">
+            <button class="seq-btn" onclick="switchSection('cad')">
+                <span>← Previous</span>
+                <strong>05 — CAD</strong>
+            </button>
+            <button class="seq-btn next" onclick="switchSection('demo')">
+                <span>Next Section →</span>
+                <strong>07 — Video Demo</strong>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ==================== SECTION 07: DEMO ==================== -->
+    <section id="demo" class="spa-section">
+        <div class="glass-panel">
+            <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">07 — Hardware Demonstration</div>
+            <h2 style="margin-bottom: 1.5rem;">Live Prototype Demonstration</h2>
+            <p style="margin-bottom: 2rem;">Observe contactless detection, LCD status output, and valve servo actuation in real-time operation.</p>
+            
+            <div style="background: rgba(0,0,0,0.6); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-light); text-align: center;">
+                <video controls width="100%" style="border-radius: 8px; max-height: 55vh; display: block;" preload="metadata">
+                    <source src="media/Hardware-Demo-Video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-secondary">Video player controls enabled. Audio-free operational showcase.</p>
+            </div>
+        </div>
+
+        <div class="sequential-nav">
+            <button class="seq-btn" onclick="switchSection('testing')">
+                <span>← Previous</span>
+                <strong>06 — Testing</strong>
+            </button>
+            <button class="seq-btn next" onclick="switchSection('docs')">
+                <span>Next Section →</span>
+                <strong>08 — Documentation & Library</strong>
+            </button>
+        </div>
+    </section>
+
+
+    <!-- ==================== SECTION 08: DOCS & MASTER LIBRARY ==================== -->
+    <section id="docs" class="spa-section">
+        <div class="glass-panel">
+            <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">08 — Master Documentation Library</div>
+            <h2 style="margin-bottom: 1.5rem;">All Project PDFs, Reports & Presentations</h2>
+            <p style="margin-bottom: 2.5rem;">Direct access and downloads for every engineering report, user manual, and learning record.</p>
+            
+            <div class="overflow-x-auto">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Document / Report Title</th>
+                            <th>Category</th>
+                            <th>Format</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Project Overview Report</td>
+                            <td>Project</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Project_Overview.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Project_Overview.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Main Project Report</td>
+                            <td>Project</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Report.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Report.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Engineering Learning Record (Under Mentor)</td>
+                            <td>Learning & R&D</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Learning.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Learning.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Team Journey & Milestones</td>
+                            <td>Team</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Team-Journey.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Team-Journey.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Component Specifications</td>
+                            <td>Hardware</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Component-Specifications.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Component-Specifications.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Bill of Materials (BOM)</td>
+                            <td>Hardware</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/BOM.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/BOM.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Hardware Wiring Guide</td>
+                            <td>Hardware</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Hardware-Wiring.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Hardware-Wiring.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>System Working Principle</td>
+                            <td>System</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/System-Working-Principle.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/System-Working-Principle.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Source Code Documentation</td>
+                            <td>Software</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Source-Code-Documentation.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Source-Code-Documentation.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>User Manual</td>
+                            <td>Documentation</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/User-Manual.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/User-Manual.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Test Results & Performance Metrics</td>
+                            <td>Testing</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Test-Results.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Test-Results.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Phase 2 Future Smart Dispenser Roadmap</td>
+                            <td>Future Scope</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="documents/Phase-2-Enhanced-Smart-Dispenser.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="documents/Phase-2-Enhanced-Smart-Dispenser.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Official PowerPoint Presentation Deck</td>
+                            <td>Presentation</td>
+                            <td>PPTX</td>
+                            <td>
+                                <a href="presentation/Automatic-Water-Dispenser.pptx" download class="text-cyan font-weight:700;">Download Presentation (.pptx)</a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <div class="sequential-nav">
+            <button class="seq-btn" onclick="switchSection('demo')">
+                <span>← Previous</span>
+                <strong>07 — Demo</strong>
+            </button>
+            <button class="seq-btn next" onclick="switchSection('overview')">
+                <span>Complete Journey →</span>
+                <strong>Return to Overview</strong>
+            </button>
+        </div>
+    </section>
+
+    <!-- Global Search Modal Overlay -->
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-modal">
+            <div class="search-header">
+                <input type="text" id="searchInput" placeholder="Search architecture, hardware, code, learning PDF..." autocomplete="off">
+                <button class="close-search" aria-label="Close Search">✕</button>
+            </div>
+            <div class="search-results" id="searchResults">
+                <div class="search-empty">Type to search the engineering project...</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Global Image/Asset Viewer Overlay -->
+    <div class="media-viewer-overlay" id="mediaViewer">
+        <div class="media-viewer-toolbar">
+            <div id="viewerTitle" style="font-size: 1rem; color: var(--text-primary); font-weight: 600;">Asset Inspector</div>
+            <div class="viewer-actions">
+                <a href="#" id="viewerDownloadBtn" class="btn btn-primary" download style="padding: 0.5rem 1rem; font-size: 0.8rem;">Download File</a>
+                <button class="close-viewer" id="closeViewer" aria-label="Close Viewer">✕</button>
+            </div>
+        </div>
+        <div class="media-viewer-content">
+            <img id="viewerImage" src="" alt="Full Screen Inspection">
+        </div>
+    </div>
+
+    <!-- SPA & Interaction Logic -->
+    <script>
+        function switchSection(sectionId) {
+            document.querySelectorAll('.spa-section').forEach(sec => sec.classList.remove('active'));
+            document.querySelectorAll('.nav-link').forEach(link => link.classList.remove('active'));
+            
+            const targetSec = document.getElementById(sectionId);
+            const targetLink = document.querySelector(`.nav-link[data-target="${sectionId}"]`);
+            
+            if (targetSec) targetSec.classList.add('active');
+            if (targetLink) targetLink.classList.add('active');
+            
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+            document.getElementById('mainNav').classList.remove('nav-open');
+        }
+
+        document.querySelector('.mobile-menu-toggle').addEventListener('click', () => {
+            document.getElementById('mainNav').classList.toggle('nav-open');
+        });
+
+        const searchIndex = [
+            { title: "Project Overview", section: "overview", category: "General", desc: "Phase 1 Prototype overview and goals." },
+            { title: "System Architecture & Workflow", section: "system", category: "System", desc: "High-level block diagrams and flowcharts." },
+            { title: "Hardware Components & Battery", section: "hardware", category: "Hardware", desc: "List of Arduino, Sensors, LCD, Servo, and Battery." },
+            { title: "Circuit Schematic", section: "hardware", category: "Hardware", desc: "Wiring schematics and pin connections." },
+            { title: "Arduino Source Code", section: "software", category: "Software", desc: "Main C++ firmware sketch logic." },
+            { title: "CAD & 3D Models", section: "cad", category: "CAD", desc: "Enclosure design and STL downloads." },
+            { title: "Test Results", section: "testing", category: "Testing", desc: "Performance metrics and limitations." },
+            { title: "Hardware Demo", section: "demo", category: "Demo", desc: "Video demonstration of the working prototype." },
+            { title: "Engineering Learning Record", section: "docs", category: "Learning", desc: "View & download learning records under mentor." },
+            { title: "Component Specifications PDF", section: "docs", category: "Docs", desc: "Detailed technical specs for all parts." },
+            { title: "Bill of Materials PDF", section: "docs", category: "Docs", desc: "BOM download." },
+            { title: "Hardware Wiring PDF", section: "docs", category: "Docs", desc: "Wiring guide download." },
+            { title: "Source Code Documentation PDF", section: "docs", category: "Docs", desc: "Complete firmware documentation." },
+            { title: "System Working Principle PDF", section: "docs", category: "Docs", desc: "Physics of ultrasound and valve actuation." },
+            { title: "User Manual PDF", section: "docs", category: "Docs", desc: "End-user operation guide." },
+            { title: "PowerPoint Presentation Deck", section: "docs", category: "Presentation", desc: "Official PPTX slide deck download." },
+            { title: "Phase 2 Roadmap", section: "docs", category: "Future", desc: "Planned upgrades for the Enhanced Smart Dispenser." }
+        ];
+
+        const searchOverlay = document.getElementById('searchOverlay');
+        const searchInput = document.getElementById('searchInput');
+        const searchResults = document.getElementById('searchResults');
+
+        function toggleSearch(show) {
+            searchOverlay.classList.toggle('active', show);
+            if (show) setTimeout(() => searchInput.focus(), 100);
+            else searchInput.value = '';
+        }
+
+        document.querySelector('.search-trigger').addEventListener('click', () => toggleSearch(true));
+        document.querySelector('.close-search').addEventListener('click', () => toggleSearch(false));
+
+        searchInput.addEventListener('input', (e) => {
+            const q = e.target.value.toLowerCase();
+            if (!q) {
+                searchResults.innerHTML = '<div class="search-empty">Type to search the engineering project...</div>';
+                return;
+            }
+            const res = searchIndex.filter(item => item.title.toLowerCase().includes(q) || item.desc.toLowerCase().includes(q) || item.category.toLowerCase().includes(q));
+            if (res.length === 0) {
+                searchResults.innerHTML = '<div class="search-empty">No matching engineering data found.</div>';
+                return;
+            }
+            searchResults.innerHTML = res.map(item => `
+                <div class="search-result-item" onclick="switchSection('${item.section}'); toggleSearch(false);">
+                    <div class="sr-category">${item.category}</div>
+                    <div class="sr-content">
+                        <h4>${item.title}</h4>
+                        <p>${item.desc}</p>
+                    </div>
+                </div>
+            `).join('');
+        });
+
+        document.addEventListener('keydown', (e) => {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
+                e.preventDefault();
+                toggleSearch(!searchOverlay.classList.contains('active'));
+            }
+            if (e.key === 'Escape') {
+                toggleSearch(false);
+                closeMediaViewer();
+            }
+        });
+
+        const viewer = document.getElementById('mediaViewer');
+        const viewerImg = document.getElementById('viewerImage');
+        const viewerTitle = document.getElementById('viewerTitle');
+        const downloadBtn = document.getElementById('viewerDownloadBtn');
+
+        document.querySelectorAll('img.zoomable').forEach(img => {
+            img.addEventListener('click', () => {
+                const src = img.getAttribute('src');
+                viewerImg.src = src;
+                viewerTitle.textContent = img.getAttribute('alt') || 'Asset Inspection';
+                downloadBtn.href = src;
+                downloadBtn.download = src.split('/').pop();
+                viewer.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        function closeMediaViewer() {
+            viewer.classList.remove('active');
+            document.body.style.overflow = '';
+            setTimeout(() => viewerImg.src = '', 300);
+        }
+
+        document.getElementById('closeViewer').addEventListener('click', closeMediaViewer);
+        viewer.addEventListener('click', (e) => { if (e.target === viewer) closeMediaViewer(); });
+
+        document.getElementById('copyCodeBtn').addEventListener('click', () => {
+            const codeText = document.getElementById('sourceCodeContent').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.getElementById('copyCodeBtn');
+                btn.textContent = 'Copied to Clipboard!';
+                setTimeout(() => btn.textContent = 'Copy Source Code', 2000);
+            });
+        });
+    </script>
 </body>
 </html>

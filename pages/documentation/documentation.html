@@ -3,216 +3,106 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Documentation Library | AquaSense</title>
+    <title>Documentation Hub | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html" class="active">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="documentation.html" class="active">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">10 — DOCUMENTATION</span>
-            <h1>Engineering Library</h1>
-            <p>Access and download all technical documents, reports, and specification sheets.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="documentation.html" class="tag active">10.1 Documentation Library</a>
+            <a href="downloads.html" class="tag">10.2 All Downloads</a>
+        </div>
 
-        <section class="doc-grid reveal-on-scroll">
+        <section class="glass-panel mb-3">
+            <div class="phase-indicator">10 — Documentation</div>
+            <h2>Technical Documentation Library</h2>
+            <p class="mb-3">Explore structured project reports, BOM manifests, user manuals, and technical specifications.</p>
             
-            <!-- 1 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Project</div>
-                    <div class="doc-title">Project Overview</div>
-                    <div class="doc-desc">High-level summary of objectives, scope, and prototype architecture.</div>
+            <div class="bento-grid">
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <span class="tag" style="width: fit-content;">Project</span>
+                    <h3 class="text-cyan">Project Overview & Report</h3>
+                    <p class="font-sm text-secondary">High-level project scope, goals, and complete engineering report.</p>
+                    <div style="display: flex; gap: 0.75rem; margin-top: auto;">
+                        <a href="../../documents/Project_Overview.pdf" target="_blank" class="btn btn-secondary font-sm" style="flex: 1;">View PDF</a>
+                        <a href="../../documents/Report.pdf" download class="btn btn-primary font-sm" style="flex: 1;">Report</a>
+                    </div>
                 </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Project-Overview.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Project-Overview.pdf" download class="btn btn-primary">Download</a>
+
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <span class="tag" style="width: fit-content;">Hardware</span>
+                    <h3 class="text-cyan">BOM & Wiring</h3>
+                    <p class="font-sm text-secondary">Bill of Materials, component specifications, and wiring guidelines.</p>
+                    <div style="display: flex; gap: 0.75rem; margin-top: auto;">
+                        <a href="../../documents/BOM.pdf" target="_blank" class="btn btn-secondary font-sm" style="flex: 1;">View BOM</a>
+                        <a href="../../documents/Hardware-Wiring.pdf" download class="btn btn-primary font-sm" style="flex: 1;">Wiring</a>
+                    </div>
+                </div>
+
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <span class="tag" style="width: fit-content;">System</span>
+                    <h3 class="text-cyan">Working Principle & Code</h3>
+                    <p class="font-sm text-secondary">Detailed breakdown of ultrasonic physics and firmware documentation.</p>
+                    <div style="display: flex; gap: 0.75rem; margin-top: auto;">
+                        <a href="../../documents/System-Working-Principle.pdf" target="_blank" class="btn btn-secondary font-sm" style="flex: 1;">Principle</a>
+                        <a href="../../documents/Source-Code-Documentation.pdf" download class="btn btn-primary font-sm" style="flex: 1;">Code Docs</a>
+                    </div>
                 </div>
             </div>
-
-            <!-- 2 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Project</div>
-                    <div class="doc-title">Technical Report</div>
-                    <div class="doc-desc">Comprehensive documentation of the Phase 1 development cycle.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Report.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Report.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 3 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">System</div>
-                    <div class="doc-title">User Manual</div>
-                    <div class="doc-desc">Operational instructions, safety guidelines, and troubleshooting.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/User-Manual.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/User-Manual.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 4 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Hardware</div>
-                    <div class="doc-title">Bill of Materials (BOM)</div>
-                    <div class="doc-desc">Complete itemized list of components, quantities, and sources.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/BOM.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/BOM.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 5 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Hardware</div>
-                    <div class="doc-title">Hardware Wiring Guide</div>
-                    <div class="doc-desc">Detailed pin-to-pin connection specifications and power diagrams.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Hardware-Wiring.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Hardware-Wiring.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 6 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Hardware</div>
-                    <div class="doc-title">Component Specifications</div>
-                    <div class="doc-desc">Datasheet summaries for Arduino, HC-SR04, and servo modules.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Component-Specifications.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Component-Specifications.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 7 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">System</div>
-                    <div class="doc-title">Working Principle</div>
-                    <div class="doc-desc">In-depth mathematical and physical analysis of acoustic detection.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/System-Working-Principle.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/System-Working-Principle.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 8 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Software</div>
-                    <div class="doc-title">Source Code Documentation</div>
-                    <div class="doc-desc">Algorithmic logic breakdown and function references.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Source-Code-Documentation.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Source-Code-Documentation.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 9 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Testing</div>
-                    <div class="doc-title">Test Results</div>
-                    <div class="doc-desc">Empirical cycle data, edge-case evaluations, and limitations.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Test-Results.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Test-Results.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 10 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Learning</div>
-                    <div class="doc-title">Learning Journey</div>
-                    <div class="doc-desc">Reflections on mechatronic design and debugging takeaways.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Learning.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Learning.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 11 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Team</div>
-                    <div class="doc-title">Team Journey</div>
-                    <div class="doc-desc">Development milestones and timeline documentation.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Team-Journey.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Team-Journey.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
-            <!-- 12 -->
-            <div class="doc-card">
-                <div>
-                    <div class="doc-category">Future</div>
-                    <div class="doc-title">Phase 2 Roadmap</div>
-                    <div class="doc-desc">Proposed smart features, IoT connectivity, and sensor scaling.</div>
-                </div>
-                <div class="doc-actions">
-                    <a href="../../documents/Phase-2-Enhanced-Smart-Dispenser.pdf" target="_blank" class="btn btn-outline">View</a>
-                    <a href="../../documents/Phase-2-Enhanced-Smart-Dispenser.pdf" download class="btn btn-primary">Download</a>
-                </div>
-            </div>
-
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/team/teamjourney.html" class="btn btn-outline">
-                &larr; Previous: Team Journey
-            </a>
-            <a href="../../pages/presentation/presentation.html" class="btn btn-primary">
-                Next: Presentation &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../team/teamjourney.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>09 — Team Journey</strong>
+                </a>
+                <a href="downloads.html" class="seq-btn next">
+                    <span>Next: Docs →</span>
+                    <strong>10.2 — Downloads Hub</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

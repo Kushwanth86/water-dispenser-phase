@@ -4,97 +4,91 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Phase 2 Roadmap | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="phase2.html" class="active">Future</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">12 — FUTURE</span>
-            <h1>Phase 02 Roadmap</h1>
-            <p>Future development, proposed enhancements, and smart scaling objectives.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="phase2.html" class="tag active">12 Phase 2 Future Roadmap</a>
+        </div>
 
-        <!-- Status Banner -->
-        <section class="reveal-on-scroll" style="margin-bottom: 2rem;">
-            <div class="glass-panel" style="border-left: 4px solid var(--accent-cyan); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+        <section class="glass-panel mb-3">
+            <div class="header-flex mb-2">
                 <div>
-                    <span class="tag" style="margin-bottom: 0.5rem; display: inline-block;">Status</span>
-                    <h3 style="margin: 0; font-size: 1.25rem;">Planned / Proposed Development</h3>
+                    <div class="phase-indicator">12 — Future Scope</div>
+                    <h2>Phase 2: Enhanced Smart Dispenser</h2>
+                    <p class="font-sm">Planned upgrades, IoT integration, and advanced smart features proposed for future development.</p>
                 </div>
-                <a href="../../documents/Phase-2-Enhanced-Smart-Dispenser.pdf" target="_blank" class="btn btn-outline">
-                    View Phase 2 Document PDF
+                <a href="../../documents/Phase-2-Enhanced-Smart-Dispenser.pdf" download class="btn btn-primary font-sm">Download Phase 2 PDF</a>
+            </div>
+
+            <div class="bento-grid mt-3">
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2); border-left: 3px solid var(--accent-cyan);">
+                    <span class="tag" style="width: fit-content; color: var(--accent-cyan);">Implemented</span>
+                    <h3 class="text-primary font-md">Phase 1: Prototype</h3>
+                    <p class="font-sm text-secondary">Basic ultrasonic detection, Arduino Uno processing, servo valve actuation, and local LCD feedback.</p>
+                </div>
+
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2); border-left: 3px solid #FBBF24;">
+                    <span class="tag" style="width: fit-content; color: #FBBF24;">Proposed / Planned</span>
+                    <h3 class="text-primary font-md">Phase 2: Smart Integration</h3>
+                    <p class="font-sm text-secondary">IoT cloud connectivity, flow-rate sensor integration for exact volume metering, and mobile app telemetry.</p>
+                </div>
+            </div>
+        </section>
+
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../presentation/presentation.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>11 — Presentation</strong>
+                </a>
+                <a href="../../index.html" class="seq-btn next">
+                    <span>Complete Journey →</span>
+                    <strong>Return to Overview</strong>
                 </a>
             </div>
-        </section>
-
-        <!-- Roadmap Grid -->
-        <section class="card-grid reveal-on-scroll">
-            
-            <div class="glass-panel" style="opacity: 0.9;">
-                <div class="tag" style="background: rgba(74, 222, 128, 0.1); color: #4ade80; border-color: rgba(74, 222, 128, 0.2);">Implemented</div>
-                <h3 class="card-title" style="margin-top: 1rem;">Phase 1 Prototype</h3>
-                <p class="card-spec"><strong>Core:</strong> Arduino Uno + HC-SR04</p>
-                <p class="card-spec"><strong>Actuation:</strong> SG90 Servo Valve</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Basic touchless dispensing validated through physical testing cycles.</p>
-            </div>
-
-            <div class="glass-panel" style="border-color: rgba(0, 229, 255, 0.4);">
-                <div class="tag">Proposed</div>
-                <h3 class="card-title" style="margin-top: 1rem;">Phase 2 Smart Ecosystem</h3>
-                <p class="card-spec"><strong>Connectivity:</strong> ESP32 Wi-Fi Module</p>
-                <p class="card-spec"><strong>Analytics:</strong> Real-time volume telemetry</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Transitioning from standalone hardware to IoT-enabled cloud monitoring and automated refill alerts.</p>
-            </div>
-
-            <div class="glass-panel" style="opacity: 0.7;">
-                <div class="tag" style="background: rgba(255, 255, 255, 0.05); color: var(--text-muted); border-color: rgba(255, 255, 255, 0.1);">Future Vision</div>
-                <h3 class="card-title" style="margin-top: 1rem;">Commercial Scaling</h3>
-                <p class="card-spec"><strong>Power:</strong> Solar/Battery Hybrid</p>
-                <p class="card-spec"><strong>Chassis:</strong> Industrial Grade Stainless</p>
-                <p style="margin-top: 1rem; font-size: 0.95rem;">Long-term deployment readiness for public infrastructure and commercial spaces.</p>
-            </div>
-
-        </section>
-
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/presentation/presentation.html" class="btn btn-outline">
-                &larr; Previous: Presentation
-            </a>
-            <a href="../../index.html" class="btn btn-primary">
-                Return to Home &rarr;
-            </a>
-        </nav>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

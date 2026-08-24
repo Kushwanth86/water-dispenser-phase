@@ -4,70 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hardware Overview | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html" class="active">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="hardware.html" class="active">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">03 — HARDWARE</span>
-            <h1>Physical Setup</h1>
-            <p>Structural integration and physical configuration of the prototype.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="hardware.html" class="tag active">03.1 Overview</a>
+            <a href="components.html" class="tag">03.2 Components</a>
+            <a href="circuit.html" class="tag">03.3 Circuit Diagram</a>
+        </div>
 
-        <section class="content-grid reveal-on-scroll">
-            <div class="glass-panel">
-                <h3 class="text-accent">Mechanical Integration</h3>
-                <p>The Phase 1 prototype integrates off-the-shelf electronic modules with custom 3D-printed mechanical housings. The primary design constraint was ensuring the servo motor had sufficient torque and structural bracing to operate the mechanical valve continuously without decoupling.</p>
-                <p>The ultrasonic sensor is mounted externally, facing downwards toward the dispensing area to isolate false-positive readings from environmental interference.</p>
-            </div>
-
-            <div class="glass-panel">
-                <h3 class="text-accent">Prototype Assembly</h3>
-                <div class="image-panel">
-                    <img src="../../assets/images/hardware/hardware-setup.png" alt="AquaSense Prototype Physical Setup">
-                </div>
+        <section class="glass-panel mb-3">
+            <div class="phase-indicator">03 — Hardware</div>
+            <h2>Hardware Assembly</h2>
+            <p class="mb-2">The physical prototype integrates digital logic, ultrasonic sensing, and mechanical actuation into a single standalone unit optimized for low power consumption.</p>
+            
+            <div class="mt-2 text-center">
+                <img src="../../assets/images/hardware/hardware-setup.png" alt="Hardware Assembly Setup" class="zoomable diagram-border" style="max-width: 100%;">
+                <p class="font-sm text-secondary mt-1">Complete physical assembly of the Phase 1 Prototype. Click to expand.</p>
             </div>
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/system/workingprinciple.html" class="btn btn-outline">
-                &larr; Previous: Working Principle
-            </a>
-            <a href="../../pages/hardware/components.html" class="btn btn-primary">
-                Next: Components &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../system/working-principle.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>02.3 — Principle</strong>
+                </a>
+                <a href="components.html" class="seq-btn next">
+                    <span>Next: Hardware →</span>
+                    <strong>03.2 — Components</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

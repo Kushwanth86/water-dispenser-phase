@@ -4,69 +4,85 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Working Principle | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html" class="active">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="architecture.html" class="active">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">02 — SYSTEM</span>
-            <h1>Working Principle</h1>
-            <p>Understanding the physics and logic behind the detection and actuation loop.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="architecture.html" class="tag">02.1 Architecture</a>
+            <a href="workflow.html" class="tag">02.2 Workflow</a>
+            <a href="working-principle.html" class="tag active">02.3 Working Principle</a>
+        </div>
 
-        <section class="content-grid reveal-on-scroll">
-            <div class="glass-panel">
-                <h3 class="text-accent">1. Ultrasonic Detection</h3>
-                <p>The HC-SR04 sensor operates by transmitting high-frequency sound waves (40 kHz) and calculating the time it takes for the echo to return. The Arduino continuously pulses the trigger pin for 10 microseconds.</p>
-                <p>If an object (e.g., a hand or a glass) disrupts the wave within the predefined threshold distance (e.g., < 15cm), the system interprets this as an active dispense request.</p>
-            </div>
+        <section class="glass-panel mb-3">
+            <h2>Working Principle</h2>
+            <p class="mb-2">Physics of sound waves and micro-actuation applied to achieve contactless operation.</p>
+            
+            <div class="bento-grid mt-2">
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">Echolocation Logic</h3>
+                    <p class="font-sm text-secondary">The HC-SR04 emits a 40kHz acoustic pulse. Upon striking a container, it echoes back to the receiver. Distance is computed via: <code>Distance = (Time × Speed of Sound) / 2</code>.</p>
+                </div>
 
-            <div class="glass-panel">
-                <h3 class="text-accent">2. Servo Actuation</h3>
-                <p>Upon positive detection, the microcontroller sends a PWM (Pulse Width Modulation) signal to the SG90 servo motor. The motor rotates from its resting state (0°) to an open state (e.g., 90°), physically pulling the dispenser valve open.</p>
-                <p>To prevent overflow, the system includes a time-delay buffer. Once the object is removed, the servo returns to 0°, securely closing the valve.</p>
+                <div class="glass-panel bento-card" style="background: rgba(0,0,0,0.2);">
+                    <h3 class="text-cyan">Mechanical Actuation</h3>
+                    <p class="font-sm text-secondary">Once target distance is verified through software debouncing, a PWM signal commands the SG90 servo to rotate the valve arm, enabling gravity-fed fluid flow.</p>
+                </div>
             </div>
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/system/workflow.html" class="btn btn-outline">
-                &larr; Previous: Workflow
-            </a>
-            <a href="../../pages/hardware/hardware.html" class="btn btn-primary">
-                Next: Hardware &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="workflow.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>02.2 — Workflow</strong>
+                </a>
+                <a href="../hardware/hardware.html" class="seq-btn next">
+                    <span>Next: Hardware →</span>
+                    <strong>03 — Hardware Overview</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

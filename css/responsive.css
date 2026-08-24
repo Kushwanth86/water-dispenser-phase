@@ -1,60 +1,113 @@
-/* ==========================================================================
-   AQUASENSE - RESPONSIVE DESIGN
-   File: css/responsive.css
-   ========================================================================== */
+/* css/responsive.css */
 
-@media screen and (max-width: 1024px) {
-    h1 { font-size: 3rem; }
-    h2 { font-size: 2.5rem; }
+@media (max-width: 1024px) {
+    .main-nav ul { gap: 1rem; }
+}
+
+@media (max-width: 768px) {
+    .main-nav {
+        position: fixed;
+        top: var(--nav-height);
+        left: 0;
+        width: 100%;
+        height: calc(100vh - var(--nav-height));
+        background: rgba(5, 10, 21, 0.98);
+        -webkit-backdrop-filter: blur(16px);
+        backdrop-filter: blur(16px);
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 2rem;
+        transform: translateX(100%);
+        transition: transform var(--transition-smooth);
+        border-bottom: 1px solid var(--border-light);
+    }
     
-    .hero-layout {
-        grid-template-columns: 1fr;
-        gap: 4rem;
+    .main-nav.nav-open {
+        transform: translateX(0);
+    }
+
+    .main-nav ul {
+        flex-direction: column;
+        gap: 1.5rem;
+        align-items: flex-start;
+        width: 100%;
+    }
+
+    .main-nav a {
+        font-size: 1rem;
+    }
+    
+    .search-trigger .kbd-hint {
+        display: none;
+    }
+    
+    .mobile-menu-toggle {
+        display: block;
+    }
+    
+    .hero-section {
+        grid-template-columns: 1fr !important;
         text-align: center;
+        gap: 2rem;
+        padding: 1.5rem 0;
     }
     
     .hero-content {
-        order: 2;
-        display: flex;
-        flex-direction: column;
         align-items: center;
     }
     
-    .hero-visual {
-        order: 1;
+    .hero-content p {
+        margin: 0 auto;
     }
     
-    .tag-group, .btn-group {
+    .tag-group {
         justify-content: center;
     }
     
-    .nav-links {
-        display: none; /* Will be toggled via JS in Step 3 */
+    .hero-actions {
+        justify-content: center;
+        width: 100%;
     }
 }
 
-@media screen and (max-width: 768px) {
-    :root {
-        --section-padding: 60px 5%;
+@media (max-width: 480px) {
+    .container {
+        padding: 0 1rem;
+    }
+
+    .glass-panel {
+        padding: 1.25rem;
     }
     
-    h1 { font-size: 2.5rem; }
+    .hero-actions {
+        flex-direction: column;
+        width: 100%;
+    }
     
     .btn {
         width: 100%;
     }
     
-    .btn-group {
-        width: 100%;
+    .seq-nav-container {
         flex-direction: column;
+        gap: 1.25rem;
+        text-align: center;
     }
-}
+    
+    .seq-btn.next {
+        text-align: center;
+    }
 
-@media screen and (max-width: 480px) {
-    .search-trigger {
-        padding: 6px;
+    .search-modal {
+        height: 100vh;
+        border-radius: 0;
+        max-width: 100%;
     }
-    .search-trigger span {
-        display: none; /* Hide 'Ctrl+K' on mobile */
+    
+    .media-viewer-toolbar {
+        flex-direction: column;
+        gap: 0.5rem;
+        padding: 0.75rem;
     }
 }

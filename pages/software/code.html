@@ -4,124 +4,146 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Source Code | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html" class="active">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="code.html" class="active">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">04 — SOFTWARE</span>
-            <h1>Source Code</h1>
-            <p>Phase 1 embedded logic (AquaSense_Phase1.ino).</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="code.html" class="tag active">04.1 Source Code</a>
+            <a href="code-explanation.html" class="tag">04.2 Logic & Explanation</a>
+        </div>
 
-        <section class="content-grid single-col reveal-on-scroll">
-            <div class="code-wrapper">
-                <div class="code-header">
-                    <span class="code-filename">code/AquaSense_Phase1.ino</span>
-                    <button class="btn-copy" data-target="sourceCode">
-                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect><path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path></svg>
-                        Copy Code
-                    </button>
+        <section class="glass-panel mb-3">
+            <div class="header-flex mb-2">
+                <div>
+                    <div class="phase-indicator">04 — Software</div>
+                    <h2>Arduino Firmware</h2>
+                    <p class="font-sm">Core sketch (`AquaSense_Phase1.ino`) running on the Arduino Uno microcontroller.</p>
                 </div>
-                <div class="code-content" id="sourceCode"><pre><span class="syn-comment">// ==========================================
-// AquaSense - Automatic Water Dispenser
-// Phase 1 Prototype Embedded Logic
-// ==========================================</span>
+                <button id="copyCodeBtn" class="btn btn-primary">Copy Source Code</button>
+            </div>
 
-<span class="syn-keyword">#include</span> <span class="syn-string">&lt;Servo.h&gt;</span>
-<span class="syn-keyword">#include</span> <span class="syn-string">&lt;LiquidCrystal.h&gt;</span>
+            <div class="code-container">
+                <div class="code-header-bar">
+                    <span>code/AquaSense_Phase1.ino</span>
+                    <span>C++ / Arduino</span>
+                </div>
+                <pre class="code-block" id="sourceCodeContent"><span class="code-comment">/*
+  Project: AquaSense Phase 1 Prototype
+  Controller: Arduino Uno
+  Components: HC-SR04 Ultrasonic Sensor, SG90 Servo Motor, 16x2 LCD
+*/</span>
 
-<span class="syn-comment">// Pin Definitions</span>
-<span class="syn-keyword">#define</span> TRIG_PIN <span class="syn-number">9</span>
-<span class="syn-keyword">#define</span> ECHO_PIN <span class="syn-number">10</span>
-<span class="syn-keyword">#define</span> SERVO_PIN <span class="syn-number">6</span>
-<span class="syn-keyword">#define</span> THRESHOLD_CM <span class="syn-number">15</span>
+<span class="code-keyword">#include</span> <span class="code-string">&lt;Servo.h&gt;</span>
+<span class="code-keyword">#include</span> <span class="code-string">&lt;LiquidCrystal.h&gt;</span>
 
-<span class="syn-type">Servo</span> valveServo;
-<span class="syn-type">LiquidCrystal</span> <span class="syn-function">lcd</span>(<span class="syn-number">12</span>, <span class="syn-number">11</span>, <span class="syn-number">5</span>, <span class="syn-number">4</span>, <span class="syn-number">3</span>, <span class="syn-number">2</span>);
+<span class="code-type">const</span> <span class="code-type">int</span> trigPin = <span class="code-string">9</span>;
+<span class="code-type">const</span> <span class="code-type">int</span> echoPin = <span class="code-string">10</span>;
+<span class="code-type">const</span> <span class="code-type">int</span> servoPin = <span class="code-string">6</span>;
 
-<span class="syn-type">void</span> <span class="syn-function">setup</span>() {
-  <span class="syn-function">pinMode</span>(TRIG_PIN, OUTPUT);
-  <span class="syn-function">pinMode</span>(ECHO_PIN, INPUT);
+Servo waterServo;
+LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string">11</span>, <span class="code-string">5</span>, <span class="code-string">4</span>, <span class="code-string">3</span>, <span class="code-string">2</span>);
+
+<span class="code-type">void</span> <span class="code-keyword">setup</span>() {
+  pinMode(trigPin, OUTPUT);
+  pinMode(echoPin, INPUT);
+  waterServo.attach(servoPin);
+  waterServo.write(<span class="code-string">0</span>); <span class="code-comment">// Initial closed state</span>
   
-  valveServo.<span class="syn-function">attach</span>(SERVO_PIN);
-  valveServo.<span class="syn-function">write</span>(<span class="syn-number">0</span>); <span class="syn-comment">// Initial closed state</span>
-
-  lcd.<span class="syn-function">begin</span>(<span class="syn-number">16</span>, <span class="syn-number">2</span>);
-  lcd.<span class="syn-function">print</span>(<span class="syn-string">"AquaSense Online"</span>);
-  <span class="syn-function">delay</span>(<span class="syn-number">2000</span>);
-  lcd.<span class="syn-function">clear</span>();
+  lcd.begin(<span class="code-string">16</span>, <span class="code-string">2</span>);
+  lcd.print(<span class="code-string">"AquaSense Ready"</span>);
 }
 
-<span class="syn-type">void</span> <span class="syn-function">loop</span>() {
-  <span class="syn-type">long</span> duration, distance;
+<span class="code-type">void</span> <span class="code-keyword">loop</span>() {
+  <span class="code-type">long</span> duration;
+  <span class="code-type">int</span> distance;
 
-  <span class="syn-comment">// Trigger Ultrasonic Pulse</span>
-  <span class="syn-function">digitalWrite</span>(TRIG_PIN, LOW);
-  <span class="syn-function">delayMicroseconds</span>(<span class="syn-number">2</span>);
-  <span class="syn-function">digitalWrite</span>(TRIG_PIN, HIGH);
-  <span class="syn-function">delayMicroseconds</span>(<span class="syn-number">10</span>);
-  <span class="syn-function">digitalWrite</span>(TRIG_PIN, LOW);
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(<span class="code-string">2</span>);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(<span class="code-string">10</span>);
+  digitalWrite(trigPin, LOW);
 
-  <span class="syn-comment">// Read Echo</span>
-  duration = <span class="syn-function">pulseIn</span>(ECHO_PIN, HIGH);
-  distance = (duration / <span class="syn-number">2</span>) / <span class="syn-number">29.1</span>; <span class="syn-comment">// Convert to CM</span>
+  duration = pulseIn(echoPin, HIGH);
+  distance = duration * <span class="code-string">0.034</span> / <span class="code-string">2</span>;
 
-  <span class="syn-keyword">if</span> (distance &lt; THRESHOLD_CM &amp;&amp; distance &gt; <span class="syn-number">0</span>) {
-    lcd.<span class="syn-function">setCursor</span>(<span class="syn-number">0</span>, <span class="syn-number">0</span>);
-    lcd.<span class="syn-function">print</span>(<span class="syn-string">"Dispensing..."</span>);
-    valveServo.<span class="syn-function">write</span>(<span class="syn-number">90</span>); <span class="syn-comment">// Open valve</span>
-    <span class="syn-function">delay</span>(<span class="syn-number">1000</span>);          <span class="syn-comment">// Dispense delay buffer</span>
-  } <span class="syn-keyword">else</span> {
-    lcd.<span class="syn-function">setCursor</span>(<span class="syn-number">0</span>, <span class="syn-number">0</span>);
-    lcd.<span class="syn-function">print</span>(<span class="syn-string">"Ready to Serve"</span>);
-    valveServo.<span class="syn-function">write</span>(<span class="syn-number">0</span>);  <span class="syn-comment">// Close valve</span>
+  <span class="code-keyword">if</span> (distance &gt; <span class="code-string">0</span> && distance &lt; <span class="code-string">15</span>) {
+    lcd.clear();
+    lcd.print(<span class="code-string">"Dispensing..."</span>);
+    waterServo.write(<span class="code-string">90</span>); <span class="code-comment">// Open valve</span>
+    delay(<span class="code-string">3000</span>);
+    waterServo.write(<span class="code-string">0</span>);  <span class="code-comment">// Close valve</span>
+  } <span class="code-keyword">else</span> {
+    lcd.setCursor(<span class="code-string">0</span>, <span class="code-string">0</span>);
+    lcd.print(<span class="code-string">"Place Glass    "</span>);
   }
-  
-  <span class="syn-function">delay</span>(<span class="syn-number">200</span>); <span class="syn-comment">// Stability loop delay</span>
-}</pre></div>
+  delay(<span class="code-string">500</span>);
+}</pre>
             </div>
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/hardware/circuit.html" class="btn btn-outline">
-                &larr; Previous: Circuit
-            </a>
-            <a href="../../pages/software/code-explanation.html" class="btn btn-primary">
-                Next: Code Explanation &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../hardware/circuit.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>03.3 — Circuit</strong>
+                </a>
+                <a href="code-explanation.html" class="seq-btn next">
+                    <span>Next: Software →</span>
+                    <strong>04.2 — Explanation</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script>
+        document.getElementById('copyCodeBtn').addEventListener('click', () => {
+            const codeText = document.getElementById('sourceCodeContent').innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+                const btn = document.getElementById('copyCodeBtn');
+                btn.textContent = 'Copied!';
+                setTimeout(() => btn.textContent = 'Copy Source Code', 2000);
+            });
+        });
+    </script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

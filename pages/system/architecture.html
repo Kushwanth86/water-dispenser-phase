@@ -4,89 +4,79 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Architecture | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <!-- GLOBAL NAVIGATION -->
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html" class="active">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="architecture.html" class="active">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <!-- MAIN CONTENT -->
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">02 — SYSTEM</span>
-            <h1>Architecture</h1>
-            <p>High-level block diagram and component integration mapping.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="architecture.html" class="tag active">02.1 Architecture</a>
+            <a href="workflow.html" class="tag">02.2 Workflow</a>
+            <a href="working-principle.html" class="tag">02.3 Working Principle</a>
+        </div>
 
-        <section class="content-grid reveal-on-scroll">
-            <!-- Left: Text & Logic Flow -->
-            <div class="glass-panel">
-                <h3 class="text-accent">Control Flow</h3>
-                <p>The system operates on a linear decision tree. The primary logic controller (Arduino Uno) acts as the central hub, interfacing continuously with the sensor matrix to determine mechanical output.</p>
-                
-                <div class="flow-diagram">
-                    <div class="flow-node">User Object (Input)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">HC-SR04 Sensor (Detection)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">Arduino Uno (Decision / Logic)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">SG90 Servo Motor (Actuation)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">Water Dispensing (Physical Output)</div>
-                    <div class="flow-arrow">↓</div>
-                    <div class="flow-node">16x2 LCD (User Feedback)</div>
-                </div>
-            </div>
-
-            <!-- Right: Schematic Image -->
-            <div class="glass-panel">
-                <h3 class="text-accent">System Diagram</h3>
-                <p>The visual representation of hardware connections and data flow between the microcontroller and peripherals.</p>
-                <div class="image-panel">
-                    <img src="../../assets/images/architecture/architecture.jpeg" alt="AquaSense System Architecture Diagram">
-                </div>
+        <section class="glass-panel mb-3">
+            <div class="phase-indicator">02 — System</div>
+            <h2>System Architecture</h2>
+            <p class="mb-2">High-level block architecture separating the system into input detection, processing logic, and actuation.</p>
+            
+            <div class="mt-2 text-center">
+                <img src="../../assets/images/architecture/architecture.jpg" alt="System Architecture Block Diagram" class="zoomable diagram-border" style="max-width: 100%;">
+                <p class="font-sm text-secondary mt-1">Click image to inspect and download diagram</p>
             </div>
         </section>
 
-        <!-- Sequential Navigation -->
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/overview/overview.html" class="btn btn-outline">
-                &larr; Previous: Overview
-            </a>
-            <a href="../../pages/system/workflow.html" class="btn btn-primary">
-                Next: Workflow &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="../../index.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>01 — Overview</strong>
+                </a>
+                <a href="workflow.html" class="seq-btn next">
+                    <span>Next: System →</span>
+                    <strong>02.2 — Workflow</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

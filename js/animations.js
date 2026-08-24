@@ -1,71 +1,25 @@
-/**
- * AQUASENSE - NAVIGATION & SEARCH MODULE
- * File: js/navigation.js
- */
+/* js/animations.js */
+document.addEventListener('DOMContentLoaded', () => {
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (prefersReducedMotion) return;
 
-const Navigation = {
-    header: null,
-    searchBtn: null,
+    const animatableElements = document.querySelectorAll('.glass-panel, .bento-card');
     
-    init() {
-        this.header = document.getElementById('mainHeader');
-        this.searchBtn = document.getElementById('searchBtn');
-        
-        this.bindEvents();
-        this.checkScroll();
-        this.setActiveLink();
-    },
+    animatableElements.forEach(el => {
+        el.style.opacity = '0';
+        el.style.transform = 'translateY(15px)';
+        el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    });
 
-    bindEvents() {
-        // Sticky Header Scroll Event
-        window.addEventListener('scroll', () => {
-            this.checkScroll();
-        });
-
-        // Search Shortcut (Ctrl + K)
-        document.addEventListener('keydown', (e) => {
-            if ((e.ctrlKey || e.metaKey) && e.key === 'k') {
-                e.preventDefault();
-                this.openSearch();
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+                observer.unobserve(entry.target);
             }
         });
+    }, { threshold: 0.1 });
 
-        // Search Button Click
-        if (this.searchBtn) {
-            this.searchBtn.addEventListener('click', () => {
-                this.openSearch();
-            });
-        }
-    },
-
-    checkScroll() {
-        if (!this.header) return;
-        
-        if (window.scrollY > 50) {
-            this.header.classList.add('scrolled');
-        } else {
-            this.header.classList.remove('scrolled');
-        }
-    },
-
-    setActiveLink() {
-        // Highlights the current page in the navigation
-        const currentPath = window.location.pathname;
-        const navLinks = document.querySelectorAll('.nav-links a');
-        
-        navLinks.forEach(link => {
-            // Simple path matching
-            if (link.getAttribute('href') && currentPath.includes(link.getAttribute('href').split('/').pop())) {
-                link.classList.add('active');
-            } else {
-                link.classList.remove('active');
-            }
-        });
-    },
-
-    openSearch() {
-        // Stub for Search UI (Will be built in Step 5)
-        console.log('Search Interface Triggered');
-        alert('Global Search Interface will open here. (To be built in Step 5)');
-    }
-};
+    animatableElements.forEach(el => observer.observe(el));
+});

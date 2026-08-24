@@ -4,127 +4,105 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Components | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html" class="active">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="../system/architecture.html">System</a></li>
+                    <li><a href="hardware.html" class="active">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">03 — HARDWARE</span>
-            <h1>System Components</h1>
-            <p>Detailed breakdown of the electronic peripherals utilized in the prototype.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="hardware.html" class="tag">03.1 Overview</a>
+            <a href="components.html" class="tag active">03.2 Components</a>
+            <a href="circuit.html" class="tag">03.3 Circuit Diagram</a>
+        </div>
 
-        <section class="card-grid reveal-on-scroll">
+        <section class="mb-3">
+            <h2 class="mb-1">Primary Components</h2>
+            <p class="mb-2">Core electromechanical hardware elements utilized in the Phase 1 prototype.</p>
             
-            <!-- Arduino Uno -->
-            <div class="component-card">
-                <div class="card-img-wrapper">
-                    <img src="../../assets/images/hardware/arduino-uno.png" alt="Arduino Uno Rev3">
+            <div class="bento-grid mt-2">
+                <div class="glass-panel bento-card">
+                    <h3 class="text-cyan">Arduino Uno Rev3</h3>
+                    <img src="../../assets/images/hardware/arduino-uno.png" alt="Arduino Uno" class="zoomable bento-img">
+                    <p class="font-sm text-secondary"><strong>Role:</strong> Central processing unit. Handles sensor inputs and logic.</p>
                 </div>
-                <div class="card-content">
-                    <h3 class="card-title">Arduino Uno</h3>
-                    <p class="card-spec"><strong>Role:</strong> Main Logic Controller</p>
-                    <p class="card-spec"><strong>MCU:</strong> ATmega328P</p>
-                    <p class="card-spec"><strong>Voltage:</strong> 5V Operating</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem;">Processes sensor interrupts and commands the servo mechanism.</p>
+
+                <div class="glass-panel bento-card">
+                    <h3 class="text-cyan">HC-SR04 Ultrasonic</h3>
+                    <img src="../../assets/images/hardware/hc-sr04.jpg" alt="Ultrasonic Sensor" class="zoomable bento-img">
+                    <p class="font-sm text-secondary"><strong>Role:</strong> Object detection. Emits acoustic pulses for distance calculation.</p>
+                </div>
+
+                <div class="glass-panel bento-card">
+                    <h3 class="text-cyan">SG90 Micro Servo</h3>
+                    <img src="../../assets/images/hardware/servo.jpg" alt="Servo Motor" class="zoomable bento-img">
+                    <p class="font-sm text-secondary"><strong>Role:</strong> Mechanical actuator. Physically controls the water valve.</p>
+                </div>
+
+                <div class="glass-panel bento-card">
+                    <h3 class="text-cyan">16×2 LCD Display</h3>
+                    <img src="../../assets/images/hardware/lcd.jpg" alt="LCD Display" class="zoomable bento-img">
+                    <p class="font-sm text-secondary"><strong>Role:</strong> User interface. Displays real-time status feedback.</p>
+                </div>
+
+                <div class="glass-panel bento-card">
+                    <h3 class="text-cyan">Power Supply</h3>
+                    <img src="../../assets/images/hardware/battery.jpg" alt="Battery Source" class="zoomable bento-img">
+                    <p class="font-sm text-secondary"><strong>Role:</strong> Energy source. Provides stable DC power to components.</p>
                 </div>
             </div>
-
-            <!-- HC-SR04 -->
-            <div class="component-card">
-                <div class="card-img-wrapper">
-                    <img src="../../assets/images/hardware/hc-sr04.jpg" alt="HC-SR04 Ultrasonic Sensor">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">HC-SR04</h3>
-                    <p class="card-spec"><strong>Role:</strong> Object Detection</p>
-                    <p class="card-spec"><strong>Range:</strong> 2cm – 400cm</p>
-                    <p class="card-spec"><strong>Frequency:</strong> 40kHz</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem;">Emits acoustic pulses to detect hands or containers below the nozzle.</p>
-                </div>
-            </div>
-
-            <!-- Servo Motor -->
-            <div class="component-card">
-                <div class="card-img-wrapper">
-                    <img src="../../assets/images/hardware/servo.jpg" alt="SG90 Micro Servo">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">SG90 Servo</h3>
-                    <p class="card-spec"><strong>Role:</strong> Mechanical Actuation</p>
-                    <p class="card-spec"><strong>Torque:</strong> 1.8 kgf·cm</p>
-                    <p class="card-spec"><strong>Rotation:</strong> 180°</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem;">Translates PWM signals into rotational force to physically open the valve.</p>
-                </div>
-            </div>
-
-            <!-- 16x2 LCD -->
-            <div class="component-card">
-                <div class="card-img-wrapper">
-                    <img src="../../assets/images/hardware/lcd.jpg" alt="16x2 Character LCD">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">16x2 LCD</h3>
-                    <p class="card-spec"><strong>Role:</strong> User Interface</p>
-                    <p class="card-spec"><strong>Interface:</strong> Parallel / I2C</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem;">Displays real-time system status, dispense notifications, and error codes.</p>
-                </div>
-            </div>
-
-            <!-- Power Source -->
-            <div class="component-card">
-                <div class="card-img-wrapper">
-                    <img src="../../assets/images/hardware/battery.jpg" alt="Power Supply">
-                </div>
-                <div class="card-content">
-                    <h3 class="card-title">Power Module</h3>
-                    <p class="card-spec"><strong>Role:</strong> System Power</p>
-                    <p class="card-spec"><strong>Output:</strong> 9V / 5V DC</p>
-                    <p style="margin-top: 1rem; font-size: 0.95rem;">Supplies consistent voltage to the Arduino board and isolates the servo power draw.</p>
-                </div>
-            </div>
-
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/hardware/hardware.html" class="btn btn-outline">
-                &larr; Previous: Physical Setup
-            </a>
-            <a href="../../pages/hardware/circuit.html" class="btn btn-primary">
-                Next: Circuit &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="hardware.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>03.1 — Overview</strong>
+                </a>
+                <a href="circuit.html" class="seq-btn next">
+                    <span>Next: Hardware →</span>
+                    <strong>03.3 — Circuit</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>

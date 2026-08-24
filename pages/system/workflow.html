@@ -4,66 +4,96 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>System Workflow | AquaSense</title>
+    
     <link rel="stylesheet" href="../../css/style.css">
     <link rel="stylesheet" href="../../css/components.css">
     <link rel="stylesheet" href="../../css/responsive.css">
 </head>
-<body data-rootpath="../../">
+<body>
+    <div class="engineering-grid"></div>
 
-    <header class="main-header" id="mainHeader">
-        <div class="container nav-container">
-            <a href="../../index.html" class="logo-container">
-                <span class="logo-title">AquaSense</span>
-                <span class="logo-subtitle">Engineering Prototype</span>
-            </a>
-            <nav>
-                <ul class="nav-links">
-                    <li><a href="../../pages/overview/overview.html">Overview</a></li>
-                    <li><a href="../../pages/system/architecture.html" class="active">System</a></li>
-                    <li><a href="../../pages/hardware/hardware.html">Hardware</a></li>
-                    <li><a href="../../pages/software/code.html">Software</a></li>
-                    <li><a href="../../pages/cad/cad.html">CAD</a></li>
-                    <li><a href="../../pages/testing/testing.html">Testing</a></li>
-                    <li><a href="../../pages/documentation/documentation.html">Docs</a></li>
+    <header class="site-header" id="mainHeader">
+        <div class="nav-container">
+            <a href="../../index.html" class="logo">Aqua<span>Sense</span></a>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="../../index.html">Overview</a></li>
+                    <li><a href="architecture.html" class="active">System</a></li>
+                    <li><a href="../hardware/hardware.html">Hardware</a></li>
+                    <li><a href="../software/code.html">Software</a></li>
+                    <li><a href="../cad/cad.html">CAD</a></li>
+                    <li><a href="../testing/testing.html">Testing</a></li>
+                    <li><a href="../documentation/documentation.html">Docs</a></li>
                 </ul>
             </nav>
-            <button class="search-trigger" id="searchBtn">
-                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
-                <span>Search (Ctrl+K)</span>
-            </button>
+
+            <div class="nav-controls">
+                <button class="search-trigger" aria-label="Open Search">
+                    Search <span class="kbd-hint">Ctrl+K</span>
+                </button>
+                <button class="mobile-menu-toggle" aria-label="Toggle Mobile Menu">
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                    <span class="hamburger-line"></span>
+                </button>
+            </div>
         </div>
     </header>
 
-    <main class="container">
-        <header class="page-header reveal-on-scroll">
-            <span class="page-number">02 — SYSTEM</span>
-            <h1>Workflow</h1>
-            <p>The sequence of operations during a standard dispensing cycle.</p>
-        </header>
+    <main class="page-wrapper container">
+        
+        <div class="tag-group">
+            <a href="architecture.html" class="tag">02.1 Architecture</a>
+            <a href="workflow.html" class="tag active">02.2 Workflow</a>
+            <a href="working-principle.html" class="tag">02.3 Working Principle</a>
+        </div>
 
-        <section class="content-grid single-col reveal-on-scroll">
-            <div class="glass-panel">
-                <h3 class="text-accent">Operational Sequence</h3>
-                <p>The following flowchart illustrates the exact sequence triggered when the system is powered on, initializing the LCD, calibrating the sensor, and entering the standby monitoring loop.</p>
-                
-                <div class="image-panel">
-                    <img src="../../assets/images/architecture/system-workflow.jpeg" alt="System Workflow Diagram">
+        <section class="glass-panel mb-3">
+            <h2>System Workflow</h2>
+            <p class="mb-2">Operational sequence from object detection to completion of the dispensing cycle.</p>
+            
+            <div class="bento-grid mt-2 mb-3">
+                <div class="glass-panel bento-card" style="background: rgba(0, 229, 255, 0.03); border-left: 3px solid var(--accent-cyan);">
+                    <h3 class="font-md text-cyan">1. Initialization</h3>
+                    <p class="font-sm">System powers on, LCD displays ready message, and servo locks valve at 0°.</p>
                 </div>
+                <div class="glass-panel bento-card" style="background: rgba(0, 229, 255, 0.03); border-left: 3px solid var(--accent-cyan);">
+                    <h3 class="font-md text-cyan">2. Scanning Phase</h3>
+                    <p class="font-sm">Ultrasonic sensor actively pings distance while LCD reads "Place Glass".</p>
+                </div>
+                <div class="glass-panel bento-card" style="background: rgba(0, 229, 255, 0.03); border-left: 3px solid var(--accent-cyan);">
+                    <h3 class="font-md text-cyan">3. Threshold Trigger</h3>
+                    <p class="font-sm">If distance is &lt; 15cm, decision logic validates container presence.</p>
+                </div>
+                <div class="glass-panel bento-card" style="background: rgba(0, 229, 255, 0.03); border-left: 3px solid var(--accent-cyan);">
+                    <h3 class="font-md text-cyan">4. Actuation</h3>
+                    <p class="font-sm">Servo rotates to 90°, LCD shows "Dispensing...", and water flows.</p>
+                </div>
+            </div>
+
+            <div class="text-center">
+                <img src="../../assets/images/architecture/system-workflow.jpg" alt="Workflow Flowchart" class="zoomable diagram-border" style="max-width: 100%;">
             </div>
         </section>
 
-        <nav class="sequential-nav reveal-on-scroll">
-            <a href="../../pages/system/architecture.html" class="btn btn-outline">
-                &larr; Previous: Architecture
-            </a>
-            <a href="../../pages/system/workingprinciple.html" class="btn btn-primary">
-                Next: Working Principle &rarr;
-            </a>
-        </nav>
+        <footer class="sequential-nav">
+            <div class="seq-nav-container">
+                <a href="architecture.html" class="seq-btn">
+                    <span>← Previous</span>
+                    <strong>02.1 — Architecture</strong>
+                </a>
+                <a href="working-principle.html" class="seq-btn next">
+                    <span>Next: System →</span>
+                    <strong>02.3 — Principle</strong>
+                </a>
+            </div>
+        </footer>
     </main>
 
-    <script src="../../js/main.js"></script>
-    <script src="../../js/navigation.js"></script>
-    <script src="../../js/animations.js"></script>
+    <script src="../../js/main.js" defer></script>
+    <script src="../../js/navigation.js" defer></script>
+    <script src="../../js/animations.js" defer></script>
+    <script src="../../js/viewer.js" defer></script>
 </body>
 </html>
