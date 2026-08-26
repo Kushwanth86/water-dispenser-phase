@@ -278,8 +278,8 @@
             display: flex; flex-direction: column; gap: 1rem;
         }
         .bento-img {
-            width: 100%; height: 180px; object-fit: contain;
-            background: rgba(0,0,0,0.2); border-radius: 8px; padding: 0.75rem;
+            width: 100%; height: 240px; object-fit: contain;
+            background: rgba(0,0,0,0.4); border-radius: 8px; padding: 0.75rem;
             cursor: zoom-in;
         }
 
@@ -398,7 +398,7 @@
                     <li><a data-target="system" class="nav-link" onclick="switchSection('system')">System</a></li>
                     <li><a data-target="hardware" class="nav-link" onclick="switchSection('hardware')">Hardware</a></li>
                     <li><a data-target="software" class="nav-link" onclick="switchSection('software')">Software</a></li>
-                    <li><a data-target="cad" class="nav-link" onclick="switchSection('cad')">CAD</a></li>
+                    <li><a data-target="cad" class="nav-link" onclick="switchSection('cad')">CAD & PCB</a></li>
                     <li><a data-target="testing" class="nav-link" onclick="switchSection('testing')">Testing</a></li>
                     <li><a data-target="demo" class="nav-link" onclick="switchSection('demo')">Demo</a></li>
                     <li><a data-target="docs" class="nav-link" onclick="switchSection('docs')">Docs</a></li>
@@ -442,7 +442,7 @@
                 </div>
 
                 <div class="hero-visual text-center">
-                    <img src="assets/images/cad/final-render.png" alt="AquaSense Final Prototype Render" class="zoomable">
+                    <img src="./assets/images/cad/final-render.png" alt="AquaSense Final Prototype Render" class="zoomable">
                     <p style="font-size: 0.9rem; margin-top: 0.75rem;" class="text-secondary">Click render to inspect full-screen asset</p>
                 </div>
             </div>
@@ -484,7 +484,7 @@
             <div style="margin-bottom: 3rem;">
                 <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">System Architecture Diagram</h3>
                 <div class="text-center" style="background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-light);">
-                    <img src="assets/images/architecture/architecture.jpeg" alt="System Architecture Diagram" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
+                    <img src="./assets/images/architecture/architecture.jpeg" alt="System Architecture Diagram" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
                     <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-secondary">Click diagram to zoom & inspect</p>
                 </div>
             </div>
@@ -493,7 +493,7 @@
             <div>
                 <h3 style="margin-bottom: 1rem; color: var(--accent-cyan);">System Workflow Flowchart</h3>
                 <div class="text-center" style="background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-light);">
-                    <img src="assets/images/architecture/system-workflow.jpeg" alt="System Workflow Flowchart" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
+                    <img src="./assets/images/architecture/system-workflow.jpeg" alt="System Workflow Flowchart" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
                     <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-secondary">Click flowchart to zoom & inspect</p>
                 </div>
             </div>
@@ -522,27 +522,27 @@
             <div class="bento-grid">
                 <div class="bento-card">
                     <h3>Arduino Uno Rev3</h3>
-                    <img src="assets/images/hardware/arduino-uno.png" alt="Arduino Uno" class="zoomable bento-img">
+                    <img src="./assets/images/hardware/arduino-uno.png" alt="Arduino Uno" class="zoomable bento-img">
                     <p><strong>Role:</strong> Central processing unit. Manages sensor timing and peripheral logic.</p>
                 </div>
                 <div class="bento-card">
                     <h3>HC-SR04 Ultrasonic</h3>
-                    <img src="assets/images/hardware/hc-sr04.jpg" alt="Ultrasonic Sensor" class="zoomable bento-img">
+                    <img src="./assets/images/hardware/hc-sr04.jpg" alt="Ultrasonic Sensor" class="zoomable bento-img">
                     <p><strong>Role:</strong> Contactless detection via 40kHz acoustic echo ranging.</p>
                 </div>
                 <div class="bento-card">
                     <h3>SG90 Micro Servo</h3>
-                    <img src="assets/images/hardware/servo.jpg" alt="Servo Motor" class="zoomable bento-img">
+                    <img src="./assets/images/hardware/servo.jpg" alt="Servo Motor" class="zoomable bento-img">
                     <p><strong>Role:</strong> Mechanical valve actuator driven via PWM signals.</p>
                 </div>
                 <div class="bento-card">
                     <h3>16×2 LCD Display</h3>
-                    <img src="assets/images/hardware/lcd.jpg" alt="LCD Display" class="zoomable bento-img">
+                    <img src="./assets/images/hardware/lcd.jpg" alt="LCD Display" class="zoomable bento-img">
                     <p><strong>Role:</strong> Real-time user interface providing operational status feedback.</p>
                 </div>
                 <div class="bento-card">
                     <h3>Power Supply</h3>
-                    <img src="assets/images/hardware/battery.jpg" alt="Battery Source" class="zoomable bento-img">
+                    <img src="./assets/images/hardware/battery.jpg" alt="Battery Source" class="zoomable bento-img">
                     <p><strong>Role:</strong> Energy source. Provides stable DC power to components.</p>
                 </div>
             </div>
@@ -555,7 +555,7 @@
                 </div>
 
                 <div class="text-center" style="background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-light);">
-                    <img src="assets/images/hardware/hardware-setup.png" alt="Hardware Setup Assembly" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
+                    <img src="./assets/images/hardware/hardware-setup.png" alt="Hardware Setup Assembly" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
                     <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-cyan">Click setup photo to zoom in</p>
                 </div>
             </div>
@@ -567,11 +567,11 @@
                         <h2>Circuit Schematic</h2>
                         <p>Complete wiring layout detailing GPIO pins and power distribution.</p>
                     </div>
-                    <a href="assets/images/circuit/circuit.png" download class="btn btn-primary">Download Schematic PNG</a>
+                    <a href="./assets/images/circuit/circuit.png" download class="btn btn-primary">Download Schematic PNG</a>
                 </div>
 
                 <div class="text-center" style="background: rgba(0,0,0,0.4); padding: 1.5rem; border-radius: 12px; border: 1px solid var(--border-light);">
-                    <img src="assets/images/circuit/circuit.png" alt="Circuit Wiring Schematic" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
+                    <img src="./assets/images/circuit/circuit.png" alt="Circuit Wiring Schematic" class="zoomable" style="max-width: 100%; max-height: 450px; border-radius: 8px;">
                     <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-cyan">Click schematic to zoom in</p>
                 </div>
             </div>
@@ -667,34 +667,57 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
             </button>
             <button class="seq-btn next" onclick="switchSection('cad')">
                 <span>Next Section →</span>
-                <strong>05 — CAD & 3D Models</strong>
+                <strong>05 — CAD & PCB</strong>
             </button>
         </div>
     </section>
 
 
-    <!-- ==================== SECTION 05: CAD ==================== -->
+    <!-- ==================== SECTION 05: CAD & PCB ==================== -->
     <section id="cad" class="spa-section">
         <div class="glass-panel">
-            <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">05 — Mechanical Enclosure & CAD</div>
-            <h2 style="margin-bottom: 1.5rem;">Enclosure Design & STL Assets</h2>
-            <p style="margin-bottom: 2rem;">Custom 3D-printable housing designed to securely house electronics and water valve components.</p>
+            <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">05 — Mechanical Enclosure, CAD & Custom PCB</div>
+            <h2 style="margin-bottom: 1.5rem;">Enclosure Design, 3D Renders & Custom PCB Layout</h2>
+            <p style="margin-bottom: 2rem;">Custom 3D-printable housing and KiCad custom PCB architecture designed for power regulation and actuation isolation.</p>
             
             <div class="bento-grid">
                 <div class="bento-card">
                     <h3>Main Enclosure Box</h3>
-                    <img src="assets/images/cad/main-box.png" alt="Main Box CAD Render" class="zoomable bento-img">
+                    <img src="./assets/images/cad/main-box.png" alt="Main Box CAD Render" class="zoomable bento-img">
                     <p>Protects Arduino and wiring channels.</p>
-                    <a href="models/main-box.stl" download class="btn btn-primary" style="margin-top: auto;">Download Box STL</a>
+                    <a href="./models/main-box.stl" download class="btn btn-primary" style="margin-top: auto;">Download Box STL</a>
                 </div>
                 <div class="bento-card">
                     <h3>Top Lid Mechanism</h3>
-                    <img src="assets/images/cad/main-lid.png" alt="Main Lid CAD Render" class="zoomable bento-img">
+                    <img src="./assets/images/cad/main-lid.png" alt="Main Lid CAD Render" class="zoomable bento-img">
                     <p>Secures ultrasonic sensor and service hatch.</p>
-                    <a href="models/main-lid.stl" download class="btn btn-primary" style="margin-top: auto;">Download Lid STL</a>
+                    <a href="./models/main-lid.stl" download class="btn btn-primary" style="margin-top: auto;">Download Lid STL</a>
                 </div>
             </div>
-        </div>
+
+<!-- Custom PCB Layout Showcase -->
+            <div style="margin-top: 4rem; padding-top: 3rem; border-top: 1px solid var(--border-light);">
+                <div class="header-flex" style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h2>Custom KiCad PCB Layout & Fabrication</h2>
+                        <p>Dual-layer power-isolated PCB layout with dedicated logic and servo buck regulators.</p>
+                    </div>
+                    <a href="./fabrication/AquaSense_Phase1_PCB.zip" download class="btn btn-primary">Download Gerber ZIP (.zip)</a>
+                </div>
+
+                <div class="bento-grid">
+                    <div class="bento-card">
+                        <h3>PCB 3D Rendering View</h3>
+                        <img src="./assets/pcb/AquaSense_Phase1_PCB.png" alt="AquaSense Phase 1 PCB 3D View" class="zoomable bento-img">
+                        <p>Fully populated 3D model showing screw terminals, bulk capacitors, and shield headers.</p>
+                    </div>
+                    <div class="bento-card">
+                        <h3>PCB Top Layout View</h3>
+                        <img src="./assets/pcb/PCB_Topview.png" alt="PCB Top Layout View" class="zoomable bento-img">
+                        <p>Trace routing, copper pours, and component footprints in KiCad layout editor.</p>
+                    </div>
+                </div>
+            </div>
 
         <div class="sequential-nav">
             <button class="seq-btn" onclick="switchSection('software')">
@@ -717,7 +740,7 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                     <div style="color: var(--accent-cyan); font-family: monospace; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 0.5rem;">06 — Validation & Metrics</div>
                     <h2>Prototype Testing & Performance</h2>
                 </div>
-                <a href="documents/Test-Results.pdf" download class="btn btn-primary">Download Test PDF</a>
+                <a href="./documents/Test-Results.pdf" download class="btn btn-primary">Download Test PDF</a>
             </div>
             <p>Evaluation metrics and operational limits recorded during phase 1 bench testing.</p>
             
@@ -764,7 +787,7 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
         <div class="sequential-nav">
             <button class="seq-btn" onclick="switchSection('cad')">
                 <span>← Previous</span>
-                <strong>05 — CAD</strong>
+                <strong>05 — CAD & PCB</strong>
             </button>
             <button class="seq-btn next" onclick="switchSection('demo')">
                 <span>Next Section →</span>
@@ -783,7 +806,7 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
             
             <div style="background: rgba(0,0,0,0.6); padding: 1.25rem; border-radius: 12px; border: 1px solid var(--border-light); text-align: center;">
                 <video controls width="100%" style="border-radius: 8px; max-height: 55vh; display: block;" preload="metadata">
-                    <source src="media/Hardware-Demo-Video.mp4" type="video/mp4">
+                    <source src="./media/Hardware-Demo-Video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
                 <p style="font-size: 0.95rem; margin-top: 1rem;" class="text-secondary">Video player controls enabled. Audio-free operational showcase.</p>
@@ -826,8 +849,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Project</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Project_Overview.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Project_Overview.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Project_Overview.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Project_Overview.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -835,8 +858,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Project</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Report.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Report.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Report.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Report.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -844,8 +867,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Learning & R&D</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Learning.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Learning.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Learning.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Learning.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -853,8 +876,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Team</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Team-Journey.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Team-Journey.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Team-Journey.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Team-Journey.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -862,8 +885,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Hardware</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Component-Specifications.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Component-Specifications.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Component-Specifications.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Component-Specifications.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -871,8 +894,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Hardware</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/BOM.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/BOM.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/BOM.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/BOM.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -880,8 +903,26 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Hardware</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Hardware-Wiring.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Hardware-Wiring.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Hardware-Wiring.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Hardware-Wiring.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>Custom PCB Power System Architecture Report</td>
+                            <td>PCB & Power</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="./documents/PCB_PowerSystem.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/PCB_PowerSystem.pdf" download class="text-cyan">Download</a>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>PCB Specifications & Verification Report</td>
+                            <td>PCB & Power</td>
+                            <td>PDF</td>
+                            <td>
+                                <a href="./documents/PCB_Specification.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/PCB_Specification.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -889,8 +930,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>System</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/System-Working-Principle.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/System-Working-Principle.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/System-Working-Principle.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/System-Working-Principle.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -898,8 +939,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Software</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Source-Code-Documentation.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Source-Code-Documentation.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Source-Code-Documentation.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Source-Code-Documentation.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -907,8 +948,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Documentation</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/User-Manual.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/User-Manual.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/User-Manual.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/User-Manual.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -916,8 +957,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Testing</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Test-Results.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Test-Results.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Test-Results.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Test-Results.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -925,8 +966,8 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Future Scope</td>
                             <td>PDF</td>
                             <td>
-                                <a href="documents/Phase-2-Enhanced-Smart-Dispenser.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
-                                <a href="documents/Phase-2-Enhanced-Smart-Dispenser.pdf" download class="text-cyan">Download</a>
+                                <a href="./documents/Phase-2-Enhanced-Smart-Dispenser.pdf" target="_blank" class="text-cyan" style="margin-right: 1rem;">View</a>
+                                <a href="./documents/Phase-2-Enhanced-Smart-Dispenser.pdf" download class="text-cyan">Download</a>
                             </td>
                         </tr>
                         <tr>
@@ -934,7 +975,7 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
                             <td>Presentation</td>
                             <td>PPTX</td>
                             <td>
-                                <a href="presentation/Automatic-Water-Dispenser.pptx" download class="text-cyan font-weight:700;">Download Presentation (.pptx)</a>
+                                <a href="./presentation/Automatic-Water-Dispenser.pptx" download class="text-cyan font-weight:700;">Download Presentation (.pptx)</a>
                             </td>
                         </tr>
                     </tbody>
@@ -958,7 +999,7 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
     <div class="search-overlay" id="searchOverlay">
         <div class="search-modal">
             <div class="search-header">
-                <input type="text" id="searchInput" placeholder="Search architecture, hardware, code, learning PDF..." autocomplete="off">
+                <input type="text" id="searchInput" placeholder="Search architecture, hardware, PCB, code, reports..." autocomplete="off">
                 <button class="close-search" aria-label="Close Search">✕</button>
             </div>
             <div class="search-results" id="searchResults">
@@ -1007,16 +1048,18 @@ LiquidCrystal lcd(<span class="code-string">12</span>, <span class="code-string"
             { title: "Hardware Components & Setup", section: "hardware", category: "Hardware", desc: "List of Arduino, Sensors, LCD, Servo, Battery, and physical assembly setup." },
             { title: "Circuit Schematic", section: "hardware", category: "Hardware", desc: "Wiring schematics and pin connections." },
             { title: "Arduino Source Code", section: "software", category: "Software", desc: "Main C++ firmware sketch logic." },
-            { title: "CAD & 3D Models", section: "cad", category: "CAD", desc: "Enclosure design and STL downloads." },
+            { title: "Mechanical CAD & Custom PCB Layout", section: "cad", category: "CAD & PCB", desc: "Enclosure STL models, KiCad 3D render, top layout view, and Gerber ZIP." },
             { title: "Test Results", section: "testing", category: "Testing", desc: "Performance metrics and limitations." },
             { title: "Hardware Demo", section: "demo", category: "Demo", desc: "Video demonstration of the working prototype." },
             { title: "Engineering Learning Record", section: "docs", category: "Learning", desc: "View & download learning records under mentor." },
+            { title: "PCB Power System Report", section: "docs", category: "PCB & Power", desc: "Custom PCB power regulation, distribution, and protection." },
+            { title: "PCB Specifications & Verification Report", section: "docs", category: "PCB & Power", desc: "KiCad DRC verification and board specs." },
             { title: "Component Specifications PDF", section: "docs", category: "Docs", desc: "Detailed technical specs for all parts." },
             { title: "Bill of Materials PDF", section: "docs", category: "Docs", desc: "BOM manifest." },
             { title: "Hardware Wiring Guide PDF", section: "docs", category: "Docs", desc: "Pin connection diagrams." },
             { title: "System Working Principle PDF", section: "docs", category: "Docs", desc: "Physics of ultrasound and valve actuation." },
             { title: "User Manual PDF", section: "docs", category: "Docs", desc: "End-user operation guide." },
-            { title: "PowerPoint Presentation Deck", section: "docs", category: "Presentation", desc: "Official PPTX slide deck download." },
+            { title: "Official PowerPoint Presentation Deck", section: "docs", category: "Presentation", desc: "Official PPTX slide deck download." },
             { title: "Phase 2 Roadmap", section: "docs", category: "Future", desc: "Planned upgrades for the Enhanced Smart Dispenser." }
         ];
 
